@@ -1,0 +1,30 @@
+{
+  "name": "secondproject",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxt/http": "^0.6.0",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.14.1",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.0.0",
+    "koa-session": "^6.1.0",
+    "mysql": "^2.18.1",
+    "nuxt": "^2.14.6"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^26.5.0",
+    "jest": "^26.5.0",
+    "vue-jest": "^3.0.4"
+  }
+}
