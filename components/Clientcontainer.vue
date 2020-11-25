@@ -6,6 +6,7 @@
         <a href="login">返 回</a>
       </div>
 
+<<<<<<< HEAD
       <div class="contantinn">
         <div class="zcyh">
           <p>注册用户</p>
@@ -14,6 +15,9 @@
           <p>精准招生辅助系统</p>
         </div>
       </div>
+=======
+      <div class="contantinn"></div>
+>>>>>>> 99bc4b5cc6dcb6982417cfc2232b3eb5b58d1b72
     </div>
   </div>
 </template>
