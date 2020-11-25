@@ -17,6 +17,8 @@
     "koa-body": "^4.2.0",
     "koa-router": "^10.0.0",
     "koa-session": "^6.1.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
     "mysql": "^2.18.1",
     "nuxt": "^2.14.6"
   },
