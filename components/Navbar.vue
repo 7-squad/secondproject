@@ -1,6 +1,6 @@
 <template>
   <el-row class="tac">
-    <el-col :span="4">
+    <el-col >
       <el-menu
         class="el-menu-vertical-demo"
         @open="handleOpen"
@@ -8,7 +8,7 @@
       >
         <el-submenu index="1">
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <img src="../images/navbar_1.png" alt="标志">
             <span>基础数据管理</span>
           </template>
           <el-menu-item-group>
@@ -21,23 +21,23 @@
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
+           <img src="../images/navbar_2.png" alt="标志">
           <span slot="title">推荐管理</span>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-document"></i>
+          <img src="../images/navbar_3.png" alt="标志">
           <span slot="title">表彰管理</span>
         </el-menu-item>
         <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
+           <img src="../images/navbar_4.png" alt="标志">
           <span slot="title">统计分析</span>
         </el-menu-item>
         <el-menu-item index="5">
-          <i class="el-icon-setting"></i>
+          <img src="../images/navbar_5.png" alt="标志">
           <span slot="title">权限管理</span>
         </el-menu-item>
         <el-menu-item index="6">
-          <i class="el-icon-setting"></i>
+          <img src="../images/navbar_6.png" alt="标志">
           <span slot="title">系统管理</span>
         </el-menu-item>
       </el-menu>
@@ -47,6 +47,8 @@
 
 <script>
 export default {
+ 
+ 
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
