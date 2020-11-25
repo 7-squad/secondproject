@@ -6,7 +6,7 @@
         <a href="login">返 回</a>
       </div>
 
-      <div class="contantinn">1</div>
+      <div class="contantinn"></div>
     </div>
   </div>
 </template>

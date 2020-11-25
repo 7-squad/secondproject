@@ -1,8 +1,6 @@
 <template>
   <div>
-    <Clientheader />
-    <Clientcontainer />
-    <Clientfooter />
+    <Reg />
   </div>
  
 

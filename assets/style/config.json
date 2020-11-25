@@ -1,1 +1,1 @@
-{"global":{"$--color-primary":"#409EFF"},"local":{"$--input-font-color":"#000000","$--input-background-color":"#FFFFFF","$--input-icon-color":"#2ECD25","$--button-primary-border-color":"#80201C","$--button-primary-background-color":"#80201C","$--button-font-size":"18px","$--button-border-radius":"$--border-radius-zero"}}
+{"global":{"$--color-primary":"#409EFF"},"local":{"$--button-primary-border-color":"#0B55A2","$--button-primary-background-color":"#007AA3"}}
