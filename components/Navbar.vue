@@ -1,8 +1,7 @@
 <template>
   <el-row class="tac">
-    <el-col :span="12">
+    <el-col :span="4">
       <el-menu
-        default-active="2"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
