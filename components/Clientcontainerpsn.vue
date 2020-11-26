@@ -3,16 +3,16 @@
   <div class="main">
     <div class="container">
       <div class="contanttit">
-        <span class="contanttit-left">注册用户</span>
+        <span class="contanttit-left">个人中心</span>
         <a href="login">返 回</a>
       </div>
       <div class="contantinn">
         <div class="zcyh">
-          <p>注册用户</p>
+          <p>个人信息资料</p>
         </div>
         <div class="border">
-          <p>精准招生辅助系统</p>
-          <Regform />
+          <p>编辑个人基本信息</p>
+          <Personalform />
         </div>
       </div>
     </div>

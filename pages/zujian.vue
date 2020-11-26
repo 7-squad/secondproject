@@ -1,0 +1,27 @@
+<template>
+<div>
+    <!--学生管理  -->
+    <Stuinput />
+    <!-- 综合统计报表 -->
+    <Crsinput/>
+
+    <!--  发布表彰-->
+    <Lcinput/>
+
+    <!--  生源学校设置-->
+    <!-- 招生老师设置 -->
+    <!-- 招生省份设置 -->
+    <Souinout/>
+    
+    <!--  招生计划设置-->
+    <Enstuinput/>
+    
+    <!--  角色管理-->
+    <Roleinput/>
+    <!--  用户管理-->
+    <Userinput/>
+<!-- 首页学生推荐列表 -->
+<Userlistinput/>
+</div>
+</template>
+
