@@ -53,9 +53,9 @@ export default {
 .el-input {
   width: 100%;
 }
-// .el-form-item .el-form-item__label {
-//   text-align-last: justify;
-// }
+.el-form-item .el-form-item__label {
+  text-align-last: justify;
+}
 .el-button--primary {
   background-color: #007aa3;
   border-color: #007aa3;

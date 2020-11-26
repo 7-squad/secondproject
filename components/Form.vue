@@ -82,7 +82,6 @@ export default {
   // text-align: justify;
   text-align-last: justify;
   font-size: 18px;
-  
 }
 .el-form .el-input__inner {
   width: 330px;
