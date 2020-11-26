@@ -8,11 +8,11 @@
       </div>
       <div class="contantinn">
         <div class="zcyh">
-          <p>注册用户</p>
+          <p>找回密码</p>
         </div>
         <div class="border">
           <p>精准招生辅助系统</p>
-          <Regform />
+          <Pwdform />
         </div>
       </div>
     </div>
@@ -90,4 +90,5 @@
   color: #545C67;
   font-size: 16px;
 }
+
 </style>

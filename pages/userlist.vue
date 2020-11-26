@@ -1,27 +1,31 @@
 <template>
-<!-- 注册的 -->
+    <div>
+<Clientheader/>
   <div class="main">
     <div class="container">
       <div class="contanttit">
-        <span class="contanttit-left">注册用户</span>
+        <span class="contanttit-left">推荐学生</span>
         <a href="login">返 回</a>
       </div>
+
       <div class="contantinn">
         <div class="zcyh">
-          <p>注册用户</p>
+          <p>填写推荐学生信息</p>
         </div>
-        <div class="border">
-          <p>精准招生辅助系统</p>
-          <Regform />
-        </div>
+        <Userlist/>
       </div>
+
     </div>
   </div>
+<Clientfooter/>
+
+
+    </div>
 </template>
-<style lang="less">
+<style scoped>
 .main {
   width: 100%;
-  height: 589px;
+  height: 100%;
   background-color: #f2f3f7;
 }
 .container {
@@ -53,9 +57,9 @@
 }
 .contantinn {
   margin: 0 auto;
-  // padding: 40px 0;
+  /* // padding: 40px 0; */
   width: 1170px;
-  height: 501px;
+  
   background-color: #ffffff;
   padding-top: 20px;
 }
