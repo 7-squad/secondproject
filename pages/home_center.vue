@@ -1,72 +1,84 @@
 <template>
   <div>
     <Clientheader />
-   <el-container>
  
-  <div class="main">
-    <div class="container">
-     <div class="left">
-<img src="../images/首页_03.png">
-<div class="tx">
+<div class="box">
+
+
+<el-row type="flex" class="row-bg" justify="space-around">
+ <div class="grid-content bg-purple">
+   <a href="#">
+    <img src="../images/首页_03.png">
+    <div class="tx">
 <p>推荐学生</p>
 <div class="text">
 <p>点击进入</p><img src="../images/首页_10.png"></div>
+
 </div>
-</div>
-
-
-
- <div class="right">
-<img src="../images/首页_05.png">
-<div class="tx">
+</a>
+    </div>
+  <div class="grid-content bg-purple-light">
+     <a href="#">
+    <img src="../images/首页_05.png">
+    <div class="tx">
 <p>审核状态</p>
 <div class="text">
 <p>点击进入</p><img src="../images/首页_10.png"></div>
 </div>
-</div>
-      
-    </div>
-  </div>
+</a></div>
 
-</el-container>
+</el-row>
+</div>
+ 
+
+
     <Clientfooter />
   </div>
 </template>
 <style lang = "less" scoped>
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    height: 550px;
+.box,.row-bg{
+background: rgb(159,195,210);
+background: linear-gradient(180deg, rgba(159,195,210,1) 0%, rgba(241,241,241,1) 53%, rgba(247,247,247,1) 100%);
+  
+}
+ .el-row {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-  .main {
-  width: 100%;
-  height: 589px;
-  background-color:#e6ebf5;
-    display: flex;
- align-items: center;
- justify-content: center;
-  /* // justify-content:space-around; */
-}
-.container {
-  margin: 0 auto;
- 
-display: flex;
-width: 70%;
-  justify-content:space-between;
-}
-.left,.right{
-  height: 350px;
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple,.bg-purple-light {
+
+    height: 350px;
   width: 504px;
   background: #ffffff;
-  border:1px solid #BFBFBF;
-  box-shadow:0px 0px  10px 5px #aaa;
-}
+  border-bottom:2px solid #BFBFBF;
+  box-shadow:0px 10px 30px 0px #aaa
+  }
+ .grid-content{
+   justify-content: center;
+ }
 
-.left>img,.right>img{
-  margin-top: 10px;
+  .grid-content>a>img {
+   margin-top: 10px;
   margin-left: 15px;
-}
+   
+  }
+  .row-bg {
+     margin: 0 auto;
+  width: 1170px;
+ height: 589px;
+    padding: 10px 0;
+   
+    align-items: center;
+
+  }
 .tx{
    width: 494px;
   display: flex;
@@ -79,4 +91,12 @@ width: 70%;
 .text{
 display: flex;
 }
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+
+
 </style>
