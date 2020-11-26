@@ -6,38 +6,41 @@
     style="width: 100%"
     @selection-change="handleSelectionChange"
   >
-    <el-table-column type="selection" width="55"> </el-table-column>
-    <el-table-column label="序号" >
-      <template slot-scope="scope">{{ scope.row.id }}</template>
+    <el-table-column type="selection" width="55" header-align="center" > </el-table-column>
+    <el-table-column type="index" width="55" header-align="center" label="序号">
     </el-table-column>
-    <el-table-column prop="name" label="姓名"></el-table-column>
-    <el-table-column prop="recruit" label="招生类型" show-overflow-tooltip>
+
+    <el-table-column prop="name" label="姓名" header-align="center" ></el-table-column>
+
+    <el-table-column prop="recruit" header-align="center"  label="招生类型" show-overflow-tooltip>
     </el-table-column>
-    <el-table-column prop="school" label="所在学校" show-overflow-tooltip>
+
+    <el-table-column prop="school" header-align="center"  label="所在学校" show-overflow-tooltip>
     </el-table-column>
-    <el-table-column prop="Majorname" label="专业名称" show-overflow-tooltip>
+
+    <el-table-column prop="Majorname" header-align="center"  label="专业名称" show-overflow-tooltip>
     </el-table-column>
-    <el-table-column label="分数段" >
+
+    <el-table-column label="分数段" header-align="center" >
       <template slot-scope="scope">{{ scope.row.fraction }}</template>
     </el-table-column>
-    <el-table-column prop="address" label="所在地区" show-overflow-tooltip>
+
+    <el-table-column prop="address" header-align="center"  label="所在地区" show-overflow-tooltip>
     </el-table-column>
-    <el-table-column label="联系电话" width="120px">
+
+    <el-table-column label="联系电话" width="120px" header-align="center" >
       <template slot-scope="scope">{{ scope.row.telnumber }}</template>
     </el-table-column>
-    <el-table-column prop="Poverty" label="是" show-overflow-tooltip>
-    </el-table-column>
-    <el-table-column prop="method" label="自荐" show-overflow-tooltip>
-    </el-table-column>    
-    <el-table-column label="日期" >
+
+    <el-table-column prop="Poverty" label="是" header-align="center" > </el-table-column>
+
+    <el-table-column prop="method" label="自荐" header-align="center" > </el-table-column>
+
+    <el-table-column label="日期" header-align="center" >
       <template slot-scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
-    <el-table-column prop="state" label="状态" show-overflow-tooltip>
-    </el-table-column> 
 
-    
-    
-    
+    <el-table-column prop="state" header-align="center"  label="状态"> </el-table-column>
   </el-table>
 </template>
 
@@ -47,7 +50,6 @@ export default {
     return {
       tableData: [
         {
-          id: 1,
           name: "王小虎",
           recruit: "高考类",
           school: "英德中学",
@@ -61,79 +63,66 @@ export default {
           state: "待提交",
         },
         {
-          id: 2,
           date: "2016-05-02",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 3,
           date: "2016-05-04",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 4,
           date: "2016-05-01",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 5,
           date: "2016-05-08",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 6,
           date: "2016-05-06",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          id: 7,
           date: "2016-05-07",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
@@ -156,9 +145,9 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
-    //   indexMethod(index) {
-    //     return index++;
-    //   },
+    // indexMethod(id) {
+    //   return id++;
+    // },
   },
 };
 </script>

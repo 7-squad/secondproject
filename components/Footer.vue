@@ -9,9 +9,9 @@
 </template>
 
 <style>
-.el-row {
+/* .el-row {
   min-width: 1350px;
-}
+} */
 .el-footer-row {
   margin-top: 20px;
   min-width: 1350px;

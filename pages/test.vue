@@ -6,7 +6,7 @@
                 <Navbar />
             </el-col>
             <el-col :span="20">
-                <Table />
+                <StudentManagement />
                 <Pagination />
             </el-col>
         </el-row>
