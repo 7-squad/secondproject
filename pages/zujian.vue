@@ -20,7 +20,8 @@
     <Roleinput/>
     <!--  用户管理-->
     <Userinput/>
-
+<!-- 首页学生推荐列表 -->
+<Userlistinput/>
 </div>
 </template>
 
