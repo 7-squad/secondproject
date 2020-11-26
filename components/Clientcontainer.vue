@@ -2,28 +2,37 @@
   <div class="main">
     <div class="container">
       <div class="contanttit">
-        <span class="contanttit-left">注册账号</span>
+        <span class="contanttit-left">注册用户</span>
         <a href="login">返 回</a>
       </div>
 
+<<<<<<< HEAD
+      <div class="contantinn">
+        <div class="zcyh">
+          <p>注册用户</p>
+        </div>
+        <div class="border">
+          <p>精准招生辅助系统</p>
+        </div>
+      </div>
+=======
       <div class="contantinn"></div>
+>>>>>>> 99bc4b5cc6dcb6982417cfc2232b3eb5b58d1b72
     </div>
   </div>
 </template>
 <style lang="less">
-.main{
+.main {
   width: 100%;
-  height: 516px;
-  background-color: rgb(197, 15, 182);
+  height: 589px;
+  background-color: #f2f3f7;
 }
 .container {
   margin: 0 auto;
-
-  background-color: rgba(13, 241, 135, 0.904);
+  background-color: #f2f3f7;
 }
 .contanttit {
   margin: 0 auto;
-  margin-left: -27px;
   width: 1170px;
   height: 60px;
   line-height: 60px;
@@ -34,8 +43,10 @@
   display: inline-block;
   font-size: 16px;
   text-indent: 1em;
+  color: #515b65;
 }
 .contanttit a {
+  text-decoration: none;
   display: inline-block;
   float: right;
   color: #5f6671;
@@ -45,8 +56,42 @@
 }
 .contantinn {
   margin: 0 auto;
+  // padding: 40px 0;
   width: 1170px;
-  height: 391px;
-  background-color: rgb(190, 30, 30);
+  height: 501px;
+  background-color: #ffffff;
+  padding-top: 20px;
+}
+.zcyh {
+  border-bottom: 1px solid#c0c0c0;
+  width: 1150px;
+  height: 40px;
+  margin: 0 auto;
+}
+.zcyh p {
+  background: url(../images/reg/right.png) no-repeat left center;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  text-indent: 2em;
+  color: #515b65;
+}
+.border {
+  position: relative;
+  width: 800px;
+  height: 345px;
+  margin: 40px auto;
+  border: 1px solid#c0c0c0;
+}
+.border p {
+  vertical-align: middle;
+  text-align: center;
+  width: 155px;
+  background-color:#ffffff;
+  position: absolute;
+  top: -10px;
+  left: 336px;
+  color: #545C67;
+  font-size: 16px;
 }
 </style>
