@@ -1,7 +1,7 @@
 <template>
     <div>
         <Navbar />
-        <Zujian />
+        
         <Header />
         <el-row>
             <el-col :span="4">
