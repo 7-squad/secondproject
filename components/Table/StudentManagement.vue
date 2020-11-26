@@ -10,7 +10,6 @@
       'background-color': '#f0f5f8',
       'border-color':'#dedfe3'
     }"
-    ：fit='true'
     :cell-style="tableCellStyle"
   >
     <el-table-column type="selection" width="55" header-align="center">
@@ -41,6 +40,7 @@
     </el-table-column>
 
     <el-table-column
+    width="120"
       prop="Majorname"
       header-align="center"
       label="专业名称"
@@ -53,6 +53,7 @@
     </el-table-column>
 
     <el-table-column
+    width="150"
       prop="address"
       header-align="center"
       label="所在地区"
@@ -64,7 +65,7 @@
       <template slot-scope="scope">{{ scope.row.telnumber }}</template>
     </el-table-column>
 
-    <el-table-column prop="Poverty" label="是" header-align="center">
+    <el-table-column prop="Poverty" label="是否贫困" header-align="center">
     </el-table-column>
 
     <el-table-column prop="method" label="推荐方式" header-align="center">

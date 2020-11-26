@@ -10,7 +10,7 @@
                 <Navbar />
             </el-col>
             <el-col :span="20">
-                <UserManagement />
+                <Commendation />
                 <Pagination />
             </el-col>
         </el-row>
