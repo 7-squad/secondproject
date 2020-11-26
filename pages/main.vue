@@ -26,22 +26,20 @@
 </template>
 <script>
 export default {
+  // components:{
+
+  //     },
   data() {
     return {
-      editableTabsValue: "2",
+      editableTabsValue:"1",
       editableTabs: [
         {
-          title: "Tab 1",
-          name: "1",
-          content: "Tab 1 content",
-        },
-        {
-          title: "Tab 2",
-          name: "2",
-          content: "Tab 2 content",
+          title: "我的桌面",
+          name: "myDesktop",
+          compon: "Tab 1 content",
         },
       ],
-      tabIndex: 2,
+      tabIndex:"1",
     };
   },
   methods: {
