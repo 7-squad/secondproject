@@ -1,6 +1,9 @@
 <template>
     <div>
         <Navbar />
+<Tablebutton />
+
+        <Zujian />
         
         <Header />
         <el-row>
