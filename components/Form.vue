@@ -7,11 +7,11 @@
         </el-form-item>
 
         <el-form-item label="密 码:">
-          <el-input v-model="form.name" placeholder="请输入密码"></el-input>
+          <el-input type="password" v-model="form.password" placeholder="请输入密码"></el-input>
         </el-form-item>
 
         <el-form-item label="验证码:">
-          <el-input v-model="form.name"></el-input>
+          <el-input v-model="form.verification"></el-input>
         </el-form-item>
 
         <el-form-item>
@@ -21,7 +21,7 @@
         <div class="botbox">
           <a href="reg">注册账号</a>
           <i>|</i>
-          <a href="#">忘记密码</a>
+          <a href="fogpwd">忘记密码</a>
         </div>
     </el-form>
   </div>
@@ -83,8 +83,7 @@ export default {
   font-size: 18px;
   
 }
-.el-input__inner {
-  // ?
+.el-form .el-input__inner {
   outline: none;
   width: 330px;
   height: 40px;
@@ -113,6 +112,7 @@ export default {
   margin-top: 60px;
 }
 .botbox a{
+  text-decoration: none;
   display: inline-block;
   font-size: 18px;
   color: #505050;

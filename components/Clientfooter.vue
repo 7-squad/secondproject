@@ -5,6 +5,7 @@
 </template>
 <style lang="less">
     .footer {
+        min-width: 1200px;
         width: 100%;
         height: 80px;
         background-color: #02456F;
