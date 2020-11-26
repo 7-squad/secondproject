@@ -2,7 +2,7 @@
   <div class="head-box">
     <div class="headbox">
       <p class="headbox-right">
-        <a href="" class="lefta">个人中心</a>
+        <a href="center_personal" class="lefta">个人中心</a>
         <a href="">退出登录</a>
       </p>
     </div>

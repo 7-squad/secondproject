@@ -2,10 +2,10 @@
   <div class="reg-box">
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="手机号码:">
-        <el-input v-model="form.tel" placeholder=""></el-input>
+        <el-input v-model="form.tel"></el-input>
       </el-form-item>
 
-      <el-form-item label="验    证    码:">
+      <el-form-item label="验证码:">
         <el-input v-model="form.verification"></el-input>
       </el-form-item>
       <el-checkbox v-model="checked">我已充分阅读并同意此注册协议</el-checkbox>
@@ -46,19 +46,22 @@ export default {
   margin-top: 50px;
 }
 .el-form {
-  margin: 10px auto;
-  width: 420px;
+  margin: 0 auto;
+  width: 320px;
   height: 326px;
 }
-// .el-form .el-input__inner {
-//   outline: none;
+.el-input {
+  width: 100%;
+}
+// .el-form-item .el-form-item__label {
+//   text-align-last: justify;
 // }
 .el-button--primary {
   background-color: #007aa3;
   border-color: #007aa3;
   border-radius: 25px;
   width: 189px;
-  margin: 50px;
+  margin-top: 50px;
 }
 .el-button--primary:hover {
   background-color: #0593c2;

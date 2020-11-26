@@ -54,19 +54,22 @@ export default {
 }
 .el-form {
   margin: 10px auto;
-  width: 420px;
+  width: 320px;
   height: 326px;
 }
 .el-form-item {
     margin-bottom: 10px;
 }
+// .el-form-item__label {
+//   text-align-last: justify;
+// }
 // .el-form .el-input__inner {
 //   outline: none;
 // }
 .el-button--primary {
   border-radius: 25px;
   width: 189px;
-  margin: 10px 25px;
+  margin: 10px -20px;
 }
 .verification {
     outline: none;
@@ -74,7 +77,7 @@ export default {
     color: #0576a4;
     width: 110px;
     height: 30px;
-    margin: 0 162px;
+    margin: 0 120px;
 }
 .el-button--primary {
   background-color: #007aa3;

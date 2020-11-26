@@ -16,7 +16,7 @@
       </el-form-item>
       <button class="verification">获取短信验证码</button>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">下一步</el-button>
+        <el-button type="primary" @click="onSubmit">完 成</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -53,7 +53,7 @@ export default {
 }
 .el-form {
   margin: 10px auto;
-  width: 420px;
+  width: 320px;
   height: 326px;
 }
 .el-form-item {
@@ -65,7 +65,12 @@ export default {
 .el-button--primary {
   border-radius: 25px;
   width: 189px;
-  margin: 10px 25px;
+  margin: 10px -20px;
+  background-color: #007aa3;
+  border-color: #007aa3;
+}
+.el-button--primary:hover {
+  background-color: #0593c2;
 }
 .verification {
     outline: none;
@@ -73,6 +78,6 @@ export default {
     color: #0576a4;
     width: 110px;
     height: 30px;
-    margin: 0 162px;
+    margin: 0 120px;
 }
 </style>
