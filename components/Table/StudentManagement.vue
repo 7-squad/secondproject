@@ -5,44 +5,80 @@
     tooltip-effect="dark"
     style="width: 100%"
     @selection-change="handleSelectionChange"
+    border
+    :header-cell-style="{
+      'background-color': '#f0f5f8',
+      'border-color':'#dedfe3'
+    }"
+    ：fit='true'
+    :cell-style="tableCellStyle"
   >
-    <el-table-column type="selection" width="55" header-align="center" > </el-table-column>
+    <el-table-column type="selection" width="55" header-align="center">
+    </el-table-column>
     <el-table-column type="index" width="55" header-align="center" label="序号">
     </el-table-column>
 
-    <el-table-column prop="name" label="姓名" header-align="center" ></el-table-column>
+    <el-table-column
+      prop="name"
+      label="姓名"
+      header-align="center"
+    ></el-table-column>
 
-    <el-table-column prop="recruit" header-align="center"  label="招生类型" show-overflow-tooltip>
+    <el-table-column
+      prop="recruit"
+      header-align="center"
+      label="招生类型"
+      show-overflow-tooltip
+    >
     </el-table-column>
 
-    <el-table-column prop="school" header-align="center"  label="所在学校" show-overflow-tooltip>
+    <el-table-column
+      prop="school"
+      header-align="center"
+      label="所在学校"
+      show-overflow-tooltip
+    >
     </el-table-column>
 
-    <el-table-column prop="Majorname" header-align="center"  label="专业名称" show-overflow-tooltip>
+    <el-table-column
+      prop="Majorname"
+      header-align="center"
+      label="专业名称"
+      show-overflow-tooltip
+    >
     </el-table-column>
 
-    <el-table-column label="分数段" header-align="center" >
+    <el-table-column label="分数段" header-align="center">
       <template slot-scope="scope">{{ scope.row.fraction }}</template>
     </el-table-column>
 
-    <el-table-column prop="address" header-align="center"  label="所在地区" show-overflow-tooltip>
+    <el-table-column
+      prop="address"
+      header-align="center"
+      label="所在地区"
+      show-overflow-tooltip
+    >
     </el-table-column>
 
-    <el-table-column label="联系电话" width="120px" header-align="center" >
+    <el-table-column label="联系电话" width="120px" header-align="center">
       <template slot-scope="scope">{{ scope.row.telnumber }}</template>
     </el-table-column>
 
-    <el-table-column prop="Poverty" label="是" header-align="center" > </el-table-column>
+    <el-table-column prop="Poverty" label="是" header-align="center">
+    </el-table-column>
 
-    <el-table-column prop="method" label="自荐" header-align="center" > </el-table-column>
+    <el-table-column prop="method" label="推荐方式" header-align="center">
+    </el-table-column>
 
-    <el-table-column label="日期" header-align="center" >
+    <el-table-column label="日期" header-align="center">
       <template slot-scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
 
-    <el-table-column prop="state" header-align="center"  label="状态"> </el-table-column>
+    <el-table-column prop="state" header-align="center" label="状态">
+    </el-table-column>
   </el-table>
 </template>
+
 
 <script>
 export default {
@@ -145,9 +181,10 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
-    // indexMethod(id) {
-    //   return id++;
-    // },
+    tableCellStyle() {
+    return "border-color: #dedfe3;";
   },
+  },
+  
 };
 </script>
