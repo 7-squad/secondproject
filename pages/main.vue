@@ -39,7 +39,7 @@ export default {
           compon: "Tab 1 content",
         },
       ],
-      tabIndex: 1,
+      tabIndex:"1",
     };
   },
   methods: {
