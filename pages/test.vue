@@ -1,5 +1,15 @@
 <template>
     <div>
+        <Roleicon />
+        <Consulticon />
+        <Deleteicon />
+        <Stopicon />
+        <Righticon />
+        <Exporticon />
+        <Importicon />
+        <Deletebutton />
+        <Modifyicon />
+        <Plusicon />
         <Navbar />
 <Tablebutton />
 

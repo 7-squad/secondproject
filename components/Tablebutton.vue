@@ -248,6 +248,6 @@
 #powericon,
 #lefticon {
   height: 38px;
-  font-size: 17px;
+  // font-size: 17px;
 }
 </style>

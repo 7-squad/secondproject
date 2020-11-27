@@ -1,80 +1,125 @@
 <template>
   <div>
-    <el-row>
-      <el-col :span="4">
-        <Navbar @openCom="toOpenCom"/>
-      </el-col>
-      <el-col :span="20">
-        <el-tabs
-          v-model="editableTabsValue"
-          type="card"
-          editable
-          @edit="handleTabsEdit"
+    <el-col :span="20">
+      <el-tabs
+        activate-name=""
+        v-model="editableTabsValue"
+        type="card"
+        editable
+        @edit="handleTabsEdit"
+      >
+        <el-tab-pane
+          :key="item.index"
+          v-for="item in editableTabs"
+          :label="item.title"
+          :name="item.index"
         >
-          <el-tab-pane
-            :key="item.name"
-            v-for="item in editableTabs"
-            :label="item.title"
-            :name="item.name"
-          >
-           <component :is="item.components"></component>
-          </el-tab-pane>
-        </el-tabs>
-      </el-col>
-    </el-row>
+          <component :is="item.components"></component>
+        </el-tab-pane>
+      </el-tabs>
+    </el-col>
   </div>
 </template>
 <script>
 import StudentManagement from "~/components/Table/StudentManagement.vue";
 import UserManagement from "~/components/Table/UserManagement.vue";
+import Teacher from "~/components/Table/Teacher.vue";
+// let compList = [
+//   {
+//     name: "basicData",
+//     title: "基础数据管理",
+//     components: "StudentManagement",
+//   },
+//   {
+//     name: "recommendManage",
+//     title: "推荐管理",
+//     components: "UserManagement ",
+//   },
+//   {
+//     name: "enrollNewStu",
+//     title: "招生计划设置",
+//     components: "Teacher",
+//   },
+// ];
 
-let compList = [
-  {
-    name:"basicData",
-    title:"基础数据管理",
-    components:"StudentManagement"
-  },
-  {
-    name:"recommendManage",
-    title:"推荐管理",
-    components:"UserManagement "
-
-  }
-]
+let defaultTab = {
+  title: "我的桌面",
+  index: "myDesktop",
+  components: StudentManagement,
+};
 
 export default {
-  layout:"loginafter",
-  components:{
-StudentManagement,
-UserManagement
-      },
+  layout: "loginafter",
+  components: {
+    StudentManagement,
+    UserManagement,
+  },
   data() {
     return {
-      editableTabsValue:"1",
-      editableTabs: [
+      compList: [
         {
-          title: "我的桌面",
-          name: "myDesktop",
-          components:"StudentManagement",
+          name: "basicData",
+          title: "基础数据管理",
+          components: StudentManagement,
+        },
+        {
+          name: "recommendManage",
+          title: "推荐管理",
+          components: UserManagement,
+        },
+        {
+          name: "enrollNewStu",
+          title: "招生计划设置",
+          components: "Teacher",
         },
       ],
-      tabIndex:"1",
+      // editableTabsValue: "myDesktop",
+      // editableTabs: [
+      //   {
+      //     title: "我的桌面",
+      //     name: "myDesktop",
+      //     components: "StudentManagement",
+      //   },
+      // ],
+      tabIndex: "1",
     };
   },
-  methods: {
-    toOpenCom(event){
-for (let index = 0; index < compList.length; index++) {
-  const element = compList[index];
-  if (element.name === event.cName) {
-    this.editableTabs.push({
-   title:element.title,
-   name:element.name,
-   components:element.components,
-    });
-    return;
-  }
-}
+  computed: {
+    editableTabs: {
+      get() {
+        console.log(this);
+        if (this.$store.state.global.pages.length === 0) {
+          this.$store.commit("global/addPage", defaultTab);
+        }
+        return this.$store.state.global.pages;
+      },
     },
+    editableTabsValue: {
+      get() {
+        let currentPage = this.$store.state.global.currentPage;
+        console.log("currentPage: %O", currentPage);
+        return currentPage ? currentPage.index : null;
+      },
+      set(v) {
+        console.log("v: %O", v);
+        this.$store.commit("global/setCurrtentPage", v);
+      },
+    },
+  },
+  methods: {
+    //     toOpenCom(event){
+    // for (let index = 0; index < compList.length; index++) {
+    //   const element = compList[index];
+    //   if (element.name === event.cName) {
+    //     this.editableTabs.push({
+    //    title:element.title,
+    //    name:element.name,
+    //    components:element.components,
+    //     });
+    //     return;
+    //   }
+    // }
+    //     },
     handleTabsEdit(targetName, action) {
       if (action === "add") {
         let newTabName = ++this.tabIndex + "";
@@ -86,21 +131,7 @@ for (let index = 0; index < compList.length; index++) {
         this.editableTabsValue = newTabName;
       }
       if (action === "remove") {
-        let tabs = this.editableTabs;
-        let activeName = this.editableTabsValue;
-        if (activeName === targetName) {
-          tabs.forEach((tab, index) => {
-            if (tab.name === targetName) {
-              let nextTab = tabs[index + 1] || tabs[index - 1];
-              if (nextTab) {
-                activeName = nextTab.name;
-              }
-            }
-          });
-        }
-
-        this.editableTabsValue = activeName;
-        this.editableTabs = tabs.filter((tab) => tab.name !== targetName);
+        this.$store.commit("global/removePage", targetName)
       }
     },
   },
