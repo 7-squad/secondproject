@@ -233,6 +233,7 @@
   letter-spacing: 5px;
 }
 #approvalButton {
+  width: 110px;
   letter-spacing:0;
 }
 #modifyIcon,
