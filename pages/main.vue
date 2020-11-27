@@ -43,6 +43,7 @@ let compList = [
 ]
 
 export default {
+  layout:"loginafter",
   components:{
 StudentManagement,
 UserManagement
