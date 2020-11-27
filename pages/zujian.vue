@@ -22,6 +22,14 @@
     <Userinput/>
 <!-- 首页学生推荐列表 -->
 <Userlistinput/>
+<Stubeforeinput />
+
+<!-- 上传 -->
+<Uploadbefore/>
+
+
+<!-- <Ceshi/> -->
+
 </div>
 </template>
 

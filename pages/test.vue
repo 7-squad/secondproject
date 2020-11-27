@@ -21,7 +21,7 @@
                 <Navbar />
             </el-col>
             <el-col :span="20">
-                <Commendation />
+                <Province />
                 <Pagination />
             </el-col>
         </el-row>
@@ -34,4 +34,5 @@
    display: table-cell!important;
  }
  </style>
+ 
 
