@@ -29,10 +29,13 @@
 import StudentManagement from "~/components/Table/StudentManagement.vue";
 import UserManagement from "~/components/Table/UserManagement.vue";
 import Teacher from "~/components/Table/Teacher.vue";
+import commend from "~/pages/commend.vue"
+
 export default {
   components: {
     StudentManagement,
     UserManagement,
+    commend
   },
   data() {
     return {
@@ -45,7 +48,7 @@ export default {
             {
               index: "enrollNewStu",
               title: "招生计划设置",
-              components: StudentManagement,
+              components: commend,
             },
             {
               index: "enrollNewTeacher",
