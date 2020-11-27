@@ -2,9 +2,9 @@
   <div>
     <el-row>
       <el-col :span="4">
-        <Navbar />
+        <Navbar @openCom="toOpenCom"/>
       </el-col>
-      <el-col :span="7">
+      <el-col :span="20">
         <el-tabs
           v-model="editableTabsValue"
           type="card"
@@ -17,7 +17,7 @@
             :label="item.title"
             :name="item.name"
           >
-            {{ item.content }}
+           <component :is="item.components"></component>
           </el-tab-pane>
         </el-tabs>
       </el-col>
@@ -25,10 +25,28 @@
   </div>
 </template>
 <script>
-export default {
-  // components:{
+import StudentManagement from "~/components/Table/StudentManagement.vue";
+import UserManagement from "~/components/Table/UserManagement.vue";
 
-  //     },
+let compList = [
+  {
+    name:"basicData",
+    title:"基础数据管理",
+    components:"StudentManagement"
+  },
+  {
+    name:"recommendManage",
+    title:"推荐管理",
+    components:"UserManagement "
+
+  }
+]
+
+export default {
+  components:{
+StudentManagement,
+UserManagement
+      },
   data() {
     return {
       editableTabsValue:"1",
@@ -36,13 +54,26 @@ export default {
         {
           title: "我的桌面",
           name: "myDesktop",
-          compon: "Tab 1 content",
+          components:"StudentManagement",
         },
       ],
       tabIndex:"1",
     };
   },
   methods: {
+    toOpenCom(event){
+for (let index = 0; index < compList.length; index++) {
+  const element = compList[index];
+  if (element.name === event.cName) {
+    this.editableTabs.push({
+   title:element.title,
+   name:element.name,
+   components:element.components,
+    });
+    return;
+  }
+}
+    },
     handleTabsEdit(targetName, action) {
       if (action === "add") {
         let newTabName = ++this.tabIndex + "";
