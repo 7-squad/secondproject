@@ -5,6 +5,7 @@
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
+        @select="clickMenu"
       >
         <el-submenu v-for="item in items" :key="item.index" :index="item.index">
           <template slot="title">
@@ -19,34 +20,20 @@
             >{{ subItem.title }}</el-menu-item
           >
         </el-submenu>
-
-        <!-- <el-menu-item index="2">
-          <img src="../images/navbar_2.png" alt="标志" />
-          <span slot="title">推荐管理</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <img src="../images/navbar_3.png" alt="标志" />
-          <span slot="title">表彰管理</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <img src="../images/navbar_4.png" alt="标志" />
-          <span slot="title">统计分析</span>
-        </el-menu-item>
-        <el-menu-item index="5">
-          <img src="../images/navbar_5.png" alt="标志" />
-          <span slot="title">权限管理</span>
-        </el-menu-item>
-        <el-menu-item index="6">
-          <img src="../images/navbar_6.png" alt="标志" />
-          <span slot="title">系统管理</span>
-        </el-menu-item> -->
       </el-menu>
     </el-col>
   </el-row>
 </template>
 
 <script>
+import StudentManagement from "~/components/Table/StudentManagement.vue";
+import UserManagement from "~/components/Table/UserManagement.vue";
+import Teacher from "~/components/Table/Teacher.vue";
 export default {
+  components: {
+    StudentManagement,
+    UserManagement,
+  },
   data() {
     return {
       items: [
@@ -58,26 +45,32 @@ export default {
             {
               index: "enrollNewStu",
               title: "招生计划设置",
+              components: StudentManagement,
             },
             {
               index: "enrollNewTeacher",
               title: "招生老师设置",
+              components: UserManagement,
             },
             {
               index: "originalSchool",
               title: "生源学校设置",
+              components: StudentManagement,
             },
             {
               index: "enrollNewProvince",
               title: "招生省份设置",
+              components: UserManagement,
             },
             {
               index: "consultTeacher",
               title: "咨询专业老师设置",
+              components: StudentManagement,
             },
             {
               index: "mouldUpload",
               title: "模板资料上传设置",
+              components: UserManagement,
             },
           ],
         },
@@ -85,42 +78,65 @@ export default {
           icon: "/images/navbar_2.png",
           index: "recommendManage",
           title: "推荐管理",
-          subs:[],
+          subs: [],
         },
         {
           icon: "/images/navbar_3.png",
           index: "commendManage",
           title: "表彰管理",
-          subs:[],
+          subs: [],
         },
         {
           icon: "/images/navbar_4.png",
           index: "statisticAnalysis",
           title: "统计分析",
-          subs:[],
+          subs: [],
         },
         {
           icon: "/images/navbar_5.png",
           index: "powerManage",
           title: "权限管理",
-          subs:[],
+          subs: [],
         },
         {
           icon: "/images/navbar_6.png",
           index: "systemManage",
           title: "系统管理",
-          subs:[],
+          subs: [],
         },
       ],
     };
   },
 
   methods: {
+    clickMenu(menuIndex) {
+      console.log(menuIndex );
+
+      for (let index = 0; index < this.items.length; index++) {
+        const element = this.items[index];
+        if (menuIndex === element.index) {
+          this.$store.commit("global/addPage", element);
+        } else {
+          if (element.subs.length > 0) {
+            for (let index = 0; index < element.subs.length; index++) {
+              const subElement = element.subs[index];
+              if (menuIndex === subElement.index) {
+                this.$store.commit("global/addPage", subElement);
+              }
+            }
+          }
+        }
+      }
+
+      // this.$store.globle.state.pages
+      // console.log("clickMenu: %O", index);
+      // this.$emit("openCom", { cName: index });
+    },
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
   },
 };

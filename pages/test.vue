@@ -1,5 +1,15 @@
 <template>
     <div>
+        <Roleicon />
+        <Consulticon />
+        <Deleteicon />
+        <Stopicon />
+        <Righticon />
+        <Exporticon />
+        <Importicon />
+        <Deletebutton />
+        <Modifyicon />
+        <Plusicon />
         <Navbar />
 <Tablebutton />
 
@@ -11,7 +21,7 @@
                 <Navbar />
             </el-col>
             <el-col :span="20">
-                <Commendation />
+                <Province />
                 <Pagination />
             </el-col>
         </el-row>
@@ -24,4 +34,5 @@
    display: table-cell!important;
  }
  </style>
+ 
 
