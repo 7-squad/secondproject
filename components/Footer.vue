@@ -15,6 +15,7 @@
 .el-footer-row {
   margin-top: 20px;
   min-width: 1350px;
+  
 }
 
 .bg-purple-dark {
