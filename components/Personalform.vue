@@ -47,11 +47,8 @@
 export default {
   data() {
     return {
-      formInline: {
-        user: "",
-        region: "",
-        radio: "1",
-      },
+      radio: "1",
+      formInline: {},
     };
   },
   methods: {
@@ -100,7 +97,7 @@ export default {
   width: 590px;
 }
 .i {
-    margin-left: 185px;
+  margin-left: 185px;
 }
 .el-form-item__content .el-button--primary {
   background-color: #007aa3;

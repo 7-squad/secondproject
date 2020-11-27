@@ -48,5 +48,6 @@ body {
   color: #fff;
   text-align: center;
   line-height: 20px;
+  background-color: transparent;
 }
 </style>

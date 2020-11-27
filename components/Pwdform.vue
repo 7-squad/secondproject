@@ -1,15 +1,23 @@
 <template>
-<!-- 忘记密码 -->
+  <!-- 忘记密码 -->
   <div class="reg-box">
     <el-form ref="form" :model="form" label-width="100px">
       <el-form-item label="用户账号:">
         <el-input v-model="form.tel" placeholder=""></el-input>
       </el-form-item>
       <el-form-item label="登陆密码:">
-        <el-input type="password" v-model="form.password" placeholder=""></el-input>
+        <el-input
+          type="password"
+          v-model="form.password"
+          placeholder=""
+        ></el-input>
       </el-form-item>
       <el-form-item label="重复密码:">
-        <el-input  type="password" v-model="form.password2" placeholder=""></el-input>
+        <el-input
+          type="password"
+          v-model="form.password2"
+          placeholder=""
+        ></el-input>
       </el-form-item>
 
       <el-form-item label="短信验证码:">
@@ -58,7 +66,7 @@ export default {
   height: 326px;
 }
 .el-form-item {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 // .el-form-item__label {
 //   text-align-last: justify;
@@ -72,12 +80,12 @@ export default {
   margin: 10px -20px;
 }
 .verification {
-    outline: none;
-    border: 1px solid #dcdfe6;
-    color: #0576a4;
-    width: 110px;
-    height: 30px;
-    margin: 0 120px;
+  outline: none;
+  border: 1px solid #dcdfe6;
+  color: #0576a4;
+  width: 110px;
+  height: 30px;
+  margin: 0 120px;
 }
 .el-button--primary {
   background-color: #007aa3;

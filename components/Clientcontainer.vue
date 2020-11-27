@@ -1,23 +1,42 @@
 <template>
-<!-- 注册的 -->
+  <!-- 注册的 -->
   <div class="main">
     <div class="container">
       <div class="contanttit">
-        <span class="contanttit-left">注册用户</span>
+        <span class="contanttit-left">{{ title }}</span>
         <a href="login">返 回</a>
       </div>
       <div class="contantinn">
         <div class="zcyh">
-          <p>注册用户</p>
+          <p>{{ title2 }}</p>
         </div>
         <div class="border">
-          <p>精准招生辅助系统</p>
-          <Regform />
+          <p>{{ centertitle }}</p>
+          <component :is="component" />
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      default: "注册用户",
+    },
+    title2: {
+      type: String,
+      default: "注册用户",
+    },
+    centertitle: {
+      type: String,
+      default: "精准招生辅助系统",
+    },
+    component: null,
+  },
+};
+</script>
 <style lang="less">
 .main {
   width: 100%;
@@ -83,11 +102,11 @@
   vertical-align: middle;
   text-align: center;
   width: 155px;
-  background-color:#ffffff;
+  background-color: #ffffff;
   position: absolute;
   top: -10px;
   left: 336px;
-  color: #545C67;
+  color: #545c67;
   font-size: 16px;
 }
 </style>
