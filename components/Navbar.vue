@@ -30,6 +30,7 @@ import StudentManagement from "~/components/Table/StudentManagement.vue";
 import UserManagement from "~/components/Table/UserManagement.vue";
 import Teacher from "~/components/Table/Teacher.vue";
 import commend from "~/pages/commend.vue"
+import mouldupload from "~/pages/mouldupload.vue"
 
 export default {
   components: {
@@ -73,7 +74,7 @@ export default {
             {
               index: "mouldUpload",
               title: "模板资料上传设置",
-              components: UserManagement,
+              components: mouldupload,
             },
           ],
         },
@@ -88,6 +89,7 @@ export default {
           index: "commendManage",
           title: "表彰管理",
           subs: [],
+          components: commend,
         },
         {
           icon: "/images/navbar_4.png",

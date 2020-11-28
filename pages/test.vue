@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Powericon />
         <Roleicon />
         <Consulticon />
         <Deleteicon />
