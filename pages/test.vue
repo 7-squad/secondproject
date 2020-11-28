@@ -1,5 +1,8 @@
 <template>
     <div>
+        <Lefticon />
+        <Approvalbutton />
+        <Exportbutton />
         <Powericon />
         <Roleicon />
         <Consulticon />
@@ -12,7 +15,7 @@
         <Modifyicon />
         <Plusicon />
         <Navbar />
-<Tablebutton />
+
 
         <Zujian />
         

@@ -31,12 +31,18 @@ import UserManagement from "~/components/Table/UserManagement.vue";
 import Teacher from "~/components/Table/Teacher.vue";
 import commend from "~/pages/commend.vue"
 import mouldupload from "~/pages/mouldupload.vue"
+import enrollnewprovince from "~/pages/enrollnewprovince.vue";
+import enrollnewteacher from "~/pages/enrollnewteacher.vue";
+import enrollnewstu from "~/pages/enrollnewstu.vue";
 
 export default {
   components: {
     StudentManagement,
     UserManagement,
-    commend
+    commend,
+    enrollnewprovince,
+    enrollnewteacher,
+    enrollnewstu
   },
   data() {
     return {
@@ -49,12 +55,12 @@ export default {
             {
               index: "enrollNewStu",
               title: "招生计划设置",
-              components: commend,
+              components: enrollnewstu,
             },
             {
               index: "enrollNewTeacher",
               title: "招生老师设置",
-              components: UserManagement,
+              components: enrollnewteacher,
             },
             {
               index: "originalSchool",
@@ -64,7 +70,7 @@ export default {
             {
               index: "enrollNewProvince",
               title: "招生省份设置",
-              components: UserManagement,
+              components: enrollnewprovince,
             },
             {
               index: "consultTeacher",
