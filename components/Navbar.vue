@@ -35,6 +35,10 @@ import enrollnewprovince from "~/pages/enrollnewprovince.vue";
 import enrollnewteacher from "~/pages/enrollnewteacher.vue";
 import enrollnewstu from "~/pages/enrollnewstu.vue";
 import originalschool from "~/pages/originalschool.vue";
+import stumanage from "~/pages/stumanage.vue";
+import statistictable from "~/pages/statistictable.vue";
+import usermanage from "~/pages/usermanage.vue";
+import rolemanage from "~/pages/rolemanage.vue";
 
 export default {
   components: {
@@ -44,7 +48,12 @@ export default {
     enrollnewprovince,
     enrollnewteacher,
     enrollnewstu,
-    originalschool
+    originalschool,
+    stumanage,
+    statistictable,
+    usermanage,
+    rolemanage
+
   },
   data() {
     return {
@@ -90,32 +99,61 @@ export default {
           icon: "/images/navbar_2.png",
           index: "recommendManage",
           title: "推荐管理",
-          subs: [],
+          subs: [
+             {
+              index: "stuManage",
+              title: "学生管理",
+              components:stumanage,
+            },
+          ],
         },
         {
           icon: "/images/navbar_3.png",
           index: "commendManage",
           title: "表彰管理",
-          subs: [],
-          components: commend,
+          subs: [
+             {
+              index: "issueCommand",
+              title: "发布表彰",
+              components: commend,
+            },
+          ],
         },
         {
           icon: "/images/navbar_4.png",
           index: "statisticAnalysis",
           title: "统计分析",
-          subs: [],
+          subs: [
+              {
+              index: "statisticTable",
+              title: "综合报表统计",
+              components: statistictable,
+            },
+          ],
         },
         {
           icon: "/images/navbar_5.png",
           index: "powerManage",
           title: "权限管理",
-          subs: [],
+          subs: [
+             {
+              index: "userManage",
+              title: "用户管理",
+              components: usermanage,
+            },
+          ],
         },
         {
           icon: "/images/navbar_6.png",
           index: "systemManage",
           title: "系统管理",
-          subs: [],
+          subs: [
+             {
+              index: "roleManage",
+              title: "角色管理",
+              components:rolemanage,
+            },
+          ],
         },
       ],
     };

@@ -24,23 +24,6 @@
 import StudentManagement from "~/components/Table/StudentManagement.vue";
 import UserManagement from "~/components/Table/UserManagement.vue";
 import Teacher from "~/components/Table/Teacher.vue";
-// let compList = [
-//   {
-//     name: "basicData",
-//     title: "基础数据管理",
-//     components: "StudentManagement",
-//   },
-//   {
-//     name: "recommendManage",
-//     title: "推荐管理",
-//     components: "UserManagement ",
-//   },
-//   {
-//     name: "enrollNewStu",
-//     title: "招生计划设置",
-//     components: "Teacher",
-//   },
-// ];
 
 let defaultTab = {
   title: "我的桌面",
@@ -73,14 +56,7 @@ export default {
           components: "Teacher",
         },
       ],
-      // editableTabsValue: "myDesktop",
-      // editableTabs: [
-      //   {
-      //     title: "我的桌面",
-      //     name: "myDesktop",
-      //     components: "StudentManagement",
-      //   },
-      // ],
+    
       tabIndex: "1",
     };
   },
@@ -107,19 +83,6 @@ export default {
     },
   },
   methods: {
-    //     toOpenCom(event){
-    // for (let index = 0; index < compList.length; index++) {
-    //   const element = compList[index];
-    //   if (element.name === event.cName) {
-    //     this.editableTabs.push({
-    //    title:element.title,
-    //    name:element.name,
-    //    components:element.components,
-    //     });
-    //     return;
-    //   }
-    // }
-    //     },
     handleTabsEdit(targetName, action) {
       if (action === "add") {
         let newTabName = ++this.tabIndex + "";

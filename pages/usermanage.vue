@@ -1,0 +1,29 @@
+<template>
+  <div>
+    <el-row>
+      <el-col>
+    <Userinput/>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="1">
+        <Plusicon />
+      </el-col>
+      <el-col :span="1">
+        <Modifyicon />
+      </el-col>
+      <el-col :span="2">
+        <Deletebutton />
+      </el-col>
+      <el-col :span="1">
+      <Powericon />
+      </el-col>
+    </el-row>
+    <br>
+    <el-row>
+      <el-col>
+        <UserManagement />
+      </el-col>
+    </el-row>
+  </div>
+</template>
