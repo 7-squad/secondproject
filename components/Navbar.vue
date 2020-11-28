@@ -34,6 +34,7 @@ import mouldupload from "~/pages/mouldupload.vue"
 import enrollnewprovince from "~/pages/enrollnewprovince.vue";
 import enrollnewteacher from "~/pages/enrollnewteacher.vue";
 import enrollnewstu from "~/pages/enrollnewstu.vue";
+import originalschool from "~/pages/originalschool.vue";
 
 export default {
   components: {
@@ -42,7 +43,8 @@ export default {
     commend,
     enrollnewprovince,
     enrollnewteacher,
-    enrollnewstu
+    enrollnewstu,
+    originalschool
   },
   data() {
     return {
@@ -65,7 +67,7 @@ export default {
             {
               index: "originalSchool",
               title: "生源学校设置",
-              components: StudentManagement,
+              components: originalschool,
             },
             {
               index: "enrollNewProvince",
