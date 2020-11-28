@@ -5,7 +5,7 @@
         <Souinout />
       </el-col>
     </el-row>
-    <el-row gutter="60">
+    <el-row>
       <el-col :span="1">
         <Plusicon />
       </el-col>
