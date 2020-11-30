@@ -9,7 +9,7 @@
     </el-row>
     <el-row >
       <el-col :span="1">
-        <Plusicon />
+        <ZssfPlusicon />
       </el-col>
       <el-col :span="1">
         <Modifyicon />
