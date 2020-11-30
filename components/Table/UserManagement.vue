@@ -9,7 +9,7 @@
       'background-color': '#f0f5f8',
       'border-color':'#dedfe3'
     }"
-    
+    stripe
     border
     :cell-style="tableCellStyle"
     @selection-change="handleSelectionChange"

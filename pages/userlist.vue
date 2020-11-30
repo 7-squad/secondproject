@@ -95,4 +95,9 @@
   color: #545C67;
   font-size: 16px;
 }
+
+.el-table th.gutter{
+   display: table-cell!important;
+ }
+ 
 </style>

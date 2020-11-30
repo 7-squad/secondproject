@@ -6,6 +6,7 @@
     style="width: 100%"
     @selection-change="handleSelectionChange"
     border
+    stripe
     :header-cell-style="{
       'background-color': '#f0f5f8',
       'border-color':'#dedfe3'

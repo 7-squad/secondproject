@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-col :span="20">
+    <el-col :span="20" style="min-width=1350px">
       <el-tabs
         activate-name=""
         v-model="editableTabsValue"
@@ -100,3 +100,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.el-table th.gutter{
+   display: table-cell!important;
+ }
+ </style>

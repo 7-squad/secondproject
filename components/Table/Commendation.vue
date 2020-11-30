@@ -10,6 +10,7 @@
       'background-color': '#f0f5f8',
       'border-color':'#dedfe3'
     }"
+    stripe
     :cell-style="tableCellStyle"
   >
     <el-table-column type="selection" width="55" header-align="center">
