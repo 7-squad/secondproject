@@ -2,7 +2,7 @@
             <el-table
             tooltip-effect="dark"
           :data="tableData"
-          height="550"
+         
           style="width: 100%"
           border
           default-expand-all
@@ -17,22 +17,23 @@
     </el-table-column>
           <el-table-column label="省份"
             header-align="center" 
-           
+           prop="floorRange"
            >
-          
+          <template slot-scope="scope">
              
-                <el-select  v-model="scope.row.floorRange"  placeholder="活动区域">
+                <el-select  v-model="scope.row.floorRange1"  placeholder="广东省">
       <el-option label="区域一" value="shanghai"></el-option>
       <el-option label="区域二" value="beijing"></el-option>
     </el-select>
-           
+           </template>
               
             </el-table-column>
+
              <el-table-column label="专业名称"
             header-align="center" prop="floorRange">
               <template slot-scope="scope">
            
-                 <el-select v-model="scope.row.floorRange" placeholder="活动区域">
+                 <el-select v-model="scope.row.floorRange2" placeholder="建筑工程技术">
       <el-option label="区域一" value="shanghai"></el-option>
       <el-option label="区域二" value="beijing"></el-option>
     </el-select>
@@ -43,21 +44,10 @@
              <el-table-column label="科目类型"
             header-align="center" prop="floorRange">
               <template slot-scope="scope">
-                <el-select
-                  v-model="scope.row.floorRange"
-                 
-                  placeholder="理科"
-                  @change="CheckedBuildings"
-                >
-                  <el-option
-                    v-for="item in like"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                  
-        
-                </el-select>
+                 <el-select v-model="scope.row.floorRange3" placeholder="理科">
+      <el-option label="区域一" value="shanghai"></el-option>
+      <el-option label="区域二" value="beijing"></el-option>
+    </el-select>
               </template>
             </el-table-column>
              <el-table-column label="招生人数"
@@ -77,16 +67,21 @@ export default {
       tableData: [
         //表格数据
         {
+          shengfen: "", 
+          zhuanyemingcheng: [], 
+          type: [] ,
+        }, {
           shengfen: "", //楼栋
-          zhuanyemingcheng: [], //楼层范围
+          zhuanyemingcheng: [], 
           type: [] ,
         },
         
        
       ],
       input:{
-          shuliang:'1662'
+          shuliang:'165', 
       },
+     
        
     };
   },
