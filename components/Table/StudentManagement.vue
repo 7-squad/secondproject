@@ -6,6 +6,7 @@
     style="width: 100%"
     @selection-change="handleSelectionChange"
     border
+    stripe
     :header-cell-style="{
       'background-color': '#f0f5f8',
       'border-color':'#dedfe3'
@@ -61,7 +62,7 @@
     >
     </el-table-column>
 
-    <el-table-column label="联系电话" width="120px" header-align="center">
+    <el-table-column label="联系电话" width="120px" header-align="center" show-overflow-tooltip>
       <template slot-scope="scope">{{ scope.row.telnumber }}</template>
     </el-table-column>
 
@@ -71,7 +72,7 @@
     <el-table-column prop="method" label="推荐方式" header-align="center">
     </el-table-column>
 
-    <el-table-column label="日期" header-align="center">
+    <el-table-column label="日期" header-align="center" show-overflow-tooltip>
       <template slot-scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
 

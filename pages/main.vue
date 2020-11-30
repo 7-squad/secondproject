@@ -101,8 +101,12 @@ export default {
 };
 </script>
 
+
 <style lang="less" scoped>
 .el-tabs, .el-tabs--card, .el-tabs--top{
     background-color: #fff;
 }
+.el-table th.gutter{
+   display: table-cell!important;
+ }
 </style>

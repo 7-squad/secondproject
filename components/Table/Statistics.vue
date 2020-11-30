@@ -2,6 +2,7 @@
      <el-table
     :data="tableData"
     border
+    stripe
     show-summary
     style="width: 100%"
     :header-cell-style="{
