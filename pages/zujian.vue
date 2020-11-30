@@ -40,5 +40,9 @@
 <Teste/>
 新增模板资料
 <Teste/>
+新增招生计划
+<Addzsjh />
+
+<Test />
   </div>
   </template>

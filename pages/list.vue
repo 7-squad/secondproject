@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Clientheader />
+  
     <div class="list">
       <div class="main-list">
         <div class="list-item">
@@ -12,18 +12,25 @@
             <div class="asd">
               <span>推荐学生列表</span>
             </div>
+            <div class="input">
             <Userlistinput />
+            </div>
           </div>
           <div>
-            <StudentManagement />
+            <StudentsList />
           </div>
         </div>
       </div>
     </div>
-    <Clientfooter />
+   
   </div>
 </template>
 
+<script>
+export default {
+  layout: "loginbefore",
+};
+</script>
 <style lang="less" scoped>
 .list {
   width: 100%;
@@ -57,9 +64,14 @@
   float: left;
   background: url(../images/reg/right.png) no-repeat left center;
   text-indent: 2em;
+  padding: 5px;
 }
 .dddd {
   padding-top: 30px;
 }
+.input{
+  float: right;
+}
+
 </style>
 

@@ -6,7 +6,6 @@
     style="width: 100%"
     @selection-change="handleSelectionChange"
     border
-    stripe
     :header-cell-style="{
       'background-color': '#f0f5f8',
       'border-color':'#dedfe3'
@@ -20,14 +19,14 @@
 
     <el-table-column
       prop="name"
-      label="姓名"
+      label="招生年度"
       header-align="center"
     ></el-table-column>
 
     <el-table-column
       prop="recruit"
       header-align="center"
-      label="招生类型"
+      label="推荐专业"
       show-overflow-tooltip
     >
     </el-table-column>
@@ -35,48 +34,44 @@
     <el-table-column
       prop="school"
       header-align="center"
-      label="所在学校"
+      label="学生姓名"
       show-overflow-tooltip
     >
     </el-table-column>
 
-    <el-table-column
+     <el-table-column label="联系电话" width="120px" header-align="center">
+      <template slot-scope="scope">{{ scope.row.telnumber }}</template>
+    </el-table-column>>
+
+ <el-table-column
     width="120"
       prop="Majorname"
       header-align="center"
-      label="专业名称"
+      label="身份证号码"
       show-overflow-tooltip
     >
     </el-table-column>
 
-    <el-table-column label="分数段" header-align="center">
-      <template slot-scope="scope">{{ scope.row.fraction }}</template>
-    </el-table-column>
 
     <el-table-column
     width="150"
       prop="address"
       header-align="center"
-      label="所在地区"
+      label="高考省份/城市"
       show-overflow-tooltip
     >
     </el-table-column>
 
-    <el-table-column label="联系电话" width="120px" header-align="center" show-overflow-tooltip>
-      <template slot-scope="scope">{{ scope.row.telnumber }}</template>
-    </el-table-column>
+
 
     <el-table-column prop="Poverty" label="是否贫困" header-align="center">
     </el-table-column>
 
-    <el-table-column prop="method" label="推荐方式" header-align="center">
-    </el-table-column>
-
-    <el-table-column label="日期" header-align="center" show-overflow-tooltip>
-      <template slot-scope="scope">{{ scope.row.date }}</template>
-    </el-table-column>
 
     <el-table-column prop="state" header-align="center" label="状态">
+    </el-table-column>
+     <el-table-column prop="state" header-align="center" label="操作">
+        <el-button type="text" size="small">查看详情</el-button>
     </el-table-column>
   </el-table>
 </template>
@@ -88,7 +83,7 @@ export default {
     return {
       tableData: [
         {
-          name: "王小虎",
+          name: "2017",
           recruit: "高考类",
           school: "英德中学",
           Majorname: "学前教育专业",

@@ -1,6 +1,5 @@
 <template>
     <div>
-<Clientheader/>
   <div class="main">
     <div class="container">
       <div class="contanttit">
@@ -18,11 +17,18 @@
 
     </div>
   </div>
-<Clientfooter/>
+
 
 
     </div>
 </template>
+<script>
+export default {
+
+  layout: "loginbefore",
+
+}
+</script>
 <style scoped>
 .main {
   width: 100%;

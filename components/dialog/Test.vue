@@ -43,6 +43,8 @@
 export default {
   data() {
     return {
+      formInline: {
+      },
       dialogTableVisible: false,
     };
   },

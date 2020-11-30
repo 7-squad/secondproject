@@ -1,5 +1,7 @@
+<!-- 学生管理 -->
 <template>
-  <div>
+
+ <div  class="main_container">
     <el-row>
       <el-col>
          <Stuinput />
@@ -21,3 +23,8 @@
     </el-row>
   </div>
 </template>
+<style lang="less" scoped>
+.main_container{
+    margin: 0 25px;
+}
+</style>
