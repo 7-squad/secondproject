@@ -25,7 +25,10 @@
                 <Navbar />
             </el-col>
             <el-col :span="20">
-                <Province />
+                <Information />
+                <div class="examine">
+                <Examine />
+                </div>
                 <Pagination />
             </el-col>
         </el-row>
@@ -36,6 +39,9 @@
 <style>
 .el-table th.gutter{
    display: table-cell!important;
+ }
+ .examine{
+     padding: 10px 0px 10px 0px ;
  }
  </style>
  
