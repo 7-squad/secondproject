@@ -5,7 +5,11 @@
           @click="dialogFormVisible = true"></el-button>
         </el-col>
 
-        <el-dialog title="新增招生计划" :visible.sync="dialogFormVisible">
+        <el-dialog  :visible.sync="dialogFormVisible">
+          <div slot="title" class="dialog-title">
+  <img src="../../images/reg/tc.png">
+    <span class="title-text">新增招生计划</span>
+    </div>
             <!-- 计划名称 -->
   <el-form :model="form">
       
@@ -67,10 +71,11 @@
 </el-input>
 </el-form-item>
   </el-form>
-  <div slot="footer" class="dialog-footer">
-    <el-button @click="dialogFormVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-  </div>
+   <div class="button">
+        <el-button type="danger" id="qdtButton" @click="dialogFormVisible = false"> 确定 </el-button>
+        <el-button type="danger" id="exportButton" @click="dialogFormVisible = false"> 取消 </el-button>
+      </div>
+  
 </el-dialog>
 </div>
 </template>
@@ -100,10 +105,37 @@
 </script>
 
 <style lang="less" scoped>
+
 .block  .el-input__prefix{
     color: darkgrey !important;
 }
 .dialog .el-table{
 height: 200px;
+}
+
+.title-text {
+  color: #007aa3;
+}
+#exportButton,
+#qdtButton {
+  height: 38px;
+  width: 88px;
+  letter-spacing: 5px;
+  background-color: #017e9e !important;
+}
+.el-button--danger {
+  border-color: #007aa3;
+}
+.el-button {
+ 
+  height: 35px !important;
+  font-size: 15px;
+  line-height: 12px;
+  border-radius: 5px;
+  
+}
+.button {
+  margin-top: 20px;
+  margin-left: 200px;
 }
 </style>
