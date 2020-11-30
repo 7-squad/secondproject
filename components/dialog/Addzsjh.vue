@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="dialog">
     <el-col >
           <el-button icon="el-icon-plus" size="mini" id="plusIcon"
           @click="dialogFormVisible = true"></el-button>
@@ -8,9 +8,10 @@
         <el-dialog title="新增招生计划" :visible.sync="dialogFormVisible">
             <!-- 计划名称 -->
   <el-form :model="form">
+      
     <el-form-item label="计划名称：" 
-    :label-width="formLabelWidth">
-      <el-input v-model="form.name" autocomplete="off"  placeholder="请输入招生计划名称"></el-input>
+    >
+      <el-input v-model="form.name" autocomplete="off"  placeholder="请输入招生计划名称" style="width:500px"></el-input>
     </el-form-item>
 
     <!-- 招生类型 -->
@@ -54,8 +55,17 @@
   </div>
   <br>
  <!-- 表格 -->
-<Test />
-
+<Addtable />
+<div style="margin: 20px 0;"></div>
+<el-form-item label="备注说明">
+<el-input
+  type="textarea"
+  placeholder="请简要填写备注内容"
+  v-model="textarea"
+  show-word-limit
+>
+</el-input>
+</el-form-item>
   </el-form>
   <div slot="footer" class="dialog-footer">
     <el-button @click="dialogFormVisible = false">取 消</el-button>
@@ -75,7 +85,7 @@
         form: {
           name: '',
         },
-        formLabelWidth: '120px',
+       
          formInline: {
           year: '',
           region: '',
@@ -83,6 +93,7 @@
         },
         value1:"",
         value2:"",
+         textarea: '',
       };
     }
   };
@@ -91,5 +102,8 @@
 <style lang="less" scoped>
 .block  .el-input__prefix{
     color: darkgrey !important;
+}
+.dialog .el-table{
+height: 200px;
 }
 </style>

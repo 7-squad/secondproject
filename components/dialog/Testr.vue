@@ -8,7 +8,6 @@
         @click="dialogTableVisible = true"
       ></el-button>
     </el-col>
-
     <el-dialog :visible.sync="dialogTableVisible">
       <div slot="title" class="dialog-title">
         <img src="../../images/reg/tc.png" />
@@ -22,7 +21,7 @@
         <el-form-item label="招生省份:">
           <el-input placeholder="请输入招生省份"></el-input>
         </el-form-item>
-         <el-form-item label="招生城市:">
+        <el-form-item label="招生城市:">
           <el-input placeholder="请输入招生城市"></el-input>
         </el-form-item>
 
@@ -30,7 +29,7 @@
           <el-input placeholder="请输入招生老师"></el-input>
         </el-form-item>
       </el-form>
-     
+
       <div class="button">
         <el-button type="danger" id="qdtButton"> 确定 </el-button>
         <el-button type="danger" id="exportButton"> 取消 </el-button>
@@ -43,14 +42,12 @@
 export default {
   data() {
     return {
-      formInline: {
-      },
+      formInline: {},
       dialogTableVisible: false,
     };
   },
 };
 </script>
-
 
 <style lang="less" scoped>
 .title-text {
@@ -80,11 +77,11 @@ export default {
   font-size: 15px;
   line-height: 12px;
   border-radius: 5px;
-  background-color: #017e9e!important;
+  background-color: #017e9e !important;
 }
 .button {
   margin-top: 20px;
-  margin-left:200px;
+  margin-left: 200px;
 }
 .el-dialog {
   width: 40%;
