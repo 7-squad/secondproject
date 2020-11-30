@@ -12,12 +12,10 @@
             <div class="asd">
               <span>推荐学生列表</span>
             </div>
-            <div class="input">
             <Userlistinput />
-            </div>
           </div>
           <div>
-            <StudentsList />
+            <StudentManagement />
           </div>
         </div>
       </div>
@@ -59,13 +57,9 @@
   float: left;
   background: url(../images/reg/right.png) no-repeat left center;
   text-indent: 2em;
-  padding: 5px;
 }
 .dddd {
   padding-top: 30px;
-}
-.input{
-  float: right;
 }
 </style>
 

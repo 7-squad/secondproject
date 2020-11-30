@@ -25,7 +25,7 @@
                 <Navbar />
             </el-col>
             <el-col :span="20">
-                <Template />
+                <Province />
                 <Pagination />
             </el-col>
         </el-row>
