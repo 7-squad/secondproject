@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-col :span="20" style="min-width=1350px">
+    <el-col>
       <el-tabs
         activate-name=""
         v-model="editableTabsValue"
@@ -101,8 +101,12 @@ export default {
 };
 </script>
 
-<style>
+
+<style lang="less" scoped>
+.el-tabs, .el-tabs--card, .el-tabs--top{
+    background-color: #fff;
+}
 .el-table th.gutter{
    display: table-cell!important;
  }
- </style>
+</style>
