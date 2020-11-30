@@ -27,9 +27,8 @@
 <!-- 上传 -->
 <Uploadbefore/>
 
-
+<ZssfPlusicon/>
 <!-- <Ceshi/> -->
 
-</div>
-</template>
-
+  </div>
+  </template>
