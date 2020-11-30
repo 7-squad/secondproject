@@ -2,8 +2,9 @@
   <div>
     <el-container>
       <div class="main">
-        <div class="container">
-          <div class="left">
+
+        <el-menu class="container"  :router="true" >
+          <el-menu-item class="left" index="/userlist">
             <img src="../images/首页_03.png" />
             <div class="tx">
               <p>推荐学生</p>
@@ -12,19 +13,22 @@
                 <img src="../images/首页_10.png" />
               </div>
             </div>
-          </div>
-
-          <div class="right">
-            <img src="../images/首页_05.png" />
-            <div class="tx">
-              <p>审核状态</p>
-              <div class="text">
-                <p>点击进入</p>
-                <img src="../images/首页_10.png" />
+          </el-menu-item>
+        
+            <el-menu-item class="right"  index="/list">
+              <img src="../images/首页_05.png" />
+              <div class="tx">
+                <p>审核状态</p>
+                <div class="text">
+                  <p>点击进入</p>
+                  <img src="../images/首页_10.png" />
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </el-menu-item>
+
+        </el-menu>
+
+
       </div>
     </el-container>
   </div>
@@ -53,7 +57,6 @@ export default {
 }
 .container {
   margin: 0 auto;
-
   display: flex;
   width: 70%;
   justify-content: space-between;
