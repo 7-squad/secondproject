@@ -84,7 +84,7 @@
 </script>
 
 
-<style lang="less">
+<style lang="less" >
 #plusIcon{
      height: 38px;
       

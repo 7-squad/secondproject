@@ -37,7 +37,7 @@ export default {
   },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .main {
   width: 100%;
   height: 589px;
