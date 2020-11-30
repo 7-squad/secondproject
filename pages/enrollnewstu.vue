@@ -1,5 +1,7 @@
+<!-- 招生计划设置 -->
 <template>
-  <div>
+
+  <div  class="main_container">
     <el-row>
       <el-col>
         <Souinout />
@@ -30,3 +32,8 @@
     </el-row>
   </div>
 </template>
+<style lang="less" scoped>
+.main_container{
+    margin: 0 25px;
+}
+</style>
