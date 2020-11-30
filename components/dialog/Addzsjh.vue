@@ -55,7 +55,7 @@
   </div>
   <br>
  <!-- 表格 -->
-<Test />
+<Addtable />
 <div style="margin: 20px 0;"></div>
 <el-form-item label="备注说明">
 <el-input
