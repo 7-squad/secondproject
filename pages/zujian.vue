@@ -30,5 +30,9 @@
 <ZssfPlusicon/>
 <!-- <Ceshi/> -->
 
+新增招生计划
+<Addzsjh />
+
+<Test />
   </div>
   </template>

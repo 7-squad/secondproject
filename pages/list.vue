@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Clientheader />
+  
     <div class="list">
       <div class="main-list">
         <div class="list-item">
@@ -22,10 +22,15 @@
         </div>
       </div>
     </div>
-    <Clientfooter />
+   
   </div>
 </template>
 
+<script>
+export default {
+  layout: "loginbefore",
+};
+</script>
 <style lang="less" scoped>
 .list {
   width: 100%;
