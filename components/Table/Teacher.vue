@@ -4,12 +4,14 @@
     :data="tableData"
     tooltip-effect="dark"
     style="width: 100%"
+    highlight-current-row
+    @current-change="handleCurrentChange"
     @selection-change="handleSelectionChange"
     border
     stripe
     :header-cell-style="{
       'background-color': '#f0f5f8',
-      'border-color':'#dedfe3'
+      'border-color': '#dedfe3',
     }"
     :cell-style="tableCellStyle"
   >
@@ -40,26 +42,36 @@
     <el-table-column label="创建时间" align="center">
       <template slot-scope="scope">{{ scope.row.data }}</template>
     </el-table-column>
-
-    </el-table>
+  </el-table>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            tableData:[{
-                year:"2018",
-                province:"广东省",
-                city:"湛江",
-                teacher:"王冰冰",
-                data:"2017-12-24",
-
-            }],
-            multipleSelection:[],
-        };
-    },
-    methods:{
-        toggleSelection(rows) {
+  // props: {
+  //   selectRow: {
+  //     type: Object,
+  //     default: function () {
+  //       return {
+  //         row: null,
+  //       };
+  //     },
+  //   },
+  // },
+  data() {
+    return {
+      tableData: [
+        {
+          year: "2018",
+          province: "广东省",
+          city: "湛江",
+          teacher: "王冰冰",
+          data: "2017-12-24",
+        },
+      ],
+      multipleSelection: [],
+    };
+  },
+  methods: {
+    toggleSelection(rows) {
       if (rows) {
         rows.forEach((row) => {
           this.$refs.multipleTable.toggleRowSelection(row);
@@ -71,9 +83,25 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
-    tableCellStyle() {
-    return "border-color: #dedfe3;";
-  },
+    handleCurrentChange(val) {
+      if (!val) return;
+      console.log("handleCurrentChange: %O", val);
+      this.selectRow = val;
+      this.$emit("showDialog", val);
     },
+    tableCellStyle() {
+      return "border-color: #dedfe3;";
+    },
+    clearSelect() {
+      // 清空鼠标点击的选择行
+      this.$refs.multipleTable.setCurrentRow();
+    },
+  },
 };
 </script>
+
+<style lang="less">
+.el-table__row {
+  cursor: pointer;
+}
+</style>

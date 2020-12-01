@@ -31,7 +31,7 @@
 <!-- <Ceshi/> -->
 
 新增招生老师
-<Test />
+<Testr />
 学生资料审批
 <Testq/>
 查看招生老师详细信息
@@ -43,6 +43,6 @@
 新增招生计划
 <Addzsjh />
 
-<Test />
+<Addtable />
   </div>
   </template>

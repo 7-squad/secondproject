@@ -1,45 +1,61 @@
 <template>
-  <div>
-    <el-col>
+  <el-dialog :visible.sync="dialogFormVisible.show">
+    <div slot="title" class="dialog-title">
+      <img src="../../images/reg/tc.png" />
+      <span class="title-text">查看招生老师详细信息</span>
+    </div>
+    <el-form :inline="true" class="demo-form-inline">
+      <el-form-item label="审批结果 : 2018"> </el-form-item>
+      <el-form-item label="招生省份 : 广东省"> </el-form-item>
+
+      <el-form-item label="招生城市 : 茂名"> </el-form-item>
+      <el-form-item label="招生老师 : 肖亚光"> </el-form-item>
+
+      <el-form-item label="创建时间 : 2018-5-9"> </el-form-item>
+    </el-form>
+
+    <div class="button">
       <el-button
-        icon="el-icon-plus"
-        size="mini"
-        id="plusIcon"
-        @click="dialogTableVisible = true"
-      ></el-button>
-    </el-col>
-
-    <el-dialog :visible.sync="dialogTableVisible">
-      <div slot="title" class="dialog-title">
-        <img src="../../images/reg/tc.png" />
-        <span class="title-text">查看招生老师详细信息</span>
-      </div>
-      <el-form :inline="true" :model="formInline" class="demo-form-inline">
-        <el-form-item label="审批结果 : 2018"> </el-form-item>
-        <el-form-item label="招生省份 : 广东省"> </el-form-item>
-
-        <el-form-item label="招生城市 : 茂名"> </el-form-item>
-        <el-form-item label="招生老师 : 肖亚光"> </el-form-item>
-        
-        <el-form-item label="创建时间 : 2018-5-9"> </el-form-item>
-      </el-form>
-      
-
-      <div class="button">
-        <el-button type="danger" id="qdtButton"> 确定 </el-button>
-        <el-button type="danger" id="exportButton"> 取消 </el-button>
-      </div>
-    </el-dialog>
-  </div>
+        type="danger"
+        id="qdtButton"
+        @click="closeDialog"
+      >
+        确定
+      </el-button>
+      <el-button
+        type="danger"
+        id="exportButton"
+        @click="closeDialog"
+      >
+        取消
+      </el-button>
+    </div>
+  </el-dialog>
 </template>
 
 <script>
 export default {
+  props: {
+    dialogFormVisible: {
+      type: Object,
+      default: function () {
+        return {
+          show:false,
+        }
+      },
+    },
+  },
   data() {
     return {
-      dialogTableVisible: false,
     };
   },
+  methods:{
+    closeDialog(){
+      this.dialogFormVisible.show = false;
+      // 组件抛出自定义事件 closeDialog
+      this.$emit("closeDialog");
+    }
+  }
 };
 </script>
 
@@ -57,8 +73,8 @@ export default {
   border-bottom: 1px solid #e2e2e2;
 }
 .el-form-item {
-    margin-right: 150px;
-    margin-bottom: 0px;
+  margin-right: 150px;
+  margin-bottom: 0px;
 }
 
 #exportButton,
@@ -66,17 +82,16 @@ export default {
   height: 38px;
   width: 88px;
   letter-spacing: 5px;
+  background-color: #017e9e !important;
 }
 .el-button--danger {
   border-color: #007aa3;
 }
 .el-button {
-  width: 85px !important;
   height: 35px !important;
   font-size: 15px;
   line-height: 12px;
   border-radius: 5px;
-  background-color: #017e9e !important;
 }
 .button {
   margin-top: 20px;
