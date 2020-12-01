@@ -33,15 +33,9 @@
            
             class="el-button el-button--default is-plain"
           >
-            搜   索
+            确    定
           </el-button>
-          <el-button
-            type="primary"
-           
-            class="el-button el-button--default is-plain"
-          >
-            清 空
-          </el-button>
+         
         </el-form-item>
 
 </el-form>

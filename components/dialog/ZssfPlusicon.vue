@@ -4,7 +4,7 @@
           <el-button  icon="el-icon-plus" size="mini" id="plusIcon"
            @click="dialogFormVisible = true"></el-button>
         </el-col>
-
+<div class="dialog">
         <el-dialog 
         :visible.sync="dialogFormVisible">
            <div slot="title" class="dialog-title">
@@ -52,8 +52,9 @@
         <el-button type="danger" id="exportButton" @click="dialogFormVisible = false"> 导出 </el-button>
       </div>
 </el-dialog>
-
+</div>
         </div>
+
 </template>
 
 <script>
@@ -84,7 +85,7 @@
 </script>
 
 
-<style lang="less"   scoped>
+<style lang="less" >
 #plusIcon{
      height: 38px;
       
@@ -120,7 +121,7 @@ margin-left: 70px;
 .el-dialog__header{
     background-color: #f0f5f8;
 }
-.el-dialog{
-    width: 40%;
+.dialog .el-dialog{
+    width: 40%  !important;
 }
 </style>
