@@ -30,5 +30,19 @@
 <ZssfPlusicon/>
 <!-- <Ceshi/> -->
 
+新增招生老师
+<Test />
+学生资料审批
+<Testq/>
+查看招生老师详细信息
+<Testw/>
+新增模板资料
+<Teste/>
+新增模板资料
+<Teste/>
+新增招生计划
+<Addzsjh />
+
+<Test />
   </div>
   </template>

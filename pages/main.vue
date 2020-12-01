@@ -106,6 +106,9 @@ export default {
 .el-tabs, .el-tabs--card, .el-tabs--top{
     background-color: #fff;
 }
+
+</style>
+<style>
 .el-table th.gutter{
    display: table-cell!important;
  }

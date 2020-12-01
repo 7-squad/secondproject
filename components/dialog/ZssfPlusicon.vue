@@ -2,13 +2,13 @@
 <div>
          <el-col >
           <el-button  icon="el-icon-plus" size="mini" id="plusIcon"
-           @click="dialogTableVisible = true"></el-button>
+           @click="dialogFormVisible = true"></el-button>
         </el-col>
 
         <el-dialog 
-        :visible.sync="dialogTableVisible">
+        :visible.sync="dialogFormVisible">
            <div slot="title" class="dialog-title">
-   <img src="../../images/个人中心_03.png">
+   <img src="../../images/reg/tc.png">
     <span class="title-text">招生专业设置</span>
     </div>
             <el-form :inline="true" :model="formInline" class="demo-form-inline">
@@ -47,10 +47,10 @@
      </el-checkbox-group>
   </el-form-item>
 </el-form>
-<div class="button">
- <el-button type="danger" id="qdtButton"> 确定 </el-button>
- <el-button type="danger" id="exportButton"> 导出 </el-button>
-</div>
+ <div class="button">
+        <el-button type="danger" id="qdtButton" @click="dialogFormVisible = false"> 确定 </el-button>
+        <el-button type="danger" id="exportButton" @click="dialogFormVisible = false"> 导出 </el-button>
+      </div>
 </el-dialog>
 
         </div>
@@ -84,10 +84,13 @@
 </script>
 
 
-<style lang="less">
+<style lang="less"   scoped>
 #plusIcon{
      height: 38px;
       
+}
+.title-text {
+  color: #007aa3;
 }
 .zs .el-checkbox{
 margin-right: 57px;

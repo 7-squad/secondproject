@@ -87,4 +87,5 @@ export default {
 .text {
   display: flex;
 }
+
 </style>
