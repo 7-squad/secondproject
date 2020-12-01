@@ -44,5 +44,9 @@
 <Addzsjh />
 
 <Addtable />
+<br>
+<!-- 学生信息审批 -->
+<Addproval />
+
   </div>
   </template>
