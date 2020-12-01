@@ -6,8 +6,12 @@
             <el-col :span="1"><Teste /></el-col>
             <el-col :span="1"><Modifyicon /></el-col>
             <el-col :span="1"><Deletebutton /></el-col>
-            <br>
-            <el-col ><Template /></el-col>
+           
+            
+        </el-row>
+         <br>
+        <el-row>
+        <el-col ><Template /></el-col>
         </el-row>
     </div>
 </template>

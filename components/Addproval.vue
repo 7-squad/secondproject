@@ -1,0 +1,179 @@
+<template>
+<div>
+    <div class="dialog-title">
+  <img src="../images/reg/tc.png">
+    <span class="title-text">学生基本信息</span>
+    </div>
+    
+   
+    <div class="wenben">
+        <div class="left">
+        <p>姓名：姓名名</p>
+        <p>招生年度：2018</p>
+        <p>招生类型：高考类</p>
+        <p>渠道类别：其他</p>
+        </div>
+
+<div class="center-left">
+        <p>科目类型：文科</p>
+        <p>专业名称：酒店管理</p>
+        <p>所在地区：广东省-广州市</p>
+       
+        <el-form>
+        <el-form-item>
+            家庭困难是否属实:
+             <el-radio v-model="radio" label="1">是</el-radio>
+  <el-radio v-model="radio" label="2">否</el-radio>
+        </el-form-item>
+        </el-form>
+        
+        </div>
+
+<div class="center-right">
+        <p>毕业学校：萝岗中学</p>
+        <p>分数段：400-500</p>
+        <p>联系电话：12345678900</p>
+        
+        </div>
+
+         <div class="right">
+        <p>身份证号：4123456789987654321</p>
+        <p>是否贫困生：是</p>
+        <p>推荐方式：他人推荐</p>
+        
+        </div>
+    </div>
+
+    <br>
+  <el-table
+    ref="multipleTable"
+    :data="tableData"
+    tooltip-effect="dark"
+    style="width: 100%"
+    @selection-change="handleSelectionChange"
+    border
+    stripe
+    :header-cell-style="{
+      'background-color': '#f0f5f8',
+      'border-color':'#dedfe3'
+    }"
+    :cell-style="tableCellStyle"
+  >
+    
+   
+    <el-table-column
+      prop="Template"
+      label="身份证明材料（点击图片可以放大查看）"
+      align="center"
+    >
+     <template slot-scope="scope">
+          <el-image style="width: 200px; height: 100px" :src="scope.row.Template" :preview-src-list="[scope.row.Template]">
+            <div slot="error" class="image-slot">
+              <i class="el-icon-picture-outline"></i>
+            </div>
+          </el-image>
+        </template>
+
+    </el-table-column>
+   
+   
+    <el-table-column
+      prop="pinkun"
+      label="贫困证明材料（点击图片可以放大查看）"
+      align="center"
+    >
+   
+     <template slot-scope="scope">
+          <el-image style="width: 100px; height: 200px" :src="scope.row.pinkun" :preview-src-list="[scope.row.pinkun]">
+            <div slot="error" class="image-slot">
+              <i class="el-icon-picture-outline"></i>
+            </div>
+          </el-image>
+        </template>
+    </el-table-column>
+
+     <el-table-column
+      prop="tijian"
+      label="体检材料（点击图片可以放大查看）"
+      align="center"
+    >
+    <template slot-scope="scope">
+          <el-image style="width: 100px; height: 200px" :src="scope.row.tijian" :preview-src-list="[scope.row.tijian]">
+            <div slot="error" class="image-slot">
+              <i class="el-icon-picture-outline"></i>
+            </div>
+          </el-image>
+        </template>
+    </el-table-column>
+
+    
+    </el-table>
+<br>
+    <Examine />
+</div>
+</template>
+
+<script>
+export default {
+    data(){
+        return{
+            radio:"1",
+            tableData:[{
+                Template:"../images/首页_03.png",
+                pinkun:"../images/首页_03.png",
+                tijian:"../images/首页_03.png"
+               
+            },
+            
+            ],
+            multipleSelection:[],
+            dialogImageUrl: '',
+            dialogVisible: false,
+        };
+    },
+    methods:{
+        toggleSelection(rows) {
+      if (rows) {
+        rows.forEach((row) => {
+          this.$refs.multipleTable.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.multipleTable.clearSelection();
+      }
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val;
+    },
+    tableCellStyle() {
+    return "border-color: #dedfe3;";
+  },
+  handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePictureCardPreview(file) {
+        this.dialogImageUrl = file.url;
+        this.dialogVisible = true;
+      },
+    },
+};
+</script>
+
+<style lang="less" scoped>
+.dialog-title{
+    border-bottom: 1px solid rgba(175, 173, 173, 0.459);
+}
+.wenben {
+    display: flex;
+}
+.left,.center-left,
+.center-right
+{
+    padding-right: 250px;
+}
+p{
+   line-height:22px;
+   padding:10px 0;
+
+
+}
+</style>
