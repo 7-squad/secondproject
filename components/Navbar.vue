@@ -29,8 +29,8 @@
 import StudentManagement from "~/components/Table/StudentManagement.vue";
 import UserManagement from "~/components/Table/UserManagement.vue";
 import Teacher from "~/components/Table/Teacher.vue";
-import commend from "~/pages/commend.vue"
-import mouldupload from "~/pages/mouldupload.vue"
+import commend from "~/pages/commend.vue";
+import mouldupload from "~/pages/mouldupload.vue";
 import enrollnewprovince from "~/pages/enrollnewprovince.vue";
 import enrollnewteacher from "~/pages/enrollnewteacher.vue";
 import enrollnewstu from "~/pages/enrollnewstu.vue";
@@ -52,8 +52,7 @@ export default {
     stumanage,
     statistictable,
     usermanage,
-    rolemanage
-
+    rolemanage,
   },
   data() {
     return {
@@ -100,10 +99,10 @@ export default {
           index: "recommendManage",
           title: "推荐管理",
           subs: [
-             {
+            {
               index: "stuManage",
               title: "学生管理",
-              components:stumanage,
+              components: stumanage,
             },
           ],
         },
@@ -112,7 +111,7 @@ export default {
           index: "commendManage",
           title: "表彰管理",
           subs: [
-             {
+            {
               index: "issueCommand",
               title: "发布表彰",
               components: commend,
@@ -124,7 +123,7 @@ export default {
           index: "statisticAnalysis",
           title: "统计分析",
           subs: [
-              {
+            {
               index: "statisticTable",
               title: "综合报表统计",
               components: statistictable,
@@ -136,7 +135,7 @@ export default {
           index: "powerManage",
           title: "权限管理",
           subs: [
-             {
+            {
               index: "userManage",
               title: "用户管理",
               components: usermanage,
@@ -148,12 +147,19 @@ export default {
           index: "systemManage",
           title: "系统管理",
           subs: [
-             {
+            {
               index: "roleManage",
               title: "角色管理",
-              components:rolemanage,
+              components: rolemanage,
             },
           ],
+        },
+      ],
+      stuInformation: [
+        {
+          index: "enrollNewStu",
+          title: "招生计划设置",
+          components: enrollnewstu,
         },
       ],
     };
@@ -161,7 +167,7 @@ export default {
 
   methods: {
     clickMenu(menuIndex) {
-      console.log(menuIndex );
+      console.log(menuIndex);
 
       for (let index = 0; index < this.items.length; index++) {
         const element = this.items[index];
