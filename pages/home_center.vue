@@ -58,13 +58,13 @@ export default {
 .container {
   margin: 0 auto;
   display: flex;
-  width: 70%;
+  width: 80%;
   justify-content: space-between;
 }
 .left,
 .right {
-  height: 350px;
-  width: 504px;
+  height: 335px;
+ /* width: 500px; */
   background: #ffffff;
   border: 1px solid #bfbfbf;
   box-shadow: 0px 0px 10px 5px #aaa;
@@ -72,20 +72,27 @@ export default {
 
 .left > img,
 .right > img {
+ 
   margin-top: 10px;
-  margin-left: 15px;
+  margin-left: 0px;
 }
-.tx {
-  width: 494px;
+.left .tx,
+.right .tx {
+  width: 475px;
   display: flex;
   justify-content: space-between;
-}
-.tx > p {
-  margin-left: 15px;
 }
 
 .text {
   display: flex;
+}
+.el-menu{
+  background: unset  !important;
+}
+
+.el-menu-item{
+line-height: unset  !important;
+font-size: unset  !important;
 }
 
 </style>
