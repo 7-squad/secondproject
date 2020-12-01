@@ -5,11 +5,11 @@
         icon="el-icon-plus"
         size="mini"
         id="plusIcon"
-        @click="dialogTableVisible = true"
+        @click="dialogFormVisible = true"
       ></el-button>
     </el-col>
 
-    <el-dialog :visible.sync="dialogTableVisible">
+    <el-dialog :visible.sync="dialogFormVisible">
       <div slot="title" class="dialog-title">
         <img src="../../images/reg/tc.png" />
         <span class="title-text">新增模板资料</span>
@@ -29,8 +29,8 @@
       </el-form>
 
       <div class="button">
-        <el-button type="danger" id="qdtButton"> 确定 </el-button>
-        <el-button type="danger" id="exportButton"> 取消 </el-button>
+        <el-button type="danger" id="qdtButton" @click="dialogFormVisible = false"> 确定 </el-button>
+        <el-button type="danger" id="exportButton" @click="dialogFormVisible = false"> 取消 </el-button>
       </div>
     </el-dialog>
   </div>
@@ -41,6 +41,7 @@ export default {
   data() {
     return {
       dialogTableVisible: false,
+      dialogFormVisible: false,
       formInline: {
         user: "",
         region: "",
@@ -76,17 +77,16 @@ export default {
   height: 38px;
   width: 88px;
   letter-spacing: 5px;
+  background-color: #017e9e !important;
 }
 .el-button--danger {
   border-color: #007aa3;
 }
 .el-button {
-  width: 85px !important;
   height: 35px !important;
   font-size: 15px;
   line-height: 12px;
   border-radius: 5px;
-  background-color: #017e9e !important;
 }
 .button {
   margin-top: 20px;
