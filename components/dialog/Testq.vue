@@ -1,12 +1,10 @@
 <template>
   <div>
     <el-col>
-      <el-button
-        icon="el-icon-plus"
-        size="mini"
-        id="plusIcon"
+      <el-button type="danger" id="approvalButton"
+      
         @click="dialogFormVisible = true"
-      ></el-button>
+      >开始审批</el-button>
     </el-col>
 
     <el-dialog :visible.sync="dialogFormVisible">
@@ -57,6 +55,15 @@ export default {
 
 
 <style lang="less" scoped>
+#approvalButton{
+  border: 1px solid #7f201e;
+  background-color: #7f201e;
+  height: 38px !important;
+  width: 110px !important;
+ width: 110px;
+ border-radius: 0;
+ font-size: 18px;
+}
 .title-text {
   color: #007aa3;
 }

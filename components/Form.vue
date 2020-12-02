@@ -1,25 +1,36 @@
 <template>
   <div class="formbox">
     <p class="logotit">精准招生辅助系统</p>
-    <el-form ref="form" :model="form" label-width="80px">
+    <el-form
+      ref="loginform"
+      :model="loginform"
+      :rules="rules"
+      label-width="80px"
+    >
       <el-form-item label="用户名:" prop="username">
-        <el-input v-model="form.name" placeholder="请输入用户名"></el-input>
+        <el-input
+          v-model="loginform.username"
+          placeholder="请输入用户名"
+        ></el-input>
       </el-form-item>
 
       <el-form-item label="密码:" prop="password">
         <el-input
           type="password"
-          v-model="form.password"
+          v-model="loginform.password"
           placeholder="请输入密码"
         ></el-input>
       </el-form-item>
 
       <el-form-item label="验证码:">
-        <el-input v-model="form.verification"></el-input>
+        <el-input v-model="loginform.verification"></el-input>
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">登&nbsp;&nbsp;录</el-button>
+        <el-button type="primary" @click="submitForm('loginform')"
+          >登&nbsp;&nbsp;录</el-button
+        >
+        >
       </el-form-item>
 
       <div class="botbox">
@@ -35,21 +46,42 @@
 export default {
   data() {
     return {
-      form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: "",
+      loginform: {
+        username: "",
+        password: "",
+      },
+      rules: {
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          {
+            min: 6,
+            max: 20,
+            message: "长度在 6 到 20 个字符",
+            trigger: "blur",
+          },
+        ],
+        password: [
+          { required: true, message: "请输入密码", trigger: "blur" },
+          {
+            min: 6,
+            max: 20,
+            message: "长度在 6 到 20 个字符",
+            trigger: "blur",
+          },
+        ],
       },
     };
   },
   methods: {
-    onSubmit() {
-      console.log("submit!");
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert("submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     },
   },
 };
@@ -86,6 +118,7 @@ export default {
   // text-align: justify;
   text-align-last: justify;
   font-size: 18px;
+  padding: 0;
 }
 .el-form .el-input__inner {
   width: 330px;
