@@ -12,8 +12,8 @@
     </el-col>
     <el-col :span="4">
         <div class="grid-content bg-purple bg-purple2">
-            <el-button type="text" class="el-button-1"><img src="..\images\权限-角色管理_04.png" alt=""> 个人中心</el-button>
-            <el-button type="text" class="el-button-1"><img src="..\images\权限-角色管理_02.png" alt=""> 安全退出</el-button>
+            <el-button type="text" class="el-button-1"><img src="..\images\权限-角色管理_04.png" alt=""><a href="center_personal"> 个人中心</a></el-button>
+            <el-button type="text" class="el-button-1"><img src="..\images\权限-角色管理_02.png" alt=""><a href="login"> 安全退出</a></el-button>
             </div></el-col>
     </el-row>
 </template>
@@ -47,5 +47,9 @@
       /* text-align: center; */
       color: white;
       font-size: 10px;
+  }
+  .el-button-1 a{
+    color: white;
+    text-decoration: none;
   }
 </style>

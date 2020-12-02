@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" >
 .personbox {
   margin-top: 20px;
   width: 732px;
