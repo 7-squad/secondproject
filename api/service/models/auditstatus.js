@@ -1,4 +1,4 @@
-import { Sequelize, Datatype , Model} from "sequelize";
+import { Sequelize, DataTypes , Model} from "sequelize";
 
 //审核状态表
 class Auditstatus extends Model { }
@@ -43,6 +43,6 @@ export default function ( sequelize , type){
         tableName:"auditstatus",
         modelName:"Auditstatus",
     });
-    User.sync();
+    Auditstatus.sync();
     return model;
 }

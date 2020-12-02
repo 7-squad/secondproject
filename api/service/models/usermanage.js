@@ -42,7 +42,12 @@ export default function (sequelize,type){
         state:{
             type:DataTypes.STRING(50),
             allowNull:false,  
-        }
+        },
+    },{
+            sequelize,
+            tableName:"usermanage",
+            modelName:"Usermanage",
+        
     });
     Usermanage.sync();
     return model;

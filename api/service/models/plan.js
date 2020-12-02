@@ -1,4 +1,4 @@
-import { Sequelize, Datatype , Model} from "sequelize";
+import { Sequelize, DataTypes , Model} from "sequelize";
 
 //招生计划设计表
 class Plan extends Model { }
@@ -57,6 +57,6 @@ export default function ( sequelize , type){
         tableName:"plan",
         modelName:"Plan",
     });
-    User.sync();
+    Plan.sync();
     return model;
 }

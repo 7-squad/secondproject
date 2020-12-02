@@ -28,10 +28,10 @@ export default {
   },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .main{
 min-width: 1350px;
 background-color: #ecf0f1;
 }
-
 </style>
+

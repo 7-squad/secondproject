@@ -1,4 +1,4 @@
-import { Sequelize, Datatype , Model} from "sequelize";
+import { Sequelize, DataTypes , Model} from "sequelize";
 
 //招生省份设置表
 class Province extends Model { }
@@ -29,6 +29,6 @@ export default function ( sequelize , type){
         tableName:"province",
         modelName:"Province",
     });
-    User.sync();
+    Province.sync();
     return model;
 }

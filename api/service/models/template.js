@@ -1,4 +1,4 @@
-import { Sequelize, Datatype , Model} from "sequelize";
+import { Sequelize,DataTypes , Model} from "sequelize";
 
 //模板类型表
 class Template extends Model { }
@@ -33,6 +33,6 @@ export default function ( sequelize , type){
         tableName:"template",
         modelName:"Template",
     });
-    User.sync();
+    Template.sync();
     return model;
 }

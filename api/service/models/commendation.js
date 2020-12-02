@@ -1,4 +1,4 @@
-import { Sequelize, Datatype , Model} from "sequelize";
+import { Sequelize, DataTypes , Model} from "sequelize";
 
 //表彰表
 class Commendation extends Model { }
@@ -44,6 +44,6 @@ export default function ( sequelize , type){
         tableName:"commendation",
         modelName:"Commendation",
     });
-    User.sync();
+    Commendation.sync();
     return model;
 }

@@ -1,4 +1,4 @@
-import { Sequelize, Datatype , Model} from "sequelize";
+import { Sequelize, DataTypes , Model} from "sequelize";
 
 //后台角色管理者
 class Role extends Model { }
@@ -56,6 +56,6 @@ export default function ( sequelize , type){
         tableName:"role",
         modelName:"Role",
     });
-    User.sync();
+    Role.sync();
     return model;
 }

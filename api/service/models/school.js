@@ -1,4 +1,4 @@
-import { Sequelize, Datatype , Model} from "sequelize";
+import { Sequelize, DataTypes, Model} from "sequelize";
 
 //生源学校设置表
 class School extends Model { }
@@ -43,6 +43,6 @@ export default function ( sequelize , type){
         tableName:"school",
         modelName:"School",
     });
-    User.sync();
+    School.sync();
     return model;
 }
