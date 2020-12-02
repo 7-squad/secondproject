@@ -4,6 +4,8 @@ const state = () => {
         pages: [],
         // 当前显示的页面
         currentPage: null,
+        // 学生详情数据 pages/studentinformation.vue 专用
+        stuInfo:null,
     }
 }
 
@@ -56,7 +58,13 @@ const mutations = {
                 state.currentPage = element;
             }
         }
+    },
+
+    setStuInfo(state, data){
+        state.stuInfo = data;
     }
+
+
 }
 
 export {

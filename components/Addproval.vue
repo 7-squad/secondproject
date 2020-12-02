@@ -8,9 +8,9 @@
    
     <div class="wenben">
         <div class="left">
-        <p>姓名：姓名名</p>
+        <p>姓名：{{data.name}}</p>
         <p>招生年度：2018</p>
-        <p>招生类型：高考类</p>
+        <p>招生类型：{{data.recruit}}</p>
         <p>渠道类别：其他</p>
         </div>
 
@@ -115,6 +115,26 @@
 
 <script>
 export default {
+  props:{
+    data:{
+      type:Object,
+      default: function(){
+        return {
+          name: "王小虎",
+          recruit: "高考类",
+          school: "英德中学",
+          Majorname: "学前教育专业",
+          fraction: "200~250",
+          address: "上海市-普陀区金沙江路1518弄",
+          telnumber: "13416586441",
+          Poverty: "是",
+          method: "自荐",
+          date: "2018-06-15",
+          state: "待提交",
+        };
+      }
+    }
+  },
     data(){
         return{
             radio:"1",

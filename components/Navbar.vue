@@ -155,13 +155,6 @@ export default {
           ],
         },
       ],
-      // stuInformation: [
-      //   {
-      //     index: "enrollNewStu",
-      //     title: "招生计划设置",
-      //     components: enrollnewstu,
-      //   },
-      // ],
     };
   },
 

@@ -4,12 +4,13 @@
     :data="tableData"
     tooltip-effect="dark"
     style="width: 100%"
+    @current-change="handleCurrentChange"
     @selection-change="handleSelectionChange"
     border
     stripe
     :header-cell-style="{
       'background-color': '#f0f5f8',
-      'border-color':'#dedfe3'
+      'border-color': '#dedfe3',
     }"
     :cell-style="tableCellStyle"
   >
@@ -41,7 +42,7 @@
     </el-table-column>
 
     <el-table-column
-    width="120"
+      width="120"
       prop="Majorname"
       header-align="center"
       label="专业名称"
@@ -54,7 +55,7 @@
     </el-table-column>
 
     <el-table-column
-    width="150"
+      width="150"
       prop="address"
       header-align="center"
       label="所在地区"
@@ -62,7 +63,12 @@
     >
     </el-table-column>
 
-    <el-table-column label="联系电话" width="120px" header-align="center" show-overflow-tooltip>
+    <el-table-column
+      label="联系电话"
+      width="120px"
+      header-align="center"
+      show-overflow-tooltip
+    >
       <template slot-scope="scope">{{ scope.row.telnumber }}</template>
     </el-table-column>
 
@@ -88,8 +94,8 @@ export default {
     return {
       tableData: [
         {
-          name: "王小虎",
-          recruit: "高考类",
+          name: "aaaa",
+          recruit: "aaa高考类",
           school: "英德中学",
           Majorname: "学前教育专业",
           fraction: "200~250",
@@ -102,7 +108,7 @@ export default {
         },
         {
           date: "2016-05-02",
-          name: "王小虎",
+          name: "bbb",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
@@ -183,10 +189,21 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
+    handleCurrentChange(val) {
+      if (!val) return;
+      console.log("handleCurrentChange: %O", val);
+      this.selectRow = val;
+      this.$emit("stuInformation", val);
+    },
+    clearSelect() {
+      this.$refs.multipleTable.setCurrentRow();
+    },
     tableCellStyle() {
-    return "border-color: #dedfe3;";
+      return "border-color: #dedfe3;";
+    },
   },
-  },
-  
+  async fetch(){
+    this.tableData = await fetch("", {}).then(res => res.json())
+  }
 };
 </script>
