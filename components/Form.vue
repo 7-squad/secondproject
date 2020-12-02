@@ -17,6 +17,11 @@
       <el-form-item label="验证码:">
         <el-input v-model="form.verification"></el-input>
       </el-form-item>
+      <div class="zs_yanz">
+      <div style="border: none;"  @click="refreshCode">
+        <Identify :identifyCode="identifyCode"></Identify>
+      </div>
+      </div>
 
       <el-form-item>
         <el-button type="primary" @click="onSubmit">登&nbsp;&nbsp;录</el-button>
@@ -32,9 +37,24 @@
 </template>
 
 <script>
+import SIdentify from "@/components/identify";
+
 export default {
+  
   data() {
+    const validateCode = (rule, value, callback) => {
+      if (this.identifyCode !== value) {
+        this.loginForm.code = "";
+        this.refreshCode();
+        callback(new Error("请输入正确的验证码"));
+      } else {
+        callback();
+      }
+    };
     return {
+      identifyCodes: "1234567890",
+      identifyCode: "", //找回密码图形验证码
+
       form: {
         name: "",
         region: "",
@@ -45,13 +65,50 @@ export default {
         resource: "",
         desc: "",
       },
+      components: {
+        "s-Identify": SIdentify,
+      },
+      watch: {
+        identifyCode(v) {
+          this.isDebugLogin && (this.loginForm.code = v);
+        },
+      },
+
+
     };
   },
   methods: {
     onSubmit() {
       console.log("submit!");
     },
+
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min)
+    },
+    refreshCode() {
+      this.identifyCode = ''
+      this.makeCode(this.identifyCodes, 4)
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+          ]
+      }
+    }
+
   },
+  mounted() {
+    const self = this
+    self.dphone = localStorage.user
+    self.dpass = localStorage.password
+    self.identifyCode = "";
+    self.makeCode(this.identifyCodes, 4);
+  },
+  created() {
+    this.refreshCode()
+  }
+
 };
 </script>
 
@@ -123,4 +180,19 @@ export default {
 .botbox i {
   padding: 0 10px;
 }
+
+
+  .zs_yanz{
+    width: 342px;
+    margin: 0 auto;
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+   
+  }
+
+
+
 </style>

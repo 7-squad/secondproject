@@ -35,5 +35,6 @@
 <style lang="less" scoped>
 .main_container{
     margin: 0 25px;
+    
 }
 </style>
