@@ -8,13 +8,18 @@ import ORM from "koa-orm";
 
 import userManageRouter from "./router/userManage.js";
 import userRouter from "./router/user.js";
+import schoolRouter from "./router/school.js";
+import teacherRouter from "./router/teacher.js";
+import roleRouter from "./router/role.js";
+import provinceRouter from "./router/province.js";
 
+import auditstatusRouter from "./router/auditstatus.js";
 const app = new KOA();
 
 
 
 app.keys = [process.env.KOA_KEY];
-console.log("process.env:%O",process.env);
+// console.log("process.env:%O",process.env);
 
 const ormConfig ={
     name:process.env.ORM_NAME,
@@ -52,6 +57,12 @@ router.use("/user",userRouter.routes(),userRouter.allowedMeehods());
 
 
 
+router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
+router.use("/school",schoolRouter.routes(),schoolRouter.allowedMethods());
+router.use("/teacher",teacherRouter.routes(),teacherRouter.allowedMethods());
+router.use("/role",roleRouter.routes(),roleRouter.allowedMethods());
+router.use("/province",provinceRouter.routes(),provinceRouter.allowedMethods());
+router.use("/auditstatus",auditstatusRouter.routes(),auditstatusRouter.allowedMethods());
 app.use(router.routes(),router.allowedMethods());
 
 export default app.callback();

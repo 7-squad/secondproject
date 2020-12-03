@@ -1,12 +1,13 @@
+
 import Router from "koa-router";
 
 const router = new Router();
 
 router.get("/",async(ctx,next) =>{
-    const {Usermanage} = ctx.orm("enrollnewstusystem");
+    const {Auditstatus} = ctx.orm("enrollnewstusystem");
 
     //查询数据
-    let list =await Usermanage.findAll();
+    let list =await Auditstatus.findAll();
     if (list.length <= 0) {
         ctx.status = 500;
         ctx.body = JSON.stringify({

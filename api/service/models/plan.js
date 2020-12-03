@@ -32,12 +32,12 @@ export default function ( sequelize , type){
         },
         //报名开始时间
         start_time:{
-            type:DataTypes.DATE,
+            type:DataTypes.INTEGER,
             allowNull:false,
         },
         //报名结束时间
         end_time:{
-            type:DataTypes.DATE,
+            type:DataTypes.INTEGER,
             allowNull:false,
         },
         //备注
@@ -54,6 +54,8 @@ export default function ( sequelize , type){
         
     },{
         sequelize,
+        createdAt:false,
+        updatedAt:false,
         tableName:"plan",
         modelName:"Plan",
     });

@@ -23,7 +23,7 @@
         <!-- ref="teacher" 对组件的引用，使用teacher作为名字 将组件记录到this.$refs -->
         <!--  @showDialog="showDialogHandler" 监听组件内部 使用 this.$emit("showDialog", val); 发出的实践  -->
         <!-- this.$emit 抛出自定义事件 -->
-        <Teacher ref="teacher" @showDialog="showDialogHandler" />
+        <Teacher :tableData="fetchtableData" ref="teacher" @showDialog="showDialogHandler" />
       </el-col>
     </el-row>
     <!-- :dialogFormVisible="dialogFormVisible" 控制弹框显示的对象  -->
@@ -35,13 +35,19 @@
 
 <script>
 export default {
+   
   data(){
     return {
       dialogFormVisible:{
         show:false,
       },
-    }
+      fetchtableData:[]
+    } 
   },
+  async fetch() {
+    this.fetchtableData = await fetch("/api/teacher").then((res) => res.json());
+    console.log(this.fetchtableData);
+    },
   methods:{
     showDialogHandler(value){
       console.log("show: %O", value);

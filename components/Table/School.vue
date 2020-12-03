@@ -34,12 +34,12 @@
       align="center"
     ></el-table-column>
     <el-table-column
-      prop="school"
+      prop="sch_name"
       label="毕业学校"
       align="center"
     ></el-table-column>
     <el-table-column label="创建时间" align="center">
-      <template slot-scope="scope">{{ scope.row.data }}</template>
+      <template slot-scope="scope">{{ scope.row.start_time }}</template>
     </el-table-column>
 
     </el-table>
@@ -47,15 +47,24 @@
 
 <script>
 export default {
+  props:{
+tableData: {
+  type:Array,
+  default(){
+    return
+  }
+}
+  },
+
     data(){
         return{
-            tableData:[{
-                province:"湖南省",
-                city:"湘西土家族苗族自治州",
-                region:"湖南省湘西土家族苗族自治州",
-                school: "红龙中学",
-                data:"2017-12-24 17:09:42" ,
-            }],
+            // tableData:[{
+            //     province:"湖南省",
+            //     city:"湘西土家族苗族自治州",
+            //     region:"湖南省湘西土家族苗族自治州",
+            //     school: "红龙中学",
+            //     data:"2017-12-24 17:09:42" ,
+            // }],
             multipleSelection:[],
         };
     },
