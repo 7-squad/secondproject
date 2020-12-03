@@ -5,9 +5,14 @@ import Session from "koa-session";
 import Router from "koa-router";
 import ORM from "koa-orm";
 
+
 import userManageRouter from "./router/userManage.js";
+import userRouter from "./router/user.js";
 
 const app = new KOA();
+
+
+
 app.keys = [process.env.KOA_KEY];
 console.log("process.env:%O",process.env);
 
@@ -39,8 +44,12 @@ const bodyParser =new Body();
 app.use(bodyParser);
 
 const router = new Router();
-router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
+// router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
 router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMeehods());
+
+// 用户表
+router.use("/user",userRouter.routes(),userRouter.allowedMeehods());
+
 
 
 app.use(router.routes(),router.allowedMethods());
