@@ -9,8 +9,11 @@ export default function ( sequelize , type){
         id:{
             type:DataTypes.INTEGER,
             primaryKey:true,
+            // 允许为空
             allowNull:false,
+            // 自动生成
             autoIncrement:true,
+            // 唯一
             unique:true,
         },
         //手机号码
@@ -22,6 +25,7 @@ export default function ( sequelize , type){
         rec:{   
             type:DataTypes.STRING(20),
             allowNull:false,
+            // 默认值
             defaultValue: "王老师",
         },
         //推荐人数

@@ -1,25 +1,41 @@
 <template>
   <div class="formbox">
     <p class="logotit">精准招生辅助系统</p>
-    <el-form ref="form" :model="form" label-width="80px">
+    <el-form
+      ref="loginform"
+      :model="loginform"
+      :rules="rules"
+      label-width="80px"
+    >
       <el-form-item label="用户名:" prop="username">
-        <el-input v-model="form.name" placeholder="请输入用户名"></el-input>
+        <el-input
+          v-model="loginform.username"
+          placeholder="请输入用户名"
+        ></el-input>
       </el-form-item>
 
       <el-form-item label="密码:" prop="password">
         <el-input
           type="password"
-          v-model="form.password"
+          v-model="loginform.password"
           placeholder="请输入密码"
         ></el-input>
       </el-form-item>
 
       <el-form-item label="验证码:">
-        <el-input v-model="form.verification"></el-input>
+        <el-input v-model="loginform.verification"></el-input>
       </el-form-item>
+      <div class="zs_yanz">
+      <div style="border: none;"  @click="refreshCode">
+        <Identify :identifyCode="identifyCode"></Identify>
+      </div>
+      </div>
 
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">登&nbsp;&nbsp;录</el-button>
+        <el-button type="primary" @click="submitForm('loginform')"
+          >登&nbsp;&nbsp;录</el-button
+        >
+        >
       </el-form-item>
 
       <div class="botbox">
@@ -32,9 +48,24 @@
 </template>
 
 <script>
+import SIdentify from "@/components/identify";
+
 export default {
+  
   data() {
+    const validateCode = (rule, value, callback) => {
+      if (this.identifyCode !== value) {
+        this.loginForm.code = "";
+        this.refreshCode();
+        callback(new Error("请输入正确的验证码"));
+      } else {
+        callback();
+      }
+    };
     return {
+      identifyCodes: "1234567890",
+      identifyCode: "", //找回密码图形验证码
+
       form: {
         name: "",
         region: "",
@@ -44,14 +75,81 @@ export default {
         type: [],
         resource: "",
         desc: "",
+      loginform: {
+        username: "",
+        password: "",
       },
+      rules: {
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          {
+            min: 6,
+            max: 20,
+            message: "长度在 6 到 20 个字符",
+            trigger: "blur",
+          },
+        ],
+        password: [
+          { required: true, message: "请输入密码", trigger: "blur" },
+          {
+            min: 6,
+            max: 20,
+            message: "长度在 6 到 20 个字符",
+            trigger: "blur",
+          },
+        ],
+      },
+      components: {
+        "s-Identify": SIdentify,
+      },
+      watch: {
+        identifyCode(v) {
+          this.isDebugLogin && (this.loginForm.code = v);
+        },
+      },
+
+      }
     };
   },
   methods: {
-    onSubmit() {
-      console.log("submit!");
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert("submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     },
+
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min)
+    },
+    refreshCode() {
+      this.identifyCode = ''
+      this.makeCode(this.identifyCodes, 4)
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+          ]
+      }
+    }
+
   },
+  mounted() {
+    const self = this
+    self.dphone = localStorage.user
+    self.dpass = localStorage.password
+    self.identifyCode = "";
+    self.makeCode(this.identifyCodes, 4);
+  },
+  created() {
+    this.refreshCode()
+  }
+
 };
 </script>
 
@@ -86,6 +184,7 @@ export default {
   // text-align: justify;
   text-align-last: justify;
   font-size: 18px;
+  padding: 0;
 }
 .el-form .el-input__inner {
   width: 330px;
@@ -123,4 +222,19 @@ export default {
 .botbox i {
   padding: 0 10px;
 }
+
+
+  .zs_yanz{
+    width: 342px;
+    margin: 0 auto;
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+   
+  }
+
+
+
 </style>

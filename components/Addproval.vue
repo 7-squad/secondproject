@@ -9,15 +9,15 @@
     <div class="wenben">
         <div class="left">
         <p>姓名：{{data.name}}</p>
-        <p>招生年度：2018</p>
+        <p>招生年度：{{data.date}}</p>
         <p>招生类型：{{data.recruit}}</p>
         <p>渠道类别：其他</p>
         </div>
 
 <div class="center-left">
         <p>科目类型：文科</p>
-        <p>专业名称：酒店管理</p>
-        <p>所在地区：广东省-广州市</p>
+        <p>专业名称：{{data.Majorname}}</p>
+        <p>所在地区：{{data.address}}</p>
        
         <el-form>
         <el-form-item>
@@ -30,16 +30,16 @@
         </div>
 
 <div class="center-right">
-        <p>毕业学校：萝岗中学</p>
-        <p>分数段：400-500</p>
-        <p>联系电话：12345678900</p>
+        <p>毕业学校：{{data.school}}</p>
+        <p>分数段：{{data.fraction}}</p>
+        <p>联系电话：{{data.telnumber}}</p>
         
         </div>
 
          <div class="right">
         <p>身份证号：4123456789987654321</p>
-        <p>是否贫困生：是</p>
-        <p>推荐方式：他人推荐</p>
+        <p>是否贫困生：{{data.Poverty}}</p>
+        <p>推荐方式：{{data.method}}</p>
         
         </div>
     </div>
@@ -188,7 +188,7 @@ export default {
 .left,.center-left,
 .center-right
 {
-    padding-right: 250px;
+    padding-right: 100px;
 }
 p{
    line-height:22px;

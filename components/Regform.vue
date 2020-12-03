@@ -1,16 +1,17 @@
 <template>
   <div class="reg-box">
-    <el-form ref="form" :model="form" label-width="80px">
-      <el-form-item label="手机号码:">
-        <el-input v-model="form.tel"></el-input>
+    <el-form ref="regform" :model="regform" :rules="rules" label-width="100px">
+      <el-form-item label="手机号码:" prop="telephone">
+        <el-input v-model="regform.telephone"></el-input>
       </el-form-item>
 
       <el-form-item label="验证码:">
-        <el-input v-model="form.verification"></el-input>
+        <el-input v-model="regform.verification"></el-input>
       </el-form-item>
       <el-checkbox v-model="checked">我已充分阅读并同意此注册协议</el-checkbox>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">下一步</el-button>
+        <el-button type="primary" @click="submitForm('regform')" >下一步</el-button
+        >
       </el-form-item>
     </el-form>
   </div>
@@ -20,24 +21,31 @@
 export default {
   data() {
     return {
-      form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: "",
+      regform: {
+        telephone: "",
         checked: true,
       },
+      rules: {
+        telephone: [
+          { required: true, message: "号码不能为空" },
+        ],
+      },
     };
+    
   },
   methods: {
-    onSubmit() {
-      console.log("submit!");
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert("submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     },
   },
+  
 };
 </script>
 <style lang="less" scoped>
@@ -56,6 +64,9 @@ export default {
 .el-form-item .el-form-item__label {
   text-align-last: justify;
 }
+.el-form-item__label {
+  padding: 0;
+}
 .el-button--primary {
   background-color: #007aa3;
   border-color: #007aa3;
@@ -63,9 +74,7 @@ export default {
   width: 189px;
   margin-top: 50px;
 }
-.el-button--primary:hover {
-  background-color: #0593c2;
-}
+
 .el-checkbox:last-of-type {
   margin-left: 50px;
 }
