@@ -1,6 +1,7 @@
 import Router from "koa-router";
 
-Router.get("/",async(ctx,next) =>{
+const router = new Router();
+router.get("/",async(ctx,next) =>{
     const {Usermanage} = ctx.orm("enrollnewstusystem");
 
     //查询数据
