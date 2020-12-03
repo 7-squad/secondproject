@@ -9,7 +9,7 @@ import userManageRouter from "./router/userManage.js";
 
 const app = new KOA();
 app.keys = [process.env.KOA_KEY];
-console.log("process.env:%O",process.env);
+// console.log("process.env:%O",process.env);
 
 const ormConfig ={
     name:process.env.ORM_NAME,
@@ -39,8 +39,8 @@ const bodyParser =new Body();
 app.use(bodyParser);
 
 const router = new Router();
-router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
-router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMeehods());
+// router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
+router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
 
 
 app.use(router.routes(),router.allowedMethods());
