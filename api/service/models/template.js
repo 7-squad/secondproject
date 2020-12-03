@@ -25,7 +25,7 @@ export default function ( sequelize , type){
         },
         //创建时间
         start_time:{
-            type:DataTypes.DATE,
+            type:DataTypes.INTEGER,
             allowNull:false,
         },
     },{

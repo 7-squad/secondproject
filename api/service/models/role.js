@@ -31,8 +31,8 @@ export default function ( sequelize , type){
         },
         //创建日期
         date:{
-            type:DataTypes.DATE,
-            defaultValue: Sequelize.NOW,
+            type:DataTypes.INTEGER,
+            
 
         },
         //修改人
@@ -43,8 +43,8 @@ export default function ( sequelize , type){
         },
         //修改日期
         modified_date:{
-            type:DataTypes.DATE,
-            defaultValue: Sequelize.NOW,
+            type:DataTypes.INTEGER,
+            
         },
         //是否启用
         state:{

@@ -40,33 +40,31 @@
       align="center"
     ></el-table-column>
     <el-table-column label="创建时间" align="center">
-      <template slot-scope="scope">{{ scope.row.data }}</template>
+      <template slot-scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
   </el-table>
 </template>
 <script>
 export default {
-  // props: {
-  //   selectRow: {
-  //     type: Object,
-  //     default: function () {
-  //       return {
-  //         row: null,
-  //       };
-  //     },
-  //   },
-  // },
+   props:{
+tableData: {
+  type:Array,
+  default(){
+    return
+  }
+}
+  },
   data() {
     return {
-      tableData: [
-        {
-          year: "2018",
-          province: "广东省",
-          city: "湛江",
-          teacher: "王冰冰",
-          data: "2017-12-24",
-        },
-      ],
+      // tableData: [
+      //   {
+      //     year: "2018",
+      //     province: "广东省",
+      //     city: "湛江",
+      //     teacher: "王冰冰",
+      //     data: "2017-12-24",
+      //   },
+      // ],
       multipleSelection: [],
     };
   },

@@ -27,11 +27,24 @@
     <br>
     <el-row>
       <el-col>
-        <Province />
+        <Province :tableData="fetchtableData"/>
       </el-col>
     </el-row>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return{
+      fetchtableData:[]
+    }
+  },
+  async fetch() {
+    this.fetchtableData = await fetch("/api/province").then((res) => res.json());
+    console.log(this.fetchtableData);
+    }
+}
+</script>
 <style lang="less" scoped>
 .main_container{
     margin: 0 25px;

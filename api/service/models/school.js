@@ -35,9 +35,9 @@ export default function ( sequelize , type){
         },
         //创建时间
         start_time:{
-            type:DataTypes.DATE(6),
+            type:DataTypes.INTEGER,
             allowNull:false,
-            defaultValue: Sequelize.NOW,
+            
         },
     },{
         
