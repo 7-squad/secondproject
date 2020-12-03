@@ -21,16 +21,14 @@
           placeholder="请输入密码"
         ></el-input>
       </el-form-item>
-
-      <el-form-item label="验证码:">
-        <el-input v-model="loginform.verification"></el-input>
+<div class="yzm">
+      <el-form-item label="验证码:" prop="sidentify">
+        <el-input v-model="loginform.sidentify"></el-input>
       </el-form-item>
-      <div class="zs_yanz">
-      <div style="border: none;"  @click="refreshCode">
-        <Identify :identifyCode="identifyCode"></Identify>
-      </div>
-      </div>
-
+      <div style="border: none" @click="refreshCode">
+          <Identify :identifyCode="identifyCode"></Identify>
+        </div>
+</div>
       <el-form-item>
         <el-button type="primary" @click="submitForm('loginform')"
           >登&nbsp;&nbsp;录</el-button
@@ -51,13 +49,15 @@
 import SIdentify from "@/components/identify";
 
 export default {
-  
   data() {
-    const validateCode = (rule, value, callback) => {
-      if (this.identifyCode !== value) {
-        this.loginForm.code = "";
-        this.refreshCode();
-        callback(new Error("请输入正确的验证码"));
+    const sidentify = (rule, value, callback) => {
+      let newVal = value.toLowerCase();
+      let identifyStr = this.identifyCode.toLowerCase();
+      if (newVal === "") {
+        callback(new Error("请输入验证码"));
+      } else if (newVal !== identifyStr) {
+        console.log("sidentify:", value);
+        callback(new Error("验证码不正确"));
       } else {
         callback();
       }
@@ -66,18 +66,10 @@ export default {
       identifyCodes: "1234567890",
       identifyCode: "", //找回密码图形验证码
 
-      form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: "",
       loginform: {
         username: "",
         password: "",
+        sidentify: "",
       },
       rules: {
         username: [
@@ -98,6 +90,12 @@ export default {
             trigger: "blur",
           },
         ],
+        sidentify: {
+          required: true,
+          message: "请输入正确的验证码",
+          trigger: "blur",
+          validator: sidentify,
+        },
       },
       components: {
         "s-Identify": SIdentify,
@@ -107,49 +105,46 @@ export default {
           this.isDebugLogin && (this.loginForm.code = v);
         },
       },
-
-      }
     };
   },
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          alert("登录成功");
+
         } else {
-          console.log("error submit!!");
+          console.log("登录失败");
           return false;
         }
       });
     },
-
+    // 生成随机数
     randomNum(min, max) {
-      return Math.floor(Math.random() * (max - min) + min)
+      return Math.floor(Math.random() * (max - min) + min);
     },
+    // 切换验证码
     refreshCode() {
-      this.identifyCode = ''
-      this.makeCode(this.identifyCodes, 4)
+      this.identifyCode = "";
+      this.makeCode(this.identifyCodes, 4);
     },
+    // 生成四位数随机验证码
     makeCode(o, l) {
       for (let i = 0; i < l; i++) {
         this.identifyCode += this.identifyCodes[
           this.randomNum(0, this.identifyCodes.length)
-          ]
+        ];
       }
-    }
-
+    },
   },
   mounted() {
-    const self = this
-    self.dphone = localStorage.user
-    self.dpass = localStorage.password
+    const self = this;
     self.identifyCode = "";
     self.makeCode(this.identifyCodes, 4);
   },
   created() {
-    this.refreshCode()
-  }
-
+    this.refreshCode();
+  },
 };
 </script>
 
@@ -187,7 +182,7 @@ export default {
   padding: 0;
 }
 .el-form .el-input__inner {
-  width: 330px;
+  // width: 330px;
   height: 40px;
   border: 1px solid #edeeee;
   padding-left: 8px;
@@ -223,18 +218,7 @@ export default {
   padding: 0 10px;
 }
 
-
-  .zs_yanz{
-    width: 342px;
-    margin: 0 auto;
-    margin-top: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   
-   
-  }
-
-
-
+.yzm{
+  display: flex;
+}
 </style>

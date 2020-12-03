@@ -134,7 +134,7 @@
   .s-canvas {
     height: 38px;
     canvas{
-      margin-top: 5px;
+      margin-left: 30px;
     }
   }
 </style>
