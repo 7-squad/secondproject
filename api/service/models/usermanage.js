@@ -9,6 +9,7 @@ export default function (sequelize,type){
             type:DataTypes.INTEGER,
             primaryKey:true,
             allowNull:false,
+            autoIncrement:true,
             unique:true,
         },
         userId:{
@@ -24,11 +25,11 @@ export default function (sequelize,type){
             allowNull:false,
         },
         email:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull:false,
         },
         brith:{
-            type:DataTypes.STRING(50),
+            type:DataTypes.INTEGER(50),
             allowNull:false,
         },
         role:{
@@ -45,6 +46,8 @@ export default function (sequelize,type){
         },
     },{
             sequelize,
+            createdAt:false,
+            updatedAt:false,
             tableName:"usermanage",
             modelName:"Usermanage",
         

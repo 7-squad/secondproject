@@ -18,7 +18,7 @@
     <el-table-column type="index" width="55" header-align="center" label="序号">
     </el-table-column>
     <el-table-column label="账号" header-align="center">
-      <template slot-scope="scope">{{ scope.row.account }}</template>
+      <template slot-scope="scope">{{ scope.row.userId }}</template>
     </el-table-column>
 
     <el-table-column
@@ -28,7 +28,7 @@
     ></el-table-column>
 
     <el-table-column label="手机号码" width="120px" header-align="center">
-      <template slot-scope="scope">{{ scope.row.telnumber }}</template>
+      <template slot-scope="scope">{{ scope.row.phonenum }}</template>
     </el-table-column>
 
     <el-table-column
@@ -39,7 +39,7 @@
     ></el-table-column>
 
     <el-table-column label="出生日期" header-align="center">
-      <template slot-scope="scope">{{ scope.row.date }}</template>
+      <template slot-scope="scope">{{ scope.row.brith }}</template>
     </el-table-column>
 
     <el-table-column
@@ -49,7 +49,7 @@
     ></el-table-column>
 
     <el-table-column
-      prop="CustomerType"
+      prop="usertype"
       label="用户类型"
       header-align="center"
     ></el-table-column>
@@ -64,20 +64,30 @@
 
 <script>
 export default {
+  props:{
+tableData: {
+  type:Array,
+  default(){
+    return
+  }
+}
+  },
   data() {
+
+    
     return {
-      tableData: [
-        {
-          account: "15876337709",
-          name: "胡宁义",
-          telnumber: "13987654321",
-          email: "ming@casfasfca.com.cn",
-          date: "1975-06-06",
-          role: "领导查看",
-          CustomerType: "后台用户",
-          state: "启用中",
-        },
-      ],
+      // tableData: [
+      //   {
+      //     account: "15876337709",
+      //     name: "胡宁义",
+      //     telnumber: "13987654321",
+      //     email: "ming@casfasfca.com.cn",
+      //     date: "1975-06-06",
+      //     role: "领导查看",
+      //     CustomerType: "后台用户",
+      //     state: "启用中",
+      //   },
+      // ],
       multipleSelection: [],
     };
   },

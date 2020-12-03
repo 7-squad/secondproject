@@ -38,7 +38,7 @@ const bodyParser =new Body();
 app.use(bodyParser);
 
 const router = new Router();
-router.use("/",rootRouter.routes(),rootRouter.allowedMeehods());
+// router.use("/",rootRouter.routes(),rootRouter.allowedMeehods());
 
 
 app.use(router.routes(),router.allowedMethods());
