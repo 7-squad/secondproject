@@ -66,25 +66,25 @@ export default {
       return {
         tableData: [{
           school: '待完善资料',
-          name: '王小虎',
+          name: '231',
           amount1: '234',
           amount2: '3.2',
           amount3: 10
         }, {
           school: '审核通过',
-          name: '王小虎',
+          name: '21',
           amount1: '165',
           amount2: '4.43',
           amount3: 12
         }, {
           school: '退回修改',
-          name: '王小虎',
+          name: '23',
           amount1: '324',
           amount2: '1.9',
           amount3: 9
         }, {
           school: '待审核',
-          name: '王小虎',
+          name: '24',
           amount1: '621',
           amount2: '2.2',
           amount3: 17

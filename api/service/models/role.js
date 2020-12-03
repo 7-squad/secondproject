@@ -53,6 +53,8 @@ export default function ( sequelize , type){
         },
     },{
         sequelize,
+        createdAt:false,
+        updatedAt:false,
         tableName:"role",
         modelName:"Role",
     });
