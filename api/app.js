@@ -50,10 +50,10 @@ app.use(bodyParser);
 
 const router = new Router();
 // router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
-router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMeehods());
+router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
 
 // 用户表
-router.use("/user",userRouter.routes(),userRouter.allowedMeehods());
+router.use("/user",userRouter.routes(),userRouter.allowedMethods());
 
 
 
