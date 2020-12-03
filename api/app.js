@@ -6,6 +6,7 @@ import Router from "koa-router";
 import ORM from "koa-orm";
 
 import userManageRouter from "./router/userManage.js";
+import schoolRouter from "./router/school.js";
 
 const app = new KOA();
 app.keys = [process.env.KOA_KEY];
@@ -41,7 +42,7 @@ app.use(bodyParser);
 const router = new Router();
 // router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
 router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
-
+router.use("/school",schoolRouter.routes(),schoolRouter.allowedMethods());
 
 app.use(router.routes(),router.allowedMethods());
 

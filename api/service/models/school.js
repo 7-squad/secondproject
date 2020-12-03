@@ -37,9 +37,13 @@ export default function ( sequelize , type){
         start_time:{
             type:DataTypes.DATE(6),
             allowNull:false,
+            defaultValue: Sequelize.NOW,
         },
     },{
+        
         sequelize,
+        createdAt:false,
+        updatedAt:false,
         tableName:"school",
         modelName:"School",
     });
