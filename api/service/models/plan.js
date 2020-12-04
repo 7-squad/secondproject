@@ -54,6 +54,8 @@ export default function ( sequelize , type){
         
     },{
         sequelize,
+        createdAt:false,
+        updatedAt:false,
         tableName:"plan",
         modelName:"Plan",
     });

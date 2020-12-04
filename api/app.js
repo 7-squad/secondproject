@@ -6,6 +6,10 @@ import Router from "koa-router";
 import ORM from "koa-orm";
 
 import userManageRouter from "./router/userManage.js";
+// 发布表彰 - 
+import commendationRouter from "./router/commendation.js";
+// 招生计划设置
+import stuplanRouter from "./router/stuplan.js";
 
 const app = new KOA();
 app.keys = [process.env.KOA_KEY];
@@ -41,7 +45,11 @@ app.use(bodyParser);
 const router = new Router();
 // router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
 router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
+// 发布表彰
+router.use("/commendation",commendationRouter.routes(),commendationRouter.allowedMethods());
 
+// 招生计划设置
+router.use("/stuplan",stuplanRouter.routes(),stuplanRouter.allowedMethods());
 
 app.use(router.routes(),router.allowedMethods());
 
