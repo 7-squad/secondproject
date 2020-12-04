@@ -1,31 +1,25 @@
 <template>
   <!-- 忘记密码 -->
   <div class="reg-box">
-    <el-form ref="form" :model="form" label-width="100px">
-      <el-form-item label="用户账号:">
-        <el-input v-model="form.tel" placeholder=""></el-input>
+    <el-form ref="pwdForm" :model="pwdForm" :rules="rules" label-width="100px">
+      <el-form-item label="用户账号:" prop="username">
+        <el-input v-model="pwdForm.username"></el-input>
       </el-form-item>
-      <el-form-item label="登陆密码:">
+      <el-form-item label="登录密码:" prop="password">
         <el-input
           type="password"
-          v-model="form.password"
+          v-model="pwdForm.password"
           placeholder=""
         ></el-input>
       </el-form-item>
-      <el-form-item label="重复密码:">
-        <el-input
-          type="password"
-          v-model="form.password2"
-          placeholder=""
-        ></el-input>
+      <el-form-item label="重复密码:" prop="checkPass">
+        <el-input type="password" v-model="pwdForm.checkPass"></el-input>
       </el-form-item>
 
-      <el-form-item label="短信验证码:">
-        <el-input v-model="form.verification"></el-input>
-      </el-form-item>
-      <button class="verification">获取短信验证码</button>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">确 定</el-button>
+        <el-button type="primary" @click="submitForm('pwdForm')"
+          >确 定</el-button
+        >
       </el-form-item>
     </el-form>
   </div>
@@ -34,27 +28,64 @@
 <script>
 export default {
   data() {
+    var validatePass = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入密码"));
+      } else {
+        if (this.pwdForm.checkPass !== "") {
+          this.$refs.pwdForm.validateField("checkPass");
+        }
+        callback();
+      }
+    };
+    var validatePass2 = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
+      } else if (value !== this.pwdForm.password) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
+    };
     return {
-      form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: "",
-        checked: true,
+      pwdForm: {
+        username: "",
+        password: "",
+        checkPass: "",
+      },
+      rules: {
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          {
+            min: 6,
+            max: 20,
+            message: "长度在 6 到 20 个字符",
+            trigger: "blur",
+          },
+        ],
+        password: [{ validator: validatePass, trigger: "blur" }],
+        checkPass: [{ validator: validatePass2, trigger: "blur" }],
       },
     };
   },
   methods: {
-    onSubmit() {
-      console.log("submit!");
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert("submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
     },
   },
 };
 </script>
+
 <style lang="less" scoped>
 .reg-box {
   margin: 0 auto;
@@ -64,9 +95,6 @@ export default {
   margin: 10px auto;
   width: 320px;
   height: 326px;
-}
-.el-form-item {
-  margin-bottom: 10px;
 }
 // .el-form-item__label {
 //   text-align-last: justify;
@@ -78,14 +106,6 @@ export default {
   border-radius: 25px;
   width: 189px;
   margin: 10px -20px;
-}
-.verification {
-  outline: none;
-  border: 1px solid #dcdfe6;
-  color: #0576a4;
-  width: 110px;
-  height: 30px;
-  margin: 0 120px;
 }
 .el-button--primary {
   background-color: #007aa3;

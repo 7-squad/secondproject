@@ -10,7 +10,7 @@
       </el-form-item>
       <el-checkbox v-model="checked">我已充分阅读并同意此注册协议</el-checkbox>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('regform')" >下一步</el-button
+        <el-button type="primary" @click="submitForm('regform')" ><a href="reg2">下一步</a></el-button
         >
       </el-form-item>
     </el-form>
@@ -66,6 +66,10 @@ export default {
 }
 .el-form-item__label {
   padding: 0;
+}
+.el-button a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 .el-button--primary {
   background-color: #007aa3;
