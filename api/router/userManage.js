@@ -21,4 +21,7 @@ router.get("/",async(ctx,next) =>{
     ctx.type="text/json";
     ctx.body = JSON.stringify(list)
 });
+
+
+
 export default router;

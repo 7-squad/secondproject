@@ -35,6 +35,7 @@
           type="danger"
           id="qdtButton"
           @click="dialogFormVisible = false"
+          
         >
           确定
         </el-button>
