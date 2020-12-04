@@ -57,9 +57,10 @@ const router = new Router();
 
 // 发布表彰
 router.use("/commendation",commendationRouter.routes(),commendationRouter.allowedMethods());
+router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
 
 // 用户表
-router.use("/user",userRouter.routes(),userRouter.allowedMeehods());
+router.use("/user",userRouter.routes(),userRouter.allowedMethods());
 
 // 招生计划设置
 router.use("/stuplan",stuplanRouter.routes(),stuplanRouter.allowedMethods());
