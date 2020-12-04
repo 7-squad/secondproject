@@ -7,7 +7,7 @@
     header-align="center"
     :header-cell-style="{
       'background-color': '#f0f5f8',
-      'border-color':'#dedfe3'
+      'border-color': '#dedfe3',
     }"
     stripe
     border
@@ -64,17 +64,15 @@
 
 <script>
 export default {
-  props:{
-tableData: {
-  type:Array,
-  default(){
-    return
-  }
-}
+  props: {
+    tableData: {
+      type: Array,
+      default() {
+        return;
+      },
+    },
   },
   data() {
-
-    
     return {
       // tableData: [
       //   {
@@ -105,8 +103,8 @@ tableData: {
       this.multipleSelection = val;
     },
     tableCellStyle() {
-    return "border-color: #dedfe3;";
-  },
+      return "border-color: #dedfe3;";
+    },
   },
 };
 </script>

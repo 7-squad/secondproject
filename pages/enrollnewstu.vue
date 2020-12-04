@@ -1,7 +1,6 @@
 <!-- 招生计划设置 -->
 <template>
-
-  <div  class="main_container">
+  <div class="main_container">
     <el-row>
       <el-col>
         <Souinout />
@@ -9,7 +8,7 @@
     </el-row>
     <el-row>
       <el-col :span="1">
-       <Addzsjh />
+        <Addzsjh />
       </el-col>
       <el-col :span="1">
         <Modifyicon />
@@ -18,22 +17,37 @@
         <Deletebutton />
       </el-col>
       <el-col :span="1">
-      <Righticon />
+        <Righticon />
       </el-col>
       <el-col :span="1">
         <Stopicon />
       </el-col>
     </el-row>
-    <br>
+    <br />
     <el-row>
       <el-col>
-        <EnrollmentPlan />
+        <EnrollmentPlan :tableData="fetchtableData" />
       </el-col>
     </el-row>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      fetchtableData: []
+    }
+  },
+  async fetch() {
+    this.fetchtableData = await fetch("/api/stuplan").then((res) => res.json());
+    console.log(this.fetchtableData);
+  }
+}
+</script>
+
 <style lang="less" scoped>
-.main_container{
-    margin: 0 25px;
+.main_container {
+  margin: 0 25px;
 }
 </style>

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Regform from "~/components/Regform.vue";
+import Regform from "~/components/Regform2.vue";
 export default {
   layout: "loginbefore",
   components: {

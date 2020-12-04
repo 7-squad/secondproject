@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <Header />
-    <el-row :gutter="10">
+    <el-row :gutter="10" style="margin-right: 0px;">
       <el-col :span="4" class="navbar">
         <Navbar />
       </el-col>
@@ -32,6 +32,8 @@ export default {
 .main{
 min-width: 1350px;
 background-color: #ecf0f1;
+margin-right: 0px;
+margin-left: 0px;
 }
 </style>
 

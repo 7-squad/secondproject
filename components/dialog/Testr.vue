@@ -15,18 +15,18 @@
       </div>
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="招生年度:">
-          <el-input placeholder="请输入招生年度"></el-input>
+          <el-input v-model="form.name" placeholder="请输入招生年度"></el-input>
         </el-form-item>
 
         <el-form-item label="招生省份:">
-          <el-input placeholder="请输入招生省份"></el-input>
+          <el-input v-model="form.province" placeholder="请输入招生省份"></el-input>
         </el-form-item>
         <el-form-item label="招生城市:">
-          <el-input placeholder="请输入招生城市"></el-input>
+          <el-input v-model="form.city" placeholder="请输入招生城市"></el-input>
         </el-form-item>
 
         <el-form-item label="招生老师:">
-          <el-input placeholder="请输入招生老师"></el-input>
+          <el-input v-model="form.teather" placeholder="请输入招生老师"></el-input>
         </el-form-item>
       </el-form>
 
@@ -35,6 +35,7 @@
           type="danger"
           id="qdtButton"
           @click="dialogFormVisible = false"
+          
         >
           确定
         </el-button>
@@ -57,6 +58,12 @@ export default {
       formInline: {},
       dialogTableVisible: false,
       dialogFormVisible: false,
+      form: {
+        name: "",
+        province: "",
+        city: "",
+        teather: "",
+      },
     };
   },
 };

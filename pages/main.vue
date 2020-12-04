@@ -107,9 +107,11 @@ export default {
     background-color: #fff;
 }
 
+
 </style>
 <style>
 .el-table th.gutter{
    display: table-cell!important;
  }
+ 
 </style>

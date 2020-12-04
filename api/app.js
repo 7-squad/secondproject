@@ -7,6 +7,10 @@ import ORM from "koa-orm";
 
 
 import userManageRouter from "./router/userManage.js";
+// 发布表彰 - 
+import commendationRouter from "./router/commendation.js";
+// 招生计划设置
+import stuplanRouter from "./router/stuplan.js";
 import userRouter from "./router/user.js";
 import schoolRouter from "./router/school.js";
 import teacherRouter from "./router/teacher.js";
@@ -51,10 +55,15 @@ app.use(bodyParser);
 const router = new Router();
 // router.use("/", rootRouter.routes(), rootRouter.allowedMethods());
 
+// 发布表彰
+router.use("/commendation",commendationRouter.routes(),commendationRouter.allowedMethods());
+router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
 
 // 用户表
 router.use("/user",userRouter.routes(),userRouter.allowedMethods());
 
+// 招生计划设置
+router.use("/stuplan",stuplanRouter.routes(),stuplanRouter.allowedMethods());
 
 
 router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
