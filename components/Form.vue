@@ -6,31 +6,37 @@
       :model="loginform"
       :rules="rules"
       label-width="80px"
+      @submit.stop.prevent="doLoginSubmit"
     >
+      <el-input v-model="loginform.token" name="token" hidden></el-input>
+
       <el-form-item label="用户名:" prop="username">
         <el-input
-          v-model="loginform.username"
+          v-model="$v.loginform.username.$model"
           placeholder="请输入用户名"
+           :state="validateregFormState('username')"
         ></el-input>
       </el-form-item>
 
       <el-form-item label="密码:" prop="password">
         <el-input
           type="password"
-          v-model="loginform.password"
+          v-model="$v.loginform.password.$model"
           placeholder="请输入密码"
+          :state="validateregFormState('password')"
         ></el-input>
       </el-form-item>
-<div class="yzm">
-      <el-form-item label="验证码:" prop="sidentify">
-        <el-input v-model="loginform.sidentify"></el-input>
-      </el-form-item>
-      <div style="border: none" @click="refreshCode">
+      <div class="yzm">
+        <el-form-item label="验证码:" prop="sidentify">
+          <el-input v-model="$v.loginform.sidentify.$model"></el-input>
+        </el-form-item>
+        <!-- 验证码组件 -->
+        <div style="border: none" @click="refreshCode">
           <Identify :identifyCode="identifyCode"></Identify>
         </div>
-</div>
+      </div>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('loginform')"
+        <el-button type="primary"
           >登&nbsp;&nbsp;录</el-button
         >
         >
@@ -46,7 +52,8 @@
 </template>
 
 <script>
-import SIdentify from "@/components/identify";
+import SIdentify from "@/components/Identify";
+import postBody from "~/utils/postbody.js";
 
 export default {
   data() {
@@ -65,12 +72,16 @@ export default {
     return {
       identifyCodes: "1234567890",
       identifyCode: "", //找回密码图形验证码
-
-      loginform: {
-        username: "",
-        password: "",
-        sidentify: "",
+      result: {
+        result: false,
       },
+      loginform: {
+        token:" ",
+        username: null,
+        password: null,
+        sidentify: " ",
+      },
+
       rules: {
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
@@ -108,17 +119,50 @@ export default {
     };
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert("登录成功");
+    // 验证输入状态
+     validateregFormState(value) {
+      const { $dirty, $error } = this.$v.loginform[value];
+      return $dirty ? !$error : null;
+    },
 
-        } else {
-          console.log("登录失败");
-          return false;
-        }
+    async doLoginSubmit(evt) {
+      this.$v.loginform.$touch();
+    if (this.$v.loginform.$anyError) {
+        return;
+      }
+        this.$store.dispatch("auth/doLogin", {
+        data: this.loginform,
+        page: this,
       });
     },
+ finishLogin() {
+        // 登陆请求信息显示倒计时
+        // 不论成功和失败都有信息显示
+        this.dismissCountDown = 10;
+      if (!this.result.result) {
+        this.$store.commit("auth/setMessage");
+        // await this.refreshToken();
+        return;
+      } else {
+        
+        this.$store.commit("auth/setMessage");
+        this.$router.push({ path: "/home_center" });
+      }
+    },
+    countDownChanged(countDown) {
+      this.dismissCountDown = countDown;
+    },
+    async refreshToken() {
+      let result = await fetch("/api/user/login").then((res) => res.json());
+      this.loginForm.token = result.token;
+    },
+   
+
+ async fetch() {
+    await this.refreshToken();
+  },
+
+    
     // 生成随机数
     randomNum(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
@@ -137,6 +181,8 @@ export default {
       }
     },
   },
+
+
   mounted() {
     const self = this;
     self.identifyCode = "";
@@ -218,7 +264,7 @@ export default {
   padding: 0 10px;
 }
 
-.yzm{
+.yzm {
   display: flex;
 }
 </style>

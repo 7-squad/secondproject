@@ -35,12 +35,14 @@ export default function ( sequelize , type){
         },
         //创建时间
         date:{
-            type:DataTypes.DATE,
+            type:DataTypes.INTEGER,
             allowNull:false,
-            defaultValue: Sequelize.NOW,
+            
         },
     },{
         sequelize,
+        createdAt:false,
+        updatedAt:false,
         tableName:"teacher",
         modelName:"Teacher",
     });

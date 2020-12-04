@@ -26,6 +26,8 @@ export default function ( sequelize , type){
         
     },{
         sequelize,
+        createdAt:false,
+        updatedAt:false,
         tableName:"province",
         modelName:"Province",
     });

@@ -34,13 +34,21 @@
 </template>
 <script>
 export default {
+   props:{
+tableData: {
+  type:Array,
+  default(){
+    return
+  }
+}
+  },
     data(){
         return{
-            tableData:[{
-                state:"启用中",
-                province:"广东省",
+            // tableData:[{
+            //     state:"启用中",
+            //     province:"广东省",
 
-            }],
+            // }],
             multipleSelection:[],
         };
     },
