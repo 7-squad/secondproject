@@ -6,39 +6,39 @@
       :model="loginform"
       :rules="rules"
       label-width="80px"
-      @submit.stop.prevent="doLoginSubmit"
     >
-      <el-input v-model="loginform.token" name="token" hidden></el-input>
+      <el-input v-model="loginform.token" name="token" type="hidden"></el-input>
 
       <el-form-item label="用户名:" prop="username">
         <el-input
-          v-model="$v.loginform.username.$model"
+          v-model="loginform.username"
           placeholder="请输入用户名"
-           :state="validateregFormState('username')"
+           
         ></el-input>
       </el-form-item>
 
       <el-form-item label="密码:" prop="password">
         <el-input
           type="password"
-          v-model="$v.loginform.password.$model"
+          v-model="loginform.password"
           placeholder="请输入密码"
-          :state="validateregFormState('password')"
+         
         ></el-input>
       </el-form-item>
       <div class="yzm">
-        <el-form-item label="验证码:" prop="sidentify">
-          <el-input v-model="$v.loginform.sidentify.$model"></el-input>
+         <el-form-item label="验证码:" prop="sidentify">
+        <el-input v-model="loginform.sidentify"></el-input>
+     
         </el-form-item>
         <!-- 验证码组件 -->
-        <div style="border: none" @click="refreshCode">
+       <div style="border: none" @click="refreshCode">
           <Identify :identifyCode="identifyCode"></Identify>
         </div>
       </div>
       <el-form-item>
-        <el-button type="primary"
+        <!--  -->
+        <el-button type="primary" @click="submitForm('loginform')"
           >登&nbsp;&nbsp;录</el-button
-        >
         >
       </el-form-item>
 
@@ -119,38 +119,34 @@ export default {
     };
   },
   methods: {
-    // 验证输入状态
-     validateregFormState(value) {
-      const { $dirty, $error } = this.$v.loginform[value];
-      return $dirty ? !$error : null;
-    },
-
-    async doLoginSubmit(evt) {
-      this.$v.loginform.$touch();
-    if (this.$v.loginform.$anyError) {
-        return;
-      }
-        this.$store.dispatch("auth/doLogin", {
+   
+     submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+ this.$store.dispatch("auth/doLogin", {
         data: this.loginform,
         page: this,
       });
+      alert("登录成功");
+      // this.$router.push({ path: "/home_center" });
+
+        } else {
+          console.log("登录失败");
+          return false;
+        }
+      });
     },
+
+    
  finishLogin() {
-        // 登陆请求信息显示倒计时
-        // 不论成功和失败都有信息显示
-        this.dismissCountDown = 10;
+       
       if (!this.result.result) {
         this.$store.commit("auth/setMessage");
-        // await this.refreshToken();
         return;
       } else {
-        
         this.$store.commit("auth/setMessage");
-        this.$router.push({ path: "/home_center" });
+      
       }
-    },
-    countDownChanged(countDown) {
-      this.dismissCountDown = countDown;
     },
     async refreshToken() {
       let result = await fetch("/api/user/login").then((res) => res.json());

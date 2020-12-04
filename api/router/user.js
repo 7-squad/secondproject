@@ -106,11 +106,6 @@ router.post("/login", async (ctx, next) => {
         code: 200,
         title: "登录成功",
         message: `账号 ${username} 登录成功！`,
-        // 不要直接将数据库中的用户数据返回给客户端，其中包含太多敏感信息
-        user: {
-            nickName: user.nickName,
-            userMenu: user.userMenu
-        }
     });
 });
 export default router;
