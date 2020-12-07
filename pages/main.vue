@@ -21,42 +21,24 @@
   </div>
 </template>
 <script>
-import StudentManagement from "~/components/Table/StudentManagement.vue";
-import UserManagement from "~/components/Table/UserManagement.vue";
-import Teacher from "~/components/Table/Teacher.vue";
+
+
+import enrollnewstu from "~/pages/enrollnewstu.vue";
 
 let defaultTab = {
   title: "我的桌面",
   index: "myDesktop",
-  components: StudentManagement,
+  components: enrollnewstu,
 };
 
 export default {
   layout: "loginafter",
   components: {
-    StudentManagement,
-    UserManagement,
+  enrollnewstu
   },
   data() {
     return {
-      compList: [
-        {
-          name: "basicData",
-          title: "基础数据管理",
-          components: StudentManagement,
-        },
-        {
-          name: "recommendManage",
-          title: "推荐管理",
-          components: UserManagement,
-        },
-        {
-          name: "enrollNewStu",
-          title: "招生计划设置",
-          components: "Teacher",
-        },
-      ],
-    
+  
       tabIndex: "1",
     };
   },
