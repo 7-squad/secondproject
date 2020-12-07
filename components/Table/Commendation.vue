@@ -28,7 +28,7 @@
     </el-table-column>
 
     <el-table-column label="时间" align="center">
-      <template slot-scope="scope">{{ scope.row.data }}</template>
+      <template slot-scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
     <el-table-column
       prop="state"

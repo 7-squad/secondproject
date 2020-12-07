@@ -32,12 +32,12 @@ export default function ( sequelize , type){
         },
         //报名开始时间
         start_time:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull:false,
         },
         //报名结束时间
         end_time:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull:false,
         },
         //备注

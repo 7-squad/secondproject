@@ -15,7 +15,7 @@
         <Modifyicon />
       </el-col>
       <el-col :span="2">
-        <Deletebutton />
+        <Deletebutton @do-delete="doDelete" />
       </el-col>
       <el-col :span="1">
       <Powericon />
@@ -24,7 +24,7 @@
     <br>
     <el-row>
       <el-col>
-        <UserManagement :tableData="fetchtableData"/>
+        <UserManagement ref="usermag" :tableData="fetchtableData"/>
       </el-col>
     </el-row>
   </div>
@@ -35,6 +35,11 @@ export default {
   data(){
     return{
       fetchtableData:[]
+    }
+  },
+  methods:{
+    doDelete(){
+      console.log("multipleSelection: %O", this.$refs.usermag.multipleSelection);
     }
   },
   async fetch() {

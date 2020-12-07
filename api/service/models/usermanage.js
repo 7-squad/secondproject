@@ -29,7 +29,7 @@ export default function (sequelize,type){
             allowNull:false,
         },
         brith:{
-            type:DataTypes.INTEGER(50),
+            type:DataTypes.STRING(50),
             allowNull:false,
         },
         role:{

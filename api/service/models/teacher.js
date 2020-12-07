@@ -14,7 +14,7 @@ export default function ( sequelize , type){
             unique:true,
         },
         //招生老师
-        teacher:{
+        teachername:{
             type:DataTypes.STRING(20),
             allowNull:false,
         },
@@ -35,7 +35,7 @@ export default function ( sequelize , type){
         },
         //创建时间
         date:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull:false,
             
         },
