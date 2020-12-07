@@ -8,10 +8,10 @@
       <el-form-item label="审批结果 : 2018"> </el-form-item>
       <el-form-item label="招生省份 : 广东省"> </el-form-item>
 
-      <el-form-item label="招生城市 : 茂名"> </el-form-item>
-      <el-form-item label="招生老师 : 肖亚光"> </el-form-item>
+      <el-form-item label="招生城市 : 湛江"> </el-form-item>
+      <el-form-item label="招生老师 : 王冰冰"> </el-form-item>
 
-      <el-form-item label="创建时间 : 2018-5-9"> </el-form-item>
+      <el-form-item label="创建时间 : 2017-12-24"> </el-form-item>
     </el-form>
 
     <div class="button">

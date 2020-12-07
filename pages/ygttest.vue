@@ -1,83 +1,75 @@
 <template>
   <el-form
-    :model="regForm"
+    :model="loginForm"
     status-icon
-    :rules="rules"
-    ref="regForm"
-    label-width="100px"
+    :rules="rules2"
+    ref="ruleForm2"
     class="demo-ruleForm"
   >
-    <el-form-item label="手机号" prop="tel">
-      <el-input v-model.number="regForm.tel"></el-input>
-    </el-form-item>
-    <el-form-item label="密码" prop="password">
-      <el-input
-        type="password"
-        v-model="regForm.password"
-        auto-complete="off"
-      ></el-input>
-    </el-form-item>
-    <el-form-item label="确认密码" prop="checkPass">
-      <el-input
-        type="password"
-        v-model="regForm.checkPass"
-        auto-complete="off"
-      ></el-input>
+    <el-form-item label="用户名" prop="username">
+      <el-input v-model.number="loginForm.username"></el-input>
     </el-form-item>
 
     <el-form-item>
-      <el-button type="primary" @click="submitForm('regForm')">提交</el-button>
+      <el-form-item label="密码" prop="passwordword">
+        <el-input
+          type="passwordwordword"
+          v-model="loginForm.passwordword"
+          auto-complete="off"
+        ></el-input>
+      </el-form-item>
+
+      <el-form-item label="确认密码" prop="checkpasswordword">
+        <el-input
+          type="passwordwordword"
+          v-model="loginForm.checkpasswordword"
+          auto-complete="off"
+        ></el-input>
+      </el-form-item>
+
+      <el-button type="primary" @click="submitForm('loginForm')"
+        >登录</el-button
+      >
     </el-form-item>
   </el-form>
-</template>
+</template>>
 <script>
 export default {
   data() {
-    var checkTel = (rule, value, callback) => {
+    var checkUsername = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error("手机号不能为空"));
+        return callback(new Error("用户名不能为空"));
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error("请输入数字值"));
-        } else {
-          if (value < 10000000000 || value > 19999999999) {
-            callback(new Error("必须11位数"));
-          } else {
-            callback();
-          }
-        }
-      }, 1000);
     };
-    var validatePass = (rule, value, callback) => {
+    var validatepasswordword = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入密码"));
       } else {
-        if (this.regForm.checkPass !== "") {
-          this.$refs.regForm.validateField("checkPass");
+        if (this.loginForm.checkpasswordword !== "") {
+          this.$refs.loginForm.validateField("checkpasswordword");
         }
         callback();
       }
     };
-    var validatePass2 = (rule, value, callback) => {
+    var validatepasswordword2 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请再次输入密码"));
-      } else if (value !== this.regForm.password) {
+      } else if (value !== this.loginForm.passwordword) {
         callback(new Error("两次输入密码不一致!"));
       } else {
         callback();
       }
     };
     return {
-      regForm: {
-        password: "",
-        checkPass: "",
-        tel: "",
+      loginForm: {
+        username: "",
+        passwordword: "",
+        checkpasswordword: "",
       },
-      rules: {
-        password: [{ validator: validatePass, trigger: "blur" }],
-        checkPass: [{ validator: validatePass2, trigger: "blur" }],
-        tel: [{ validator: checkTel, trigger: "blur" }],
+      rules2: {
+        passwordword: [{ validator: validatepasswordword, trigger: "blur" }],
+        checkpasswordword: [{ validator: validatepasswordword2, trigger: "blur" }],
+        username: [{ validator: checkUsername, trigger: "blur" }],
       },
     };
   },

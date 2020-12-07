@@ -13,6 +13,10 @@
         <el-button type="primary" @click="submitForm('regform')" ><a href="reg2">下一步</a></el-button
         >
       </el-form-item>
+
+      <el-menu :router="true">
+        <el-menu-item index="/Regform2"></el-menu-item>
+      </el-menu>
     </el-form>
   </div>
 </template>

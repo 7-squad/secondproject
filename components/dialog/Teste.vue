@@ -16,21 +16,50 @@
       </div>
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="模板类型:">
-          <el-select v-model="formInline.region" placeholder="请选择模板资料类型">
+          <el-select
+            v-model="formInline.region"
+            placeholder="请选择模板资料类型"
+          >
             <el-option label="类型一" value="1"></el-option>
             <el-option label="类型二" value="2"></el-option>
           </el-select>
         </el-form-item>
-        <br>
-        <el-form-item label="模板类型:"><br>
-            <div class="box"></div>
-         <!-- <el-autocomplete></el-autocomplete> -->
+        <br />
+        <el-form-item label="模板类型:"
+          ><br />
+          <div class="box">
+            <div>
+              <el-upload
+                list-type="picture-card"
+                :on-preview="handlePictureCardPreview"
+                :on-remove="handleRemove"
+              >
+                <i class="el-icon-plus"></i>
+              </el-upload>
+              <el-dialog :visible.sync="dialogVisible" size="tiny">
+                <img width="100%" :src="dialogImageUrl" alt="" />
+              </el-dialog>
+            </div>
+          </div>
+          <!-- <el-autocomplete></el-autocomplete> -->
         </el-form-item>
       </el-form>
 
       <div class="button">
-        <el-button type="danger" id="qdtButton" @click="dialogFormVisible = false"> 确定 </el-button>
-        <el-button type="danger" id="exportButton" @click="dialogFormVisible = false"> 取消 </el-button>
+        <el-button
+          type="danger"
+          id="qdtButton"
+          @click="dialogFormVisible = false"
+        >
+          确定
+        </el-button>
+        <el-button
+          type="danger"
+          id="exportButton"
+          @click="dialogFormVisible = false"
+        >
+          取消
+        </el-button>
       </div>
     </el-dialog>
   </div>
@@ -67,10 +96,10 @@ export default {
 // .el-form-item {
 // }
 .box {
-    width: 550px;
-    height: 150px;
-    border: 1px solid #e8e8e8;
-    margin-left: -70px;
+  width: 550px;
+  height: 150px;
+  border: 1px solid #e8e8e8;
+  margin-left: -70px;
 }
 #exportButton,
 #qdtButton {
