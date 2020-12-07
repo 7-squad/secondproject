@@ -99,7 +99,6 @@ router.post("/login", async (ctx, next) => {
 
     // 保存用户数据到 session 中
     ctx.session.user = user;
-
     ctx.status = 200;
     ctx.body = JSON.stringify({
         result: true,
