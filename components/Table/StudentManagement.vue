@@ -202,8 +202,8 @@ export default {
       return "border-color: #dedfe3;";
     },
   },
-  async fetch(){
-    this.tableData = await fetch("", {}).then(res => res.json())
-  }
+  // async fetch(){
+  //   this.tableData = await fetch("", {}).then(res => res.json())
+  // }
 };
 </script>

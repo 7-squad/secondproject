@@ -31,7 +31,7 @@ export default function ( sequelize , type){
         },
         //创建日期
         date:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             
 
         },
@@ -43,7 +43,7 @@ export default function ( sequelize , type){
         },
         //修改日期
         modified_date:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             
         },
         //是否启用
