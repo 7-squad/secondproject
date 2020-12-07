@@ -43,6 +43,7 @@
       prop="remarks"
       label="备注"
       align="center"
+      show-overflow-tooltip
     ></el-table-column>
     <el-table-column prop="state" label="状态" align="center"></el-table-column>
   </el-table>

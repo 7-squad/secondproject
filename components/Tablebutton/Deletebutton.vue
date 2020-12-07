@@ -1,6 +1,11 @@
 <template>
      <el-col>
-          <el-button type="danger" id="deleteButton"> 删除 </el-button>
+          <el-button 
+          type="danger" 
+          id="deleteButton"
+          
+          > 
+          删除 </el-button>
         </el-col>
 </template>
 <style lang="less">
