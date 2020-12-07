@@ -9,14 +9,14 @@
     stripe
     :header-cell-style="{
       'background-color': '#f0f5f8',
-      'border-color':'#dedfe3'
+      'border-color': '#dedfe3',
     }"
-    :cell-style="tableCellStyle"  
+    :cell-style="tableCellStyle"
   >
     <el-table-column type="index" width="55" header-align="center" label="序号">
     </el-table-column>
     <el-table-column label="招生年度" align="center">
-      <template slot-scope="scope">{{ scope.row.data }}</template>
+      <template slot-scope="scope">{{ scope.row.year }}</template>
     </el-table-column>
     <el-table-column
       prop="major"
@@ -61,37 +61,43 @@
       show-overflow-tooltip
     ></el-table-column>
 
-     <el-table-column label="操作" show-overflow-tooltip>
+    <el-table-column label="操作" show-overflow-tooltip>
       <template slot-scope="scope">
-        <el-button
-          size="mini"
-          @click="handleEdit(scope.$index, scope.row)">查看详情</el-button>
-        
+        <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
+          >查看详情</el-button
+        >
       </template>
     </el-table-column>
-</el-table>
-
+  </el-table>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            tableData:[{
-                Idcard:"123456789876543210",
-                city:"广东,广州",
-                telphone:"13987684564",
-                name: "姓名名",
-                data:"2017年" ,
-                major:"建筑工程技术管理",
-                PoorStudents:"是",
-                state:"审核不通过",
-            }],
-            multipleSelection:[],
-        };
+  props: {
+    tableData: {
+      type: Array,
+      default() {
+        return;
+      },
     },
-    methods:{
-        toggleSelection(rows) {
+  },
+  data() {
+    return {
+      // tableData:[{
+      //     Idcard:"123456789876543210",
+      //     city:"广东,广州",
+      //     telphone:"13987684564",
+      //     name: "姓名名",
+      //     data:"2017年" ,
+      //     major:"建筑工程技术管理",
+      //     PoorStudents:"是",
+      //     state:"审核不通过",
+      // }],
+      multipleSelection: [],
+    };
+  },
+  methods: {
+    toggleSelection(rows) {
       if (rows) {
         rows.forEach((row) => {
           this.$refs.multipleTable.toggleRowSelection(row);
@@ -104,15 +110,14 @@ export default {
       this.multipleSelection = val;
     },
     tableCellStyle() {
-    return "border-color: #dedfe3;";
-  },
-  
+      return "border-color: #dedfe3;";
     },
+  },
 };
 </script>
 
 <style>
-.el-table th.gutter{
-   display: table-cell!important;
- }
+.el-table th.gutter {
+  display: table-cell !important;
+}
 </style>

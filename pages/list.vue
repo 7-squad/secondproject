@@ -17,7 +17,7 @@
             </div>
           </div>
           <div>
-            <StudentsList />
+            <StudentsList :tableData="fetchtableData" />
           </div>
         </div>
       </div>
@@ -29,7 +29,17 @@
 <script>
 export default {
   layout: "loginbefore",
+   data() {
+    return {
+      fetchtableData: []
+    }
+  },
+  async fetch() {
+    this.fetchtableData = await fetch("/api/stuinformation").then((res) => res.json());
+    console.log(this.fetchtableData);
+  }
 };
+
 </script>
 <style lang="less" scoped>
 .list {

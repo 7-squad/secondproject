@@ -4,7 +4,7 @@
     <div class="container">
       <div class="contanttit">
         <span class="contanttit-left">{{ title }}</span>
-        <a href="login">返 回</a>
+        <a @click="prev" href="#">返 回</a>
       </div>
       <div class="contantinn">
         <div class="zcyh">
@@ -34,6 +34,12 @@ export default {
       default: "精准招生辅助系统",
     },
     component: null,
+  },
+  // 返回上一级页面
+  methods: {
+    prev() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div class="reg-box">
     <el-form ref="regForm" :model="regForm" :rules="rules" label-width="100px">
-      <el-form-item label="手机号码:" prop="tel">
-        <el-input v-model.number="regForm.tel"></el-input>
+      <el-form-item label="用户名:" prop="username">
+        <el-input v-model="regForm.username"></el-input>
       </el-form-item>
 
       <el-form-item label="登录密码:" prop="password">
@@ -25,22 +25,6 @@
 <script>
 export default {
   data() {
-    var checkTel = (rule, value, callback) => {
-      if (!value) {
-        return callback(new Error("手机号不能为空"));
-      }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error("请输入数字值"));
-        } else {
-          if (value < 10000000000 || value > 19999999999) {
-            callback(new Error("必须11位数"));
-          } else {
-            callback();
-          }
-        }
-      }, 1000);
-    };
     var validatePass = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入密码"));
@@ -62,14 +46,22 @@ export default {
     };
     return {
       regForm: {
-        tel: "",
+        username: "",
         password: "",
         checkPass: "",
       },
       rules: {
         password: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }],
-        tel: [{ validator: checkTel, trigger: "blur" }],
+         username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          {
+            min: 6,
+            max: 20,
+            message: "长度在 6 到 20 个字符",
+            trigger: "blur",
+          },
+        ],
       },
     };
   },

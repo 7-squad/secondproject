@@ -18,6 +18,9 @@ import roleRouter from "./router/role.js";
 import provinceRouter from "./router/province.js";
 
 import auditstatusRouter from "./router/auditstatus.js";
+
+// 推荐学生
+import stuinformationRouter from "./router/stuinformation.js";
 const app = new KOA();
 
 
@@ -65,13 +68,20 @@ router.use("/user",userRouter.routes(),userRouter.allowedMethods());
 // 招生计划设置
 router.use("/stuplan",stuplanRouter.routes(),stuplanRouter.allowedMethods());
 
-
 router.use("/usermanage",userManageRouter.routes(),userManageRouter.allowedMethods());
+
 router.use("/school",schoolRouter.routes(),schoolRouter.allowedMethods());
+
 router.use("/teacher",teacherRouter.routes(),teacherRouter.allowedMethods());
+
 router.use("/role",roleRouter.routes(),roleRouter.allowedMethods());
+
 router.use("/province",provinceRouter.routes(),provinceRouter.allowedMethods());
+
 router.use("/auditstatus",auditstatusRouter.routes(),auditstatusRouter.allowedMethods());
+
+router.use("/stuinformation",stuinformationRouter.routes(),stuinformationRouter.allowedMethods());
+
 app.use(router.routes(),router.allowedMethods());
 
 export default app.callback();
