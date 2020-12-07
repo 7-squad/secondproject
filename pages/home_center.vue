@@ -4,7 +4,7 @@
       <div class="main">
 
         <el-menu class="container"  :router="true" >
-          <el-menu-item class="left" index="/login">
+          <el-menu-item class="left" index="/userlist">
             <img src="../images/首页_03.png" />
             <div class="tx">
               <p>推荐学生</p>
@@ -15,7 +15,7 @@
             </div>
           </el-menu-item>
         
-            <el-menu-item class="right"  index="/login">
+            <el-menu-item class="right"  index="/list">
               <img src="../images/首页_05.png" />
               <div class="tx">
                 <p>审核状态</p>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  layout: "home",
+  layout: "loginbefore",
 };
 </script>
 <style lang = "less" scoped>
