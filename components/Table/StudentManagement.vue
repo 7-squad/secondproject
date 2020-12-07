@@ -203,7 +203,7 @@ export default {
     },
   },
   async fetch(){
-    this.tableData = await fetch("", {}).then(res => res.json())
+    // this.tableData = await fetch("", {}).then(res => res.json())
   }
 };
 </script>

@@ -35,7 +35,7 @@
       align="center"
     ></el-table-column>
     <el-table-column
-      prop="teacher"
+      prop="teachername"
       label="招生老师"
       align="center"
     ></el-table-column>
@@ -46,13 +46,13 @@
 </template>
 <script>
 export default {
-   props:{
-tableData: {
-  type:Array,
-  default(){
-    return
-  }
-}
+  props: {
+  },
+  beforeMount(){
+    this.$store.dispatch(
+      "teacher/getTeacherList",
+      this
+    );
   },
   data() {
     return {
@@ -94,7 +94,16 @@ tableData: {
       // 清空鼠标点击的选择行
       this.$refs.multipleTable.setCurrentRow();
     },
+    
+    finishGetTeacherList(result) {},
   },
+  computed:{
+    tableData:{
+      get(){
+        return this.$store.state.teacher.teachers;
+      }
+    }
+  }
 };
 </script>
 
