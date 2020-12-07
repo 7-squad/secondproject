@@ -3,7 +3,7 @@
     <div class="headbox">
       <p class="headbox-right">
         <a href="center_personal" class="lefta">个人中心</a>
-        <a href="">退出登录</a>
+        <a href="login">退出登录</a>
       </p>
     </div>
   </div>

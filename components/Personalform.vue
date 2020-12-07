@@ -20,7 +20,7 @@
       </el-form-item>
 
       <el-form-item label="出生年月:">
-        <el-date-picker v-model="value" type="date"> </el-date-picker>
+        <el-date-picker v-model="radio" type="date"> </el-date-picker>
       </el-form-item>
 
       <el-form-item class="longf" label="工作单位:">
