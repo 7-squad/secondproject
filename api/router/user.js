@@ -3,7 +3,7 @@ import UUID from "../../utils/uuid.js";
 
 const router = new Router();
 
-
+// 登录令牌
 router.get("/login", async (ctx, next) => {
     ctx.type = "text/json";
     let loginToken = UUID();
@@ -11,7 +11,7 @@ router.get("/login", async (ctx, next) => {
     ctx.session.loginTokenTime = new Date().getTime() + 1000 * 60 * 10;
     ctx.body = JSON.stringify({ token: loginToken });
 })
-
+// 登录
 router.post("/login", async (ctx, next) => {
     let { token, username, password } = ctx.request.body;
     ctx.type = "text/json";
@@ -107,4 +107,100 @@ router.post("/login", async (ctx, next) => {
         message: `账号 ${username} 登录成功！`,
     });
 });
+
+
+// 注册令牌
+router.get("/signin", async (ctx, next) => {
+    ctx.type = "text/json";
+    let token = UUID();
+    ctx.session.signinToken = token;
+    ctx.session.signinTokenTime = new Date().getTime() + 1000 * 60 * 10;
+    ctx.body = JSON.stringify({ token: token });
+})
+
+// 注册
+router.post("/signin", async (ctx, next) => {
+    let { token, username, password } = ctx.request.body;
+
+    let signinToken = ctx.session.signinToken;
+    let signinTokenTime = ctx.session.signinTokenTime;
+    ctx.session.signinTokenTime = undefined;
+    ctx.session.signinToken = undefined;
+
+    ctx.type = "text/json";
+    if (signinTokenTime < new Date().getTime()
+        || signinToken !== token) {
+        ctx.status = 403;
+        ctx.body = JSON.stringify({
+            result: false,
+            code: "100000",
+            title: "注册失败",
+            message: "令牌无效"
+        });
+        return;
+    }
+
+    username = username.trim();
+    if (username.length < 6
+        || username.length > 20
+        ) {
+        ctx.status = 403;
+        ctx.body = JSON.stringify({
+            result: false,
+            code: "100000",
+            title: "注册失败",
+            message: "账号名称无效"
+        });
+        return;
+    }
+    if (password.length < 6 || password.length > 20) {
+        ctx.status = 403;
+        ctx.body = JSON.stringify({
+            result: false,
+            code: "100000",
+            title: "注册失败",
+            message: "密码长度必须在6至20位之间"
+        });
+        return;
+    }
+
+    const { User } = ctx.orm('enrollnewstusystem');
+    let user = await User.findAll({
+        where: {
+            username
+        }
+    });
+    if (user.length > 0) {
+        ctx.status = 403;
+        ctx.body = JSON.stringify({
+            result: false,
+            code: "100000",
+            title: "注册失败",
+            message: "用户已存在"
+        });
+        return;
+    }
+
+    user = await User.create({ username, password });
+    console.log(user);
+    if (!user) {
+        ctx.status = 500;
+        ctx.body = JSON.stringify({
+            result: false,
+            code: "100000",
+            title: "注册失败",
+            message: "数据库错误！"
+        });
+        return;
+    }
+
+    ctx.status = 200;
+    ctx.body = JSON.stringify({
+        result: true,
+        code: 200,
+        title: "注册成功",
+        message: `账号 ${username} 注册成功！`
+    });
+});
+
 export default router;

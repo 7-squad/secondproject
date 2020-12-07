@@ -52,13 +52,42 @@ const actions = {
         Object.assign(obj, context.state.result, result);
         console.log("obj: %O", obj);
         // 保存登陆请求状态
-        context.commit("setLoginResult", obj);
+        // context.commit("setLoginResult", obj);
         // 记录用户数据
         if(result.result){
             context.commit("setUser", result.user);
             sessionStorage.setItem("user", JSON.stringify(result.user));
         }
         page.finishLogin(result);
+    },
+
+    async doSignin(context, { data, page }) {
+        console.log("context: %O", context);
+        console.log("data: %O", data);
+
+        let body = postBody(data);
+        console.log(body);
+        let result = await fetch("/api/user/signin", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+            },
+            body,
+        }).then((res) => res.json());
+        let obj = {};
+        // Object.assign 将 第一个参数后的对象的数据值更新 到第一个里面 
+        // context.state.result内的key 和 value、  result内的key 和 value 都会被复制进 obj
+        Object.assign(obj, context.state.result, result);
+        console.log("obj: %O", obj);
+        // 保存登陆请求状态
+        // context.commit("setLoginResult", obj);
+        // 记录用户数据
+        if(result.result){
+            context.commit("setUser", result.user);
+            sessionStorage.setItem("user", JSON.stringify(result.user));
+        }
+        page.finishsignin(result);
     }
 }
 

@@ -8,7 +8,7 @@
       <el-form-item label="验证码:">
         <el-input v-model="regform.verification"></el-input>
       </el-form-item>
-      <el-checkbox v-model="checked">我已充分阅读并同意此注册协议</el-checkbox>
+      <el-checkbox v-model="regform.checked">我已充分阅读并同意此注册协议</el-checkbox>
       <el-form-item>
         <el-button type="primary" @click="submitForm('regform')" ><a href="reg2">下一步</a></el-button
         >
@@ -23,12 +23,15 @@ export default {
     return {
       regform: {
         telephone: "",
-        checked: true,
+        checked: false,
       },
       rules: {
         telephone: [
           { required: true, message: "号码不能为空" },
         ],
+        checked:{
+          required: true
+        }
       },
     };
     
@@ -37,7 +40,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          // alert("submit!");
         } else {
           console.log("error submit!!");
           return false;
