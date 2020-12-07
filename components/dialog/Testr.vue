@@ -13,29 +13,36 @@
         <img src="../../images/reg/tc.png" />
         <span class="title-text">新增招生老师</span>
       </div>
-      <el-form :inline="true" :model="formInline" class="demo-form-inline">
+      <el-form @submit.stop.prevent="onSubimt" :inline="true" :model="formInline" class="demo-form-inline">
+        
         <el-form-item label="招生年度:">
-          <el-input v-model="form.name" placeholder="请输入招生年度"></el-input>
+          <el-input v-model="form.name.$model" placeholder="请输入招生年度"></el-input>
         </el-form-item>
 
         <el-form-item label="招生省份:">
-          <el-input v-model="form.province" placeholder="请输入招生省份"></el-input>
+          <el-input
+            v-model="form.province.$model"
+            placeholder="请输入招生省份"
+          ></el-input>
         </el-form-item>
         <el-form-item label="招生城市:">
-          <el-input v-model="form.city" placeholder="请输入招生城市"></el-input>
+          <el-input v-model="form.city.$model" placeholder="请输入招生城市"></el-input>
         </el-form-item>
 
         <el-form-item label="招生老师:">
-          <el-input v-model="form.teather" placeholder="请输入招生老师"></el-input>
+          <el-input
+            v-model="form.teather.$model"
+            placeholder="请输入招生老师"
+          ></el-input>
         </el-form-item>
       </el-form>
 
       <div class="button">
         <el-button
+        native-type="submit"
           type="danger"
           id="qdtButton"
           @click="dialogFormVisible = false"
-          
         >
           确定
         </el-button>
@@ -66,6 +73,32 @@ export default {
       },
     };
   },
+  methods:{
+      onSubmit(event) {
+
+      this.$store.dispatch("teacher/addTeacher", {
+        page: this,
+        data: this.teacher,
+      });
+    },
+      finishAddTeacher(result) {
+      if (result.result) {
+        this.$root.$bvToast.toast(`${result.message}`, {
+          title: `添加成功`,
+          toaster: 'b-toaster-top-center',
+          variant: 'success',
+        });
+      } else {
+          this.$root.$bvToast.toast(`${result.message}`, {
+          title: `添加失败`,
+          toaster: 'b-toaster-top-center',
+          variant: 'danger',
+        });
+      }
+      this.$store.dispatch("oaec/teacher/getTeacherList");
+      this.$emit("goto-teacher-list");
+    },
+  }
 };
 </script>
 

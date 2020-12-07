@@ -14,7 +14,7 @@
     :cell-style="tableCellStyle"
     @selection-change="handleSelectionChange"
   >
-    <el-table-column type="selection" width="55"> </el-table-column>
+    <el-table-column type="selection" width="55"></el-table-column>
     <el-table-column type="index" width="55" header-align="center" label="序号">
     </el-table-column>
     <el-table-column label="账号" header-align="center">
@@ -101,6 +101,7 @@ export default {
     },
     handleSelectionChange(val) {
       this.multipleSelection = val;
+      console.log("this.multipleSelection: %O", this.multipleSelection);
     },
     tableCellStyle() {
       return "border-color: #dedfe3;";

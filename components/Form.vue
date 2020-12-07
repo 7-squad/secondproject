@@ -13,7 +13,6 @@
         <el-input
           v-model="loginform.username"
           placeholder="请输入用户名"
-           
         ></el-input>
       </el-form-item>
 
@@ -22,16 +21,14 @@
           type="password"
           v-model="loginform.password"
           placeholder="请输入密码"
-         
         ></el-input>
       </el-form-item>
       <div class="yzm">
-         <el-form-item label="验证码:" prop="sidentify">
-        <el-input v-model="loginform.sidentify"></el-input>
-     
+        <el-form-item label="验证码:" prop="sidentify">
+          <el-input v-model="loginform.sidentify"></el-input>
         </el-form-item>
         <!-- 验证码组件 -->
-       <div style="border: none" @click="refreshCode">
+        <div style="border: none" @click="refreshCode">
           <Identify :identifyCode="identifyCode"></Identify>
         </div>
       </div>
@@ -76,10 +73,10 @@ export default {
         result: false,
       },
       loginform: {
-        token:" ",
+        token: "",
         username: null,
         password: null,
-        sidentify: " ",
+        sidentify: "",
       },
 
       rules: {
@@ -119,17 +116,13 @@ export default {
     };
   },
   methods: {
-   
-     submitForm(formName) {
+    submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
- this.$store.dispatch("auth/doLogin", {
-        data: this.loginform,
-        page: this,
-      });
-      alert("登录成功");
-      // this.$router.push({ path: "/home_center" });
-
+          this.$store.dispatch("auth/doLogin", {
+            data: this.loginform,
+            page: this,
+          });
         } else {
           console.log("登录失败");
           return false;
@@ -137,28 +130,24 @@ export default {
       });
     },
 
-    
- finishLogin() {
-       
-      if (!this.result.result) {
-        this.$store.commit("auth/setMessage");
-        return;
+    finishLogin(result) {
+      if (result.result) {
+        this.$store.commit("auth/setMessage",result.message);
+         this.$router.push({ path: "/home_center" });
       } else {
-        this.$store.commit("auth/setMessage");
-      
+        alert("登录失败," + result.message)
+        
       }
     },
+    // 获取登录令牌
     async refreshToken() {
       let result = await fetch("/api/user/login").then((res) => res.json());
-      this.loginForm.token = result.token;
+      console.log("result:%O", result);
+      this.loginform.token = result.token;
     },
-   
-
- async fetch() {
-    await this.refreshToken();
-  },
 
     
+
     // 生成随机数
     randomNum(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
@@ -178,7 +167,6 @@ export default {
     },
   },
 
-
   mounted() {
     const self = this;
     self.identifyCode = "";
@@ -187,6 +175,9 @@ export default {
   created() {
     this.refreshCode();
   },
+  async fetch() {
+      await this.refreshToken();
+    },
 };
 </script>
 

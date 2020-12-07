@@ -14,7 +14,7 @@ export default function ( sequelize , type){
             unique:true,
         },
         //招生老师
-        teacher:{
+        teachername:{
             type:DataTypes.STRING(20),
             allowNull:false,
         },
