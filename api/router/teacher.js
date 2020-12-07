@@ -5,8 +5,8 @@ const router = new Router();
 router.get("/", async (ctx, next) => {
     const { Teacher } = ctx.orm("enrollnewstusystem");
     //查询数据
-    let list = await Teacher.findAll();
-    if (list.length <= 0) {
+    let teacherList = await Teacher.findAll();
+    if (teacherList.length <= 0) {
         ctx.status = 500;
         ctx.body = JSON.stringify({
             title: "招生老师设置",
@@ -33,8 +33,8 @@ router.post("/", async (ctx, next) => {
     ctx.type = "text/json";
     const { Teacher } = ctx.orm("enrollnewstusystem");
 
-    let teacherlist = await Teacher.findAll({ where: { teachername } });
-    if (teacherlist.length > 0) {
+    let teacherList = await Teacher.findAll({ where: { teachername } });
+    if (teacherList.length > 0) {
         ctx.status = 400;
         ctx.body = JSON.stringify({
             result: false,
@@ -47,7 +47,7 @@ router.post("/", async (ctx, next) => {
     ctx.body = JSON.stringify({
         result: true,
         message: "创建成功",
-        teacherlist: teacherlist,
+        teacherList: teacherList,
     });
 });
 
