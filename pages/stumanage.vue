@@ -22,6 +22,9 @@
           @stuInformation="stuInformationHandler"
         />
       </el-col>
+      <el-col>
+        <Pagination />
+      </el-col>
     </el-row>
   </div>
 </template>

@@ -32,6 +32,9 @@
       <el-col>
         <RoleManagement :tableData="fetchtableData" />
       </el-col>
+      <el-col>
+        <Pagination />
+      </el-col>
     </el-row>
   </div>
 </template>

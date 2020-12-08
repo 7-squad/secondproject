@@ -35,7 +35,7 @@ export default function ( sequelize , type){
         },
         //创建时间
         date:{
-            type: DataTypes.DATETIME,
+            type: DataTypes.STRING,
             // defaultValue: Sequelize.NOW
         },
     },{

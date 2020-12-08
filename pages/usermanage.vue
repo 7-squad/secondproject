@@ -26,6 +26,9 @@
       <el-col>
         <UserManagement ref="usermag" :tableData="fetchtableData"/>
       </el-col>
+      <el-col>
+        <Pagination />
+      </el-col>
     </el-row>
   </div>
 </template>
