@@ -1,16 +1,25 @@
 <template>
   <div class="reg-box">
     <el-form ref="regForm" :model="regForm" :rules="rules" label-width="100px">
+      <el-input v-model="regForm.token" name="token" type="hidden"></el-input>
       <el-form-item label="用户名:" prop="username">
         <el-input v-model="regForm.username"></el-input>
       </el-form-item>
 
       <el-form-item label="登录密码:" prop="password">
-        <el-input  type="password" v-model="regForm.password" placeholder=""></el-input>
+        <el-input
+          type="password"
+          v-model="regForm.password"
+          placeholder=""
+        ></el-input>
       </el-form-item>
-      
+
       <el-form-item label="重复密码:" prop="checkPass">
-        <el-input  type="password" v-model="regForm.checkPass" placeholder=""></el-input>
+        <el-input
+          type="password"
+          v-model="regForm.checkPass"
+          placeholder=""
+        ></el-input>
       </el-form-item>
 
       <el-form-item>
@@ -23,6 +32,7 @@
 </template>
 
 <script>
+import postBody from "~/utils/postbody.js";
 export default {
   data() {
     var validatePass = (rule, value, callback) => {
@@ -46,6 +56,7 @@ export default {
     };
     return {
       regForm: {
+        token: "",
         username: "",
         password: "",
         checkPass: "",
@@ -53,7 +64,7 @@ export default {
       rules: {
         password: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }],
-         username: [
+        username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
           {
             min: 6,
@@ -69,16 +80,38 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          this.$store.dispatch("auth/doSignin", {
+            data: this.regForm,
+            page: this,
+          });
         } else {
           console.log("error submit!!");
           return false;
         }
       });
     },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
+
+    finishSignin(result) {
+      if (result.result) {
+        alert("注册成功");
+        this.$router.push({ path: "/login" });
+
+      }
     },
+
+    // 获取登录令牌
+    async refreshToken() {
+      let result = await fetch("/api/user/signin").then((res) => res.json());
+      console.log("result:%O", result);
+      this.regForm.token = result.token;
+    },
+
+    // resetForm(formName) {
+    //   this.$refs[formName].resetFields();
+    // },
+  },
+  async fetch() {
+    await this.refreshToken();
   },
 };
 </script>

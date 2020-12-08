@@ -14,9 +14,7 @@
         >
       </el-form-item>
 
-      <el-menu :router="true">
-        <el-menu-item index="/Regform2"></el-menu-item>
-      </el-menu>
+      
     </el-form>
   </div>
 </template>
@@ -73,6 +71,9 @@ export default {
 }
 .el-form-item__label {
   padding: 0;
+}
+.el-button {
+  margin-left:-25px;
 }
 .el-button a{
   text-decoration: none;
