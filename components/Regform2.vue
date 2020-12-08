@@ -85,6 +85,7 @@ export default {
             page: this,
           });
         } else {
+          
           console.log("error submit!!");
           return false;
         }
@@ -96,6 +97,8 @@ export default {
         alert("注册成功");
         this.$router.push({ path: "/login" });
 
+      }else{
+alert("注册失败,"+result.message)
       }
     },
 
