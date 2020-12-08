@@ -43,10 +43,9 @@
 
       <div class="button">
         <el-button
-          native-type="submit"
           type="danger"
           id="qdtButton"
-          @click="dialogFormVisible = false"
+          @click="onSubmit"
         >
           确定
         </el-button>
@@ -89,27 +88,15 @@ export default {
 
   methods: {
     onSubmit(event) {
-      this.$store.dispatch("teacher/addTeacher", {
+      this.$store.dispatch("teacher/addTeacherList", {
         page: this,
-        data: this.teacher,
+        data: this.form,
       });
-    },
-    finishAddTeacher(result) {
-      if (result.result) {
-        this.$root.$bvToast.toast(`${result.message}`, {
-          title: `添加成功`,
-          toaster: "b-toaster-top-center",
-          variant: "success",
-        });
-      } else {
-        this.$root.$bvToast.toast(`${result.message}`, {
-          title: `添加失败`,
-          toaster: "b-toaster-top-center",
-          variant: "danger",
-        });
-      }
-      this.$store.dispatch("oaec/teacher/getTeacherList");
-      this.$emit("goto-teacher-list");
+      this.dialogFormVisible=false
+      this.$store.dispatch(
+      "teacher/getTeacherList",
+      this
+    );
     },
   },
 };

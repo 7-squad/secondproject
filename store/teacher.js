@@ -1,3 +1,4 @@
+import postBody from "~/utils/postbody.js"
 
 const state = () => ({
     teachers: [],
@@ -13,19 +14,19 @@ const mutations = {
     setTeacherList(state, teachers) {
         state.teachers =  teachers;
     },
-    setteacher(state, teacher) {
+    setTeacher(state, teacher) {
         state.teacher = teacher;
     },
-    setteachername(state, teachername) {
+    setTeachername(state, teachername) {
         state.teachers.teachername = teachername;
     },
-    setyear(state, year) {
+    setYear(state, year) {
         state.teachers.year = year;
     },
-    setprovince(state, province) {
+    setProvince(state, province) {
         state.teachers.province = province;
     },
-    setcity(state, city) {
+    setCity(state, city) {
         state.teachers.city = city;
     },
 }
@@ -42,7 +43,8 @@ const actions ={
         }
         if (page) page.finishGetTeacherList(result);
     },
-    async addTeacherList(context, { data, page }) {
+    async addTeacherList(context,{data,page}) {
+          let body =postBody(data);
         let result = await fetch(`/api/teacher`, {
             method: "POST",
             headers: {
