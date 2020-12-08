@@ -1,7 +1,7 @@
 import postbody from "~/utils/postbody.js"
 
 const state = () => ({
-    removeUsermanageObj:null,
+    removeUsermanageObj:{},
 })
 
 const mutations = {
@@ -37,21 +37,22 @@ const actions = {
         
     },
     async clearRemoveUsermanageItem(context , {page , data}){
-        console.log("返回数据到页面",this.$refs.usermag.multipleSelection);
-        let body = getBody({data});
+        console.log("返回数据到页面",data);
+        let idList = [];
+        // debugger
+        for (let index = 0; index < data.length; index++) {
+            const element = data[index];
+            idList.push(element.usermanageId)
+        }
+        let body = postbody({ids:JSON.stringify(idList)});
         let result = await fetch("/api/userManage/removeUsermanage",{
-            method:"GET",
+            method:"POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
               },
             body,
         }).then((res) => res.json());
-        if (result.deleteRoles) {
-            context.commit("clearRemoveUsermanageItem", result.deleteRoles);
-        } else { 
-            context.commit("clearRemoveUsermanageItem", []);
-        }
-        if (page) page.finishGetTeacherList(result);
+        if (page) page.finishRemove(result);
     },
         
     }

@@ -42,30 +42,35 @@ router.get("/",async(ctx,next) =>{
     if (list.length <= 0) {
         ctx.status = 500;
         ctx.body = JSON.stringify({
+            result: false,
             title:"用户管理",
             errorTitle:"查询失败",
-            errorNote:"数据查询错误"
-
+            errorNote:"数据查询错误",
         });
         return;
 
     }
     ctx.type="text/json";
-    ctx.body = JSON.stringify(list)
+    ctx.body = JSON.stringify({
+        result:true,
+        list
+    })
 });
 
 router.post("/removeUserManage", async ctx => {
-    let id = ctx.request.body;
-    console.log("id: %O", id);
+    let {ids} = ctx.request.body;
+    console.log("id: %O", ids);
+
+    ids = JSON.parse(ids);
 
     const { Usermanage } = ctx.orm("enrollnewstusystem");
-    let deleteRoles = await Usermanage.findAll({
+    let deleteRoles = await Usermanage.destroy({
         where: {
-            usermanageId: id
+            usermanageId: ids
         }
     });
 
-    if (deleteRoles.length === 0) {
+    if (deleteRoles === 0) {
         ctx.status = 500;
         ctx.type = "text/json";
         ctx.body = JSON.stringify({
@@ -74,19 +79,11 @@ router.post("/removeUserManage", async ctx => {
         })
         return;
     }
-
-    console.log("deleteRoles: %O", deleteRoles);
-    for (let index = 0; index < deleteRoles.length; index++) {
-        const element = deleteRoles[index];
-        // 删除管理员数据
-        await element.destroy();
-    }
     ctx.status = 400;
     ctx.type = "text/json";
     ctx.body = JSON.stringify({
         result: true,
         message: "删除成功",
-        deleteRoles: deleteRoles,
     })
 });
 
