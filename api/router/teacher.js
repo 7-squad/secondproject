@@ -43,7 +43,7 @@ router.post("/", async (ctx, next) => {
         return;
     }
 
-    teacherlist = await Teacher.create({ year, province, city, teacher });;
+    teacherlist = await Teacher.create({ year, province, city, teachername });;
     ctx.body = JSON.stringify({
         result: true,
         message: "创建成功",

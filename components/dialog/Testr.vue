@@ -13,25 +13,29 @@
         <img src="../../images/reg/tc.png" />
         <span class="title-text">新增招生老师</span>
       </div>
-      <el-form @submit.stop.prevent="onSubimt" :inline="true" :model="formInline" class="demo-form-inline">
-        
+      <el-form
+        :rules="rules"
+        :inline="true"
+        :model="form"
+        class="demo-form-inline"
+      >
         <el-form-item label="招生年度:">
-          <el-input v-model="form.name.$model" placeholder="请输入招生年度"></el-input>
+          <el-input v-model="form.year" placeholder="请输入招生年度"></el-input>
         </el-form-item>
 
         <el-form-item label="招生省份:">
           <el-input
-            v-model="form.province.$model"
+            v-model="form.province"
             placeholder="请输入招生省份"
           ></el-input>
         </el-form-item>
         <el-form-item label="招生城市:">
-          <el-input v-model="form.city.$model" placeholder="请输入招生城市"></el-input>
+          <el-input v-model="form.city" placeholder="请输入招生城市"></el-input>
         </el-form-item>
 
         <el-form-item label="招生老师:">
           <el-input
-            v-model="form.teather.$model"
+            v-model="form.teachername"
             placeholder="请输入招生老师"
           ></el-input>
         </el-form-item>
@@ -39,7 +43,7 @@
 
       <div class="button">
         <el-button
-        native-type="submit"
+          native-type="submit"
           type="danger"
           id="qdtButton"
           @click="dialogFormVisible = false"
@@ -62,43 +66,52 @@
 export default {
   data() {
     return {
-      formInline: {},
       dialogTableVisible: false,
       dialogFormVisible: false,
       form: {
-        name: "",
+        year: "",
         province: "",
         city: "",
-        teather: "",
+        teachername: "",
+      },
+      rules: {
+        year: [{ required: true, message: "请输入正确年份", trigger: "blur" }],
+        province: [
+          { required: true, message: "请输入正确省份", trigger: "blur" },
+        ],
+        city: [{ required: true, message: "请输入正确城市", trigger: "blur" }],
+        teachername: [
+          { required: true, message: "请输入姓名", trigger: "blur" },
+        ],
       },
     };
   },
-  methods:{
-      onSubmit(event) {
 
+  methods: {
+    onSubmit(event) {
       this.$store.dispatch("teacher/addTeacher", {
         page: this,
         data: this.teacher,
       });
     },
-      finishAddTeacher(result) {
+    finishAddTeacher(result) {
       if (result.result) {
         this.$root.$bvToast.toast(`${result.message}`, {
           title: `添加成功`,
-          toaster: 'b-toaster-top-center',
-          variant: 'success',
+          toaster: "b-toaster-top-center",
+          variant: "success",
         });
       } else {
-          this.$root.$bvToast.toast(`${result.message}`, {
+        this.$root.$bvToast.toast(`${result.message}`, {
           title: `添加失败`,
-          toaster: 'b-toaster-top-center',
-          variant: 'danger',
+          toaster: "b-toaster-top-center",
+          variant: "danger",
         });
       }
       this.$store.dispatch("oaec/teacher/getTeacherList");
       this.$emit("goto-teacher-list");
     },
-  }
+  },
 };
 </script>
 

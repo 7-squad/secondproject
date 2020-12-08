@@ -35,8 +35,8 @@ const actions ={
         let result = await fetch("/api/teacher", {
             method: "GET",
         }).then((res) => res.json());
-        if (result.teacherList) {
-            context.commit("setTeacherList", result.TeacherList);
+        if (result.result) {
+            context.commit("setTeacherList", result.teacherList);
         } else { 
             context.commit("setTeacherList", []);
         }
