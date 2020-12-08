@@ -43,13 +43,14 @@ export default {
     },
   },
 };
-
 </script>
+
 <style lang="less" scoped>
 .list {
   width: 100%;
   background-color: #f2f3f7;
   min-width: 1170px;
+  min-height: 589px;
 }
 .main-list {
   width: 1170px;
