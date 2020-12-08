@@ -1,73 +1,98 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        secondproject
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <el-container>
+      <div class="main">
+
+        <el-menu class="container"  :router="true" >
+          <el-menu-item class="left" index="/userlist">
+            <img src="../images/首页_03.png" />
+            <div class="tx">
+              <p>推荐学生</p>
+              <div class="text">
+                <p>点击进入</p>
+                <img src="../images/首页_10.png" />
+              </div>
+            </div>
+          </el-menu-item>
+        
+            <el-menu-item class="right"  index="/list">
+              <img src="../images/首页_05.png" />
+              <div class="tx">
+                <p>审核状态</p>
+                <div class="text">
+                  <p>点击进入</p>
+                  <img src="../images/首页_10.png" />
+                </div>
+              </div>
+            </el-menu-item>
+
+        </el-menu>
+
+
       </div>
-    </div>
+    </el-container>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  layout: "loginbefore",
+};
 </script>
-
-<style>
+<style lang = "less" scoped>
+.el-main {
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
+  height: 550px;
+}
+.main {
+  width: 100%;
+  height: 589px;
+  background-color: #e6ebf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* // justify-content:space-around; */
+}
 .container {
   margin: 0 auto;
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  width: 80%;
+  justify-content: space-between;
+}
+.left,
+.right {
+  height: 335px;
+ /* width: 500px; */
+  background: #ffffff;
+  border: 1px solid #bfbfbf;
+  box-shadow: 0px 0px 10px 5px #aaa;
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.left > img,
+.right > img {
+ 
+  margin-top: 10px;
+  margin-left: 0px;
+}
+.left .tx,
+.right .tx {
+  width: 475px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.text {
+  display: flex;
+}
+.el-menu{
+  background: unset  !important;
 }
 
-.links {
-  padding-top: 15px;
+.el-menu-item{
+line-height: unset  !important;
+font-size: unset  !important;
 }
+
 </style>
