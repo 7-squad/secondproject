@@ -45,10 +45,15 @@ export default {
       fetchtableData:[]
     }
   },
-  async fetch() {
-    this.fetchtableData = await fetch("/api/role").then((res) => res.json());
-    console.log(this.fetchtableData);
+     async fetch() {
+    let result = await fetch("/api/role").then((res) => {
+      return res.json();
+    });
+    if (result.result) {
+      this.fetchtableData = result.list;
+      console.log(this.fetchtableData);
     }
+  },
 }
 </script>
 <style lang="less" scoped>

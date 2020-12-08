@@ -43,9 +43,14 @@ export default {
     }
   },
   async fetch() {
-    this.fetchtableData = await fetch("/api/stuplan").then((res) => res.json());
-    console.log(this.fetchtableData);
-  }
+    let result = await fetch("/api/stuplan").then((res) => {
+      return res.json();
+    });
+    if (result.result) {
+      this.fetchtableData = result.list;
+      console.log(this.fetchtableData);
+    }
+  },
 }
 </script>
 

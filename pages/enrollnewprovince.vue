@@ -1,13 +1,12 @@
 <!-- 招生省份设置 -->
 <template>
-
   <div class="main_container">
     <el-row>
-      <el-col >
+      <el-col>
         <Souinout />
       </el-col>
     </el-row>
-    <el-row >
+    <el-row>
       <el-col :span="1">
         <ZssfPlusicon />
       </el-col>
@@ -24,10 +23,10 @@
         <Consulticon />
       </el-col>
     </el-row>
-    <br>
+    <br />
     <el-row>
       <el-col>
-        <Province :tableData="fetchtableData"/>
+        <Province :tableData="fetchtableData" />
       </el-col>
       <el-col>
         <Pagination />
@@ -37,20 +36,24 @@
 </template>
 <script>
 export default {
-  data(){
-    return{
-      fetchtableData:[]
-    }
+  data() {
+    return {
+      fetchtableData: [],
+    };
   },
   async fetch() {
-    this.fetchtableData = await fetch("/api/province").then((res) => res.json());
-    console.log(this.fetchtableData);
+    let result = await fetch("/api/province").then((res) => {
+      return res.json();
+    });
+    if (result.result) {
+      this.fetchtableData = result.list;
+      console.log(this.fetchtableData);
     }
-}
+  },
+};
 </script>
 <style lang="less" scoped>
-.main_container{
-    margin: 0 25px;
-    
+.main_container {
+  margin: 0 25px;
 }
 </style>

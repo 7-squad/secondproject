@@ -29,6 +29,9 @@
       <el-col>
         <School :tableData="fetchtableData"/>
       </el-col>
+        <el-col>
+        <Pagination />
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -40,10 +43,15 @@ export default {
       fetchtableData:[]
     }
   },
-  async fetch() {
-    this.fetchtableData = await fetch("/api/school").then((res) => res.json());
-    console.log(this.fetchtableData);
+     async fetch() {
+    let result = await fetch("/api/school").then((res) => {
+      return res.json();
+    });
+    if (result.result) {
+      this.fetchtableData = result.list;
+      console.log(this.fetchtableData);
     }
+  },
 }
 </script>
 
