@@ -9,6 +9,8 @@
         width: 100%;
         height: 80px;
         background-color: #02456F;
+        position:fixed;
+        bottom: 0;
     }
     .footer p {
         font-size: 12px;

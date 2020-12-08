@@ -13,8 +13,11 @@
   min-width: 1350px;
 } */
 .el-footer-row {
+  position: fixed;
   margin-top: 20px;
   min-width: 1350px;
+  width: 100%;
+  bottom: 0;
   
 }
 
