@@ -95,7 +95,7 @@ export default {
       this.$refs.multipleTable.setCurrentRow();
     },
     
-    finishGetTeacherList(result) {},
+    // finishGetTeacherList(result) {},
   },
   computed:{
     tableData:{

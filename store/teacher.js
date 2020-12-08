@@ -41,9 +41,9 @@ const actions ={
         } else { 
             context.commit("setTeacherList", []);
         }
-        if (page) page.finishGetTeacherList(result);
+        // if (page) page.finishGetTeacherList(result);
     },
-    async addTeacherList(context,{data,page}) {
+    async addTeacherList(context,{data, page}) {
           let body =postBody(data);
         let result = await fetch(`/api/teacher`, {
             method: "POST",
@@ -53,7 +53,7 @@ const actions ={
             body,
         }).then((res) => res.json());
         context.commit("setTeacher", result.teacher);
-        page.finishAddTeacher(result);
+        // page.finishAddTeacher(result);
     },
 }
 export {
