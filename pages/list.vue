@@ -1,11 +1,10 @@
 <template>
   <div>
-  
     <div class="list">
       <div class="main-list">
         <div class="list-item">
           <span class="">审核状态</span>
-          <a href="login">返回首页</a>
+          <a @click="prev" href="#">返 回</a>
         </div>
         <div class="list-mian-item">
           <div class="dddd">
@@ -13,7 +12,7 @@
               <span>推荐学生列表</span>
             </div>
             <div class="input">
-            <Userlistinput />
+              <Userlistinput />
             </div>
           </div>
           <div>
@@ -22,7 +21,6 @@
         </div>
       </div>
     </div>
-   
   </div>
 </template>
 
@@ -37,15 +35,22 @@ export default {
   async fetch() {
     this.fetchtableData = await fetch("/api/stuinformation").then((res) => res.json());
     console.log(this.fetchtableData);
-  }
+  },
+  // 返回上一级页面
+  methods: {
+    prev() {
+      this.$router.go(-1);
+    },
+  },
 };
-
 </script>
+
 <style lang="less" scoped>
 .list {
   width: 100%;
   background-color: #f2f3f7;
   min-width: 1170px;
+  min-height: 589px;
 }
 .main-list {
   width: 1170px;
@@ -79,9 +84,8 @@ export default {
 .dddd {
   padding-top: 30px;
 }
-.input{
+.input {
   float: right;
 }
-
 </style>
 

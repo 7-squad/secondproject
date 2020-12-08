@@ -9,15 +9,20 @@
 </template>
 
 <style>
+body {
+  background-color: #ecf0f1;
+}
+.main-item[data-v-e3c43632] {
+    min-height: 622px !important;
+}
 /* .el-row {
   min-width: 1350px;
 } */
 .el-footer-row {
   margin-top: 20px;
   min-width: 1350px;
-  
+  width: 100%;
 }
-
 .bg-purple-dark {
   text-align: center;
   background: #7699ad;

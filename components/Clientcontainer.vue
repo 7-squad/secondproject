@@ -1,5 +1,4 @@
 <template>
-  <!-- 注册的 -->
   <div class="main">
     <div class="container">
       <div class="contanttit">
