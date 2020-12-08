@@ -87,7 +87,7 @@ const actions = {
             context.commit("setUser", result.user);
             sessionStorage.setItem("user", JSON.stringify(result.user));
         }
-        page.finishsignin(result);
+        page.finishSignin(result);
     }
 }
 

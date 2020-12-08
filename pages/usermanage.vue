@@ -9,7 +9,7 @@
     </el-row>
     <el-row>
       <el-col :span="1">
-        <Plusicon />
+      <Usermagdialog />
       </el-col>
       <el-col :span="1">
         <Modifyicon />
@@ -25,6 +25,9 @@
     <el-row>
       <el-col>
         <UserManagement ref="usermag" :tableData="fetchtableData"/>
+      </el-col>
+      <el-col>
+        <Pagination />
       </el-col>
     </el-row>
   </div>

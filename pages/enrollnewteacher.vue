@@ -28,6 +28,9 @@
           @showDialog="showDialogHandler"
         />
       </el-col>
+      <el-col>
+        <Pagination />
+      </el-col>
     </el-row>
     <!-- :dialogFormVisible="dialogFormVisible" 控制弹框显示的对象  -->
     <!-- 不要直接使用 boolean， 要用 Object -->

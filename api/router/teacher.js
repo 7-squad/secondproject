@@ -29,10 +29,9 @@ router.get("/", async (ctx, next) => {
 
 // 添加数据
 router.post("/", async (ctx, next) => {
-    let { year, province, city, teacher } = ctx.request.body;
+    let { year, province, city, teachername } = ctx.request.body;
     ctx.type = "text/json";
     const { Teacher } = ctx.orm("enrollnewstusystem");
-
     let teacherList = await Teacher.findAll({ where: { teachername } });
     if (teacherList.length > 0) {
         ctx.status = 400;
@@ -42,8 +41,7 @@ router.post("/", async (ctx, next) => {
         });
         return;
     }
-
-    teacherlist = await Teacher.create({ year, province, city, teacher });;
+    teacherList = await Teacher.create({ year, province, city, teachername });;
     ctx.body = JSON.stringify({
         result: true,
         message: "创建成功",
