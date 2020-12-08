@@ -43,6 +43,7 @@ const actions ={
         if (page) page.finishGetTeacherList(result);
     },
     async addTeacherList(context, { data, page }) {
+        // let body = postBody(data)
         let result = await fetch(`/api/teacher`, {
             method: "POST",
             headers: {

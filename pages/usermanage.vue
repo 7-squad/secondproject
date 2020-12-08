@@ -38,8 +38,48 @@ export default {
     }
   },
   methods:{
+    enter(doDelete){
+      console.log("doDelete:%0",doDelete);
+
+      this.$confim("确认要删除数据吗?","提示",{
+        confirmButtonText:"确定",
+        cancelButtonText:"取消",
+        type:"warning",
+      })
+
+      .then(()=>{
+        this.$store.commit("usermanage/setRemoveUsermanage",doDelete);
+        this.$store.dispatch("usermanage/clearRemoveUsermanageItem",this);
+      })
+      .catch((error)=>{
+        console.error(error);
+        this.$message({
+          type:"info",
+          message:"已取消删除",
+        });
+      });
+    },
+    finishRemove(result){
+      console.log("result:%0",result);
+      if(result.result){
+        this.$message({
+          type:"success",
+          message:result.message,
+        });
+      }else{
+        this.$message({
+          type:"error",
+          message:result.message,
+        });
+      }
+    setTimeout(()=>{
+      this.$router.go(0);
+    },1000);
+
+    },
     doDelete(){
       console.log("multipleSelection: %O", this.$refs.usermag.multipleSelection);
+      this.$store.dispatch("usermanage/clearRemoveUsermanageItem",{page:this, data:this.$refs.usermag.multipleSelection});
     }
   },
   async fetch() {

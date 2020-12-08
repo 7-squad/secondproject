@@ -16,9 +16,7 @@ import schoolRouter from "./router/school.js";
 import teacherRouter from "./router/teacher.js";
 import roleRouter from "./router/role.js";
 import provinceRouter from "./router/province.js";
-
 import auditstatusRouter from "./router/auditstatus.js";
-
 // 推荐学生
 import stuinformationRouter from "./router/stuinformation.js";
 const app = new KOA();
