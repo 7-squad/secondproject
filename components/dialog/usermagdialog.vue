@@ -15,59 +15,58 @@
       </div>
       <el-form
         :rules="rules"
-        ref="addform"
-        :model="formInline"
+       :model="form"
         :inline="true"
         class="demo-form-inline"
       >
-        <el-form-item label="账号:" prop="userId">
+        <el-form-item label="账号:">
           <el-input
-            v-model="formInline.userId"
+            v-model="form.userId"
             placeholder="请输入账号"
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="姓名:" prop="name">
+        <el-form-item label="姓名:">
           <el-input
-            v-model="formInline.name"
+            v-model="form.name"
             placeholder="请输入姓名"
           ></el-input>
         </el-form-item>
-        <el-form-item label="手机号码:" prop="phonenum">
+        <el-form-item label="手机号码:">
           <el-input
-            v-model="formInline.phonenum"
+            v-model="form.phonenum"
             placeholder="请输入手机号码"
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="邮箱:" prop="email">
+        <el-form-item label="邮箱:">
           <el-input
-            v-model="formInline.email"
+            v-model="form.email"
             placeholder="请输入邮箱"
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="出生日期:" prop="brith">
+        <el-form-item label="出生日期:">
           <el-input
-            v-model="formInline.brith"
+            v-model="form.brith"
             placeholder="请输入出生日期"
           ></el-input>
         </el-form-item>
-        <el-form-item label="角色:" prop="role">
+        <el-form-item label="角色:">
           <el-input
-            v-model="formInline.role"
+            v-model="form.role"
             placeholder="请输入角色"
           ></el-input>
         </el-form-item>
-        <el-form-item label="用户类型:" prop="usertype">
+        <el-form-item label="用户类型:">
           <el-input
-            v-model="formInline.usertype"
+            v-model="form.usertype"
             placeholder="请输入用户类型"
           ></el-input>
         </el-form-item>
-        <el-form-item label="状态:" prop="state">
+        <el-form-item label="状态:">
           <el-input
-            v-model="formInline.state"
+            v-model="form.states"
             placeholder="请输入状态"
           ></el-input>
         </el-form-item>
@@ -78,7 +77,7 @@
           native-type="submit"
           type="danger"
           id="qdtButton"
-          @click="submitForm('addform')"
+          @click="onSubmit"
         >
           确定
         </el-button>
@@ -100,7 +99,7 @@ export default {
     return {
       dialogTableVisible: false,
       dialogFormVisible: false,
-      formInline: {
+      form: {
         userId: "",
         name: "",
         phonenum: "",
@@ -108,7 +107,7 @@ export default {
         brith: "",
         role: "",
         usertype: "",
-        state: "",
+        states: "",
       },
       rules: {
         userId: [
@@ -138,31 +137,23 @@ export default {
         usertype: [
           { required: true, message: "请输入正确的用户类型", trigger: "blur" },
         ],
-        state: [
+        states: [
           { required: true, message: "请输入正确的使用状态", trigger: "blur" },
         ],
       },
     };
   },
   methods:{
-       async submitForm(addform) {
-      this.$refs[addform].validate(async (valid) => {
-        if (valid) {
-          alert("验证成功");
-          console.log(addform);
-          console.log(this);
-          let result = await 
-          this.$http.post("/api/userManage", this.addform);
-          // console.log(result);
-          // 看下返回的类型
-          result =result.json;
-          result.result;
-          result.message;
-        } else {
-          console.log("验证失败");
-          return false;
-        }
+       onSubmit(event) {
+      this.$store.dispatch("usermag/addUsermagList", {
+        page: this,
+        data: this.form,
       });
+      this.dialogFormVisible=false
+      this.$store.dispatch(
+      "usermag/getUsermags",
+      this
+    );
     },
   }
 };

@@ -2,13 +2,10 @@ import Router from "koa-router";
 
 
 const router = new Router();
-
+//添加数据
 router.post("/", async (ctx, next)=>{
-    console.log("body :%O",ctx.request.body);
-    
-    let {userId,name,phonenum,email,brith,role,usertype,state} = ctx.request.body;
-    
-    // console.log("body :%O",{ restaurantname,location });
+    let {userId,name,phonenum,email,brith,role,usertype,states} = ctx.request.body;
+    ctx.type = "text/json";
 
     let { Usermanage } = ctx.orm("enrollnewstusystem");
     let list = await Usermanage.create({
@@ -20,7 +17,7 @@ router.post("/", async (ctx, next)=>{
         brith:brith,
         role:role,
         usertype:usertype,
-        state:state
+        states:states
         });
 
     //设定返回的类型 是文本的 json

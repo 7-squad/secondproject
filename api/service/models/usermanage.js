@@ -40,7 +40,7 @@ export default function (sequelize,type){
             type:DataTypes.STRING(50),
             allowNull:false,  
         },
-        state:{
+        states:{
             type:DataTypes.STRING(50),
             allowNull:false,  
         },

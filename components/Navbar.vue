@@ -85,7 +85,7 @@ export default {
             {
               index: "consultTeacher",
               title: "咨询专业老师设置",
-              components: StudentManagement,
+              components: enrollnewteacher,
             },
             {
               index: "mouldUpload",

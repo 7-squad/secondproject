@@ -55,7 +55,7 @@
     ></el-table-column>
 
     <el-table-column
-      prop="state"
+      prop="states"
       label="状态"
       header-align="center"
     ></el-table-column>
@@ -65,13 +65,13 @@
 <script>
 export default {
   props: {
-    tableData: {
-      type: Array,
-      default() {
-        return;
-      },
-    },
   },
+    beforeMount(){
+   this.$store.dispatch(
+      "usermag/getUsermags",
+      this
+    );
+    },
   data() {
     return {
       // tableData: [
@@ -107,5 +107,12 @@ export default {
       return "border-color: #dedfe3;";
     },
   },
+    computed:{
+    tableData:{
+      get(){
+        return this.$store.state.usermag.usermags;
+      }
+    }
+  }
 };
 </script>
