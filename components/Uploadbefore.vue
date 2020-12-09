@@ -52,7 +52,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
 .upd{
     display: flex;
     margin-bottom: 10px;
@@ -86,5 +86,7 @@
   .el-upload__tip{
 text-align: center;
   }
-
+  .el-button--primary {
+  position: unset  !important;
+  }
 </style>

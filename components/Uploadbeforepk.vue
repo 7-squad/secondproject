@@ -71,4 +71,8 @@
   .bottom .el-button--primary{
       margin: 20px;
   }
+
+  .el-button--primary {
+  position: unset  !important;
+  }
 </style>
