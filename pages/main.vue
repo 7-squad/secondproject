@@ -87,7 +87,9 @@ export default {
 <style lang="less" scoped>
 .el-tabs, .el-tabs--card, .el-tabs--top{
     background-color: #fff;
+    min-height: 550px;
 }
+
 
 
 </style>
