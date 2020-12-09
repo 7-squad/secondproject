@@ -37,7 +37,7 @@ margin-left: 0px;
 }
 .main-item{
 
-min-height: 521px;
+min-height: 650px;
 }
 </style>
 
