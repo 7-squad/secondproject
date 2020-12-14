@@ -8,7 +8,7 @@
     </el-row>
     <el-row>
       <el-col :span="1">
-        <ZssfPlusicon />
+        <Provincedialog />
       </el-col>
       <el-col :span="1">
         <Modifyicon />
