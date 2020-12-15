@@ -111,4 +111,8 @@ width: 1109px
 .el-radio{
     margin-right: 15px;
 }
+.el-form{
+  height: unset !important;
+}
+
 </style>

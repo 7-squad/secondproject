@@ -13,7 +13,7 @@ body {
   background-color: #ecf0f1;
 }
 .main-item[data-v-e3c43632] {
-    min-height: 622px !important;
+    min-height: 553px !important;
 }
 /* .el-row {
   min-width: 1350px;

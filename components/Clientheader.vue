@@ -11,8 +11,8 @@
 
 <style lang="less">
 .head-box {
-  min-width: 1200px;
-  max-width: 2600px;
+  min-width: 1350px;
+  // max-width: 26000px;
   width: 100%;
   height: 120px;
   background: url(../images/reg/pico01.png) no-repeat left center;
