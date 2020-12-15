@@ -3,15 +3,15 @@
   <div class="personbox">
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
       <el-form-item label="用户账号:">
-        <el-input v-model="formInline.user" placeholder=""></el-input>
+        <el-input v-model="user"></el-input>
       </el-form-item>
 
       <el-form-item class="r" label="手机号码:">
-        <el-input v-model="formInline.tel" placeholder=""> </el-input>
+        <el-input v-model="tel" placeholder=""> sda</el-input>
       </el-form-item>
 
       <el-form-item label="姓名:">
-        <el-input v-model="formInline.name" placeholder=""></el-input>
+        <el-input v-model="name" placeholder=""></el-input>
       </el-form-item>
 
       <el-form-item class="r w" label="性别:">
@@ -20,15 +20,15 @@
       </el-form-item>
 
       <el-form-item label="出生年月:">
-        <el-date-picker v-model="radio" type="date"> </el-date-picker>
+        <el-date-picker v-model="radio1" type="date"> </el-date-picker>
       </el-form-item>
 
       <el-form-item class="longf" label="工作单位:">
-        <el-input v-model="formInline.employer" placeholder=""></el-input>
+        <el-input v-model="employer" placeholder=""></el-input>
       </el-form-item>
 
       <el-form-item class="longf" label="单位地址:">
-        <el-input v-model="formInline.address" placeholder=""></el-input>
+        <el-input v-model="address" placeholder=""></el-input>
       </el-form-item>
 
       <el-form-item class="i">
@@ -47,7 +47,11 @@
 export default {
   data() {
     return {
+      user: "13878812388",
+      tel: "13878812388",
+      name: "",
       radio: "1",
+      radio1: "",
       formInline: {},
     };
   },

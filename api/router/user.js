@@ -32,7 +32,7 @@ router.post("/login", async (ctx, next) => {
             result: false,
             code: "100000",
             title: "登录失败",
-            message: "Token 无效"
+            message: "Token 无效 请刷新页面"
         });
         return;
     }
